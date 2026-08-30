@@ -1,0 +1,18 @@
+# Editor / OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Local validation/build output
+__pycache__/
+*.pyc
+.tmp/
+tmp/
+dist/
+
+# Local backups
+*.bak
+*.old
+*.orig
