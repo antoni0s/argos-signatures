@@ -1,0 +1,116 @@
+name: Package signature bundle
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: Build stable signature bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate stable signatures
+        run: python3 tools/validate.py
+
+      - name: Read database version
+        id: version
+        shell: bash
+        run: |
+          VERSION=$(python3 - <<'PY'
+          import json
+          with open('stable/manifest.json', 'r', encoding='utf-8') as f:
+              print(json.load(f)['database_version'])
+          PY
+          )
+
+          if [ -z "$VERSION" ] || [ "$VERSION" = "bootstrap" ]; then
+            echo "ERROR: stable database_version must be set before packaging"
+            exit 1
+          fi
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Packaging Argos signatures $VERSION"
+
+      - name: Verify release tag matches database version
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          TAG: ${{ github.ref_name }}
+          VERSION: ${{ steps.version.outputs.version }}
+        shell: bash
+        run: |
+          if [ "$TAG" != "v$VERSION" ]; then
+            echo "ERROR: tag $TAG does not match stable database_version $VERSION"
+            exit 1
+          fi
+
+      - name: Build deterministic tar.gz bundle
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        shell: bash
+        run: |
+          mkdir -p dist/stage
+          cp stable/manifest.json dist/stage/manifest.json
+          cp -a stable/signatures dist/stage/signatures
+
+          tar \
+            --sort=name \
+            --mtime='UTC 1970-01-01' \
+            --owner=0 \
+            --group=0 \
+            --numeric-owner \
+            -C dist/stage \
+            -cf - manifest.json signatures \
+            | gzip -9n > "dist/argos-signatures-$VERSION.tar.gz"
+
+          cd dist
+          sha256sum "argos-signatures-$VERSION.tar.gz" > SHA256SUMS
+
+      - name: Verify bundle contents
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        shell: bash
+        run: |
+          mkdir -p /tmp/argos-signatures-verify
+          tar -xzf "dist/argos-signatures-$VERSION.tar.gz" -C /tmp/argos-signatures-verify
+          test -f /tmp/argos-signatures-verify/manifest.json
+          test -d /tmp/argos-signatures-verify/signatures
+          diff -u stable/manifest.json /tmp/argos-signatures-verify/manifest.json
+          diff -ru stable/signatures /tmp/argos-signatures-verify/signatures
+          cat dist/SHA256SUMS
+          ls -lh "dist/argos-signatures-$VERSION.tar.gz"
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: argos-signatures-${{ steps.version.outputs.version }}
+          path: |
+            dist/argos-signatures-${{ steps.version.outputs.version }}.tar.gz
+            dist/SHA256SUMS
+          if-no-files-found: error
+
+      - name: Publish GitHub release assets
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+          VERSION: ${{ steps.version.outputs.version }}
+        shell: bash
+        run: |
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" \
+              --title "Argos Signatures $VERSION" \
+              --generate-notes
+          fi
+
+          gh release upload "$TAG" \
+            "dist/argos-signatures-$VERSION.tar.gz" \
+            "dist/SHA256SUMS" \
+            --clobber
