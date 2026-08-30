@@ -1,6 +1,55 @@
 {
   "schema_version": 1,
-  "database_version": "bootstrap",
+  "database_version": "2026.08.30.1",
   "channel": "testing",
-  "files": {}
+  "files": {
+    "dhcp_prl.db": {
+      "sha256": "5db7e2ba48ceb24d4b282f8287d31203a08f7bc30a20acffd7a95bcc89809f35",
+      "size": 8513
+    },
+    "dhcp_vci.db": {
+      "sha256": "1355d286fe9d4120c8b85a330fb19a240e21302e583c68f51906d69dd63f861d",
+      "size": 10525
+    },
+    "dns_apps.db": {
+      "sha256": "fc63143fd07cb01adc7df0b8049063ebc0fad6936c8cca7b299c141780a13e63",
+      "size": 50001
+    },
+    "dns_signatures.db": {
+      "sha256": "94b2a682bd1872e8ab53a97bcfc0225af7b05782d310d5d0dbf1be623b289ac8",
+      "size": 25161
+    },
+    "hostnames.db": {
+      "sha256": "0e2c9ff5ca9dea01e60f3eb9978514f2fd76363d0084806ce859a487f455feda",
+      "size": 14055
+    },
+    "http_ua.db": {
+      "sha256": "74517f55bd2fb76ed51a3125de62f66454123314680ac9ea98aefd8e9ddb854d",
+      "size": 16067
+    },
+    "l7_multicast.db": {
+      "sha256": "3ef362545646a4a5b1ec271d1368ce3590eb0b292f8f3db83c4b325e2b11efda",
+      "size": 12380
+    },
+    "oui.db": {
+      "sha256": "35cea524c41cee505062806787e94a64afa2ef66ede95dcbcf2a986d90a8d630",
+      "size": 13531
+    },
+    "p0f_syn.db": {
+      "sha256": "bc1d93c4b23a3fc644aa5d4d707d8fe5d88c6218ed57876489d3c0e8caac420a",
+      "size": 6910
+    },
+    "p0f_synack.db": {
+      "sha256": "9a22a8b0d3a02765225166227af8e8839e0475a111a46580cd9452dc70c23671",
+      "size": 2752
+    },
+    "port_services.db": {
+      "sha256": "07a8004ab2099408208b4f9a354e1e7167c637acbbfe21c8476199dec68c7e02",
+      "size": 31535
+    },
+    "port_signatures.db": {
+      "sha256": "e07ec6b12deb1b5134cb74a74b0713e8d5a609a6c7a3c4fb23b4e536fc9b745c",
+      "size": 12069
+    }
+  }
 }
