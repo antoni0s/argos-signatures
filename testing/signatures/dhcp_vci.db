@@ -1,0 +1,183 @@
+# ==============================================================================
+# Database: DHCP Option 60 (Vendor Class Identifier - VCI)
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   Regex Pattern | OS Name | Confidence Score (1-99) | Device Type | Vendor
+#
+# Rules for Adding Entries:
+#   1. Case-insensitive regex is matched against the raw DHCP packet buffer.
+#   2. Specific versions/sub-models MUST be placed ABOVE broad vendor matches:
+#      (e.g., 'vendor-class.*msft 5\.0 xbox' BEFORE 'vendor-class.*msft').
+#   3. Scores are typically high (94-98) due to hardcoded firmware strings.
+#
+# Example:
+#   vendor-class.*steam-?deck|Steam Deck (SteamOS)|98|console|Valve
+#   vendor-class.*android-dhcp-1[3-6]|Android|97|smartphone|Android
+# ==============================================================================
+
+# ==============================================================================
+# Gaming Handhelds & Consoles
+# ==============================================================================
+vendor-class.*msft 5\.0 xbox|Xbox Gaming Console|98|console|Microsoft
+vendor-class.*xbox|Xbox Gaming Console|98|console|1,3,6,15,26
+vendor-class.*playstation 5|Sony PlayStation 5|98|console|Sony
+vendor-class.*playstation 4|Sony PlayStation 4|98|console|Sony
+vendor-class.*playstation|Sony PlayStation Console|98|console|Sony
+vendor-class.*ps[45]|Sony PlayStation Console|98|console|Sony
+vendor-class.*nintendo switch|Nintendo Switch Console|98|console|Nintendo
+vendor-class.*nintendo|Nintendo Switch Console|98|console|Nintendo
+vendor-class.*steam-?deck|Steam Deck (SteamOS)|98|console|Valve
+vendor-class.*steam|Steam Hardware / Client|92|console|Valve
+vendor-class.*sm8750|AYN Odin Handheld (ROCKNIX)|96|console|AYN
+vendor-class.*odin|AYN Odin Handheld|96|console|AYN
+vendor-class.*rocknix|ROCKNIX Emulation Handheld|96|console|Generic
+vendor-class.*batocera|Batocera Emulation OS|96|console|Generic
+
+# ==============================================================================
+# Smartphones & Tablets
+# ==============================================================================
+vendor-class.*android-dhcp-1[3-6]|Android|97|smartphone|Android
+vendor-class.*android-dhcp-1[0-9]|Android|97|smartphone|Android
+vendor-class.*android-dhcp|Android|96|smartphone|Android
+vendor-class.*android|Android|95|smartphone|Android
+vendor-class.*iphone|Apple iPhone (iOS)|97|smartphone|Apple
+vendor-class.*ipad|Apple iPad (iPadOS)|97|tablet-phone|Apple
+vendor-class.*kindle|Amazon Kindle e-Reader|96|tablet-phone|Amazon
+vendor-class.*meta quest|Meta Quest VR Headset|95|vr-headset|Meta
+vendor-class.*oculus|Meta Quest VR Headset|95|vr-headset|Meta
+vendor-class.*android-dhcp-1[3-7]|Android|97|smartphone|Android
+
+# ==============================================================================
+# Desktop & Laptop Workstations
+# ==============================================================================
+vendor-class.*msft 5\.0|Windows|96|pc|Microsoft
+vendor-class.*msft 98|Windows (Legacy)|96|pc|Microsoft
+vendor-class.*msft|Windows|95|pc|Microsoft
+vendor-class.*windows|Windows|94|pc|Microsoft
+vendor-class.*winnt|Windows|94|pc|Microsoft
+vendor-class.*macos|Apple macOS PC|96|mac-pc|Apple
+vendor-class.*darwin|Apple macOS PC|94|mac-pc|Apple
+vendor-class.*chromebook|Google ChromeOS PC|95|chrome-pc|Google
+vendor-class.*chrome.?os|Google ChromeOS PC|95|chrome-pc|Google
+
+# ==============================================================================
+# Smart TVs & Streaming Devices
+# ==============================================================================
+vendor-class.*webos.?tv|LG Smart TV (webOS)|96|smart-tv|LG
+vendor-class.*lg webos|LG Smart TV (webOS)|96|smart-tv|LG
+vendor-class.*webos|LG Smart TV (webOS)|96|smart-tv|LG
+vendor-class.*tizen.?tv|Samsung Smart TV (Tizen)|96|smart-tv|Samsung
+vendor-class.*tizen|Samsung Smart TV (Tizen)|96|smart-tv|Samsung
+vendor-class.*bravia|Sony Bravia Smart TV|96|smart-tv|Sony
+vendor-class.*fire.?tv|Amazon Fire TV|96|smart-tv|Amazon
+vendor-class.*fireos|Amazon Fire TV / Tablet|96|smart-tv|Amazon
+vendor-class.*apple.?tv|Apple TV (tvOS)|97|smart-tv|Apple
+vendor-class.*google.?tv|Google TV Device|95|smart-tv|Google
+vendor-class.*android.?tv|Android TV Device|95|smart-tv|Google
+vendor-class.*chromecast|Google Chromecast / TV|96|smart-tv|Google
+vendor-class.*roku|Roku Streaming Player|96|smart-tv|Roku
+vendor-class.*hisense|Hisense Smart TV|95|smart-tv|Hisense
+vendor-class.*vizio|Vizio Smart TV|95|smart-tv|Vizio
+vendor-class.*tcl|TCL Smart TV|95|smart-tv|TCL
+vendor-class.*philips.?tv|Philips Smart TV|95|smart-tv|Philips
+
+# ==============================================================================
+# Smart Audio & Speakers
+# ==============================================================================
+vendor-class.*sonos|Sonos Smart Speaker|97|smart-speaker|Sonos
+vendor-class.*homepod|Apple HomePod Speaker|97|smart-speaker|Apple
+vendor-class.*echo|Amazon Echo Speaker|96|smart-speaker|Amazon
+vendor-class.*amazon-dhcp|Amazon Echo / Alexa Device|96|smart-speaker|Amazon
+vendor-class.*nest.?hub|Google Nest Smart Display|96|smart-speaker|Google
+vendor-class.*nest.?mini|Google Nest Mini Speaker|96|smart-speaker|Google
+vendor-class.*google.?home|Google Home Speaker|95|smart-speaker|Google
+
+# ==============================================================================
+# Smart Home IoT & Controllers
+# ==============================================================================
+vendor-class.*espressif|ESP8266 / ESP32 Smart Node|96|iot|Espressif
+vendor-class.*esphome|ESPHome Smart Node|96|iot|ESPHome
+vendor-class.*tasmota|Tasmota Smart Device|96|iot|Tasmota
+vendor-class.*shelly|Shelly Smart Device|96|iot|Shelly
+vendor-class.*tuya|Tuya Smart Device|95|iot|Tuya
+vendor-class.*wled|WLED Controller|95|iot|WLED
+vendor-class.*hue|Philips Hue Smart Bridge|96|iot|Philips
+vendor-class.*philips|Philips Smart Device|93|iot|Philips
+vendor-class.*aqara|Aqara Smart Hub|95|iot|Aqara
+vendor-class.*ikea|IKEA Smart Hub|94|iot|IKEA
+vendor-class.*lutron|Lutron Caseta Smart Hub|95|iot|Lutron
+vendor-class.*switchbot|SwitchBot Smart Hub|94|iot|SwitchBot
+vendor-class.*matter|Matter Smart Device|93|iot|Various
+vendor-class.*thread|Thread Border Router|92|router|Various
+vendor-class.*google inc\.|Google Nest Smart Device|94|iot|Google
+vendor-class.*google.?nest|Google Nest Smart Device|96|iot|Google
+vendor-class.*nest.?thermostat|Google Nest Thermostat|96|iot|Google
+vendor-class.*nest|Google Nest Smart Device|95|iot|Google
+vendor-class.*ecobee|Ecobee Smart Thermostat|96|iot|Ecobee
+
+# ==============================================================================
+# Security Cameras & Smart Vacuums
+# ==============================================================================
+vendor-class.*ring|Ring Video Doorbell / Cam|96|camera|Amazon
+vendor-class.*reolink|Reolink IP Camera|96|camera|Reolink
+vendor-class.*hikvision|Hikvision IP Camera|95|camera|Hikvision
+vendor-class.*dahua|Dahua IP Camera|95|camera|Dahua
+vendor-class.*eufy|Eufy Security Camera|95|camera|Eufy
+vendor-class.*arlo|Arlo Security Camera|94|camera|Arlo
+vendor-class.*wyze|Wyze Smart Camera|94|camera|Wyze
+vendor-class.*amcrest|Amcrest IP Camera|95|camera|Amcrest
+vendor-class.*camera|IP Security Camera|85|camera|Unknown
+vendor-class.*rtsp|IP Security Camera|85|camera|Unknown
+vendor-class.*roborock|Roborock Robot Vacuum|96|vacuum-device|Roborock
+vendor-class.*roomba|iRobot Roomba Vacuum|96|vacuum-device|iRobot
+vendor-class.*irobot|iRobot Roomba Vacuum|96|vacuum-device|iRobot
+vendor-class.*deebot|Ecovacs Deebot Vacuum|95|vacuum-device|Ecovacs
+vendor-class.*ecovacs|Ecovacs Smart Appliance|94|vacuum-device|Ecovacs
+
+# ==============================================================================
+# Storage, NAS & Homelab Infrastructure
+# ==============================================================================
+vendor-class.*synology|Synology NAS (DSM)|96|nas-server|Synology
+vendor-class.*qnap|QNAP NAS (QTS)|96|nas-server|QNAP
+vendor-class.*truenas|TrueNAS Storage Server|96|nas-server|TrueNAS
+vendor-class.*openmediavault|OpenMediaVault Server|96|nas-server|OpenMediaVault
+vendor-class.*proxmox|Proxmox VE Hypervisor|96|hypervisor-server|Proxmox
+vendor-class.*home.?assistant|Home Assistant Server|96|automation-server|Home Assistant
+vendor-class.*hassio|Home Assistant OS|96|automation-server|Home Assistant
+vendor-class.*plex|Plex Media Server|94|media-server|Plex
+vendor-class.*jellyfin|Jellyfin Media Server|94|media-server|Jellyfin
+vendor-class.*raspberry.?pi|Raspberry Pi (Linux)|95|server|Raspberry Pi
+
+# ==============================================================================
+# Network Infrastructure & Routers
+# ==============================================================================
+vendor-class.*unifi|Ubiquiti UniFi Device|96|network-ap|Ubiquiti
+vendor-class.*ubnt|Ubiquiti Network Device|95|network-ap|Ubiquiti
+vendor-class.*mikrotik|MikroTik RouterOS Gateway|96|router|MikroTik
+vendor-class.*cisco|Cisco Network Appliance|96|router|Cisco
+vendor-class.*asus|ASUS Router Gateway|93|router|ASUS
+vendor-class.*netgear|NETGEAR Router Gateway|93|router|NETGEAR
+vendor-class.*tp.?link|TP-Link Router Gateway|93|router|TP-Link
+vendor-class.*eero|Amazon eero Router|95|router|Amazon
+vendor-class.*fritz|AVM FRITZ!Box Router|94|router|AVM
+
+# ==============================================================================
+# Network Printers
+# ==============================================================================
+vendor-class.*hp officejet|HP OfficeJet Printer|95|printer|HP
+vendor-class.*laserjet|HP LaserJet Printer|95|printer|HP
+vendor-class.*hp|HP Network Printer|92|printer|HP
+vendor-class.*brother|Brother Network Printer|95|printer|Brother
+vendor-class.*epson|Epson Network Printer|95|printer|Epson
+vendor-class.*canon|Canon Network Printer|94|printer|Canon
+vendor-class.*printer|Network Printer|90|printer|Unknown
+vendor-class.*ipp|Network Printer (IPP)|90|printer|Unknown
+
+# ==============================================================================
+# Automotive & Generic Fallbacks
+# ==============================================================================
+vendor-class.*tesla|Tesla Connected Vehicle|95|connected-car|Tesla
+vendor-class.*peloton|Peloton Fitness Display|94|smart-tv|Peloton
+vendor-class.*amazon|Amazon Device|90|iot|Amazon
+vendor-class.*dhcpcd|Linux PC / Host (dhcpcd)|88|pc|Linux
+vendor-class.*udhcp|BusyBox IoT Node (udhcpc)|90|iot|Linux

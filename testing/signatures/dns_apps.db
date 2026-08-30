@@ -1,0 +1,946 @@
+# ==============================================================================
+# Database: Application Insights Signatures (DNS App Discovery)
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   Regex Domain | Application Name | Category | Vendor
+#
+# Rules for Adding Entries:
+#   1. Escaped dots (\.) are required for regex accuracy.
+#   2. Keep subdomains specific to the application before broader parent domains.
+#   3. Ensure exactly 4 fields separated by '|' (no double pipes '||').
+#
+# Example:
+#   chatgpt\.com|ChatGPT|AI & ML Tools|OpenAI
+#   netflix\.com|Netflix|Media & Streaming|Netflix
+# ==============================================================================
+
+# =============================================================================
+# GAMING & GAME STREAMING
+# =============================================================================
+epicgames\.com|Epic Games Store|Gaming|Epic Games
+epicgamescdn\.com|Epic Games CDN|Gaming|Epic Games
+fortnite\.com|Fortnite|Gaming|Epic Games
+unrealengine\.com|Unreal Engine|Gaming|Epic Games
+steampowered\.com|Steam Store|Gaming|Valve
+steamcommunity\.com|Steam Community|Gaming|Valve
+steamgames\.com|Steam Games|Gaming|Valve
+steamusercontent\.com|Steam User Content|Gaming|Valve
+steamcontent\.com|Steam Content Delivery|Gaming|Valve
+steamstatic\.com|Steam Static|Gaming|Valve
+steamdeck\.com|Steam Deck|Gaming|Valve
+playstation\.com|PlayStation Network|Gaming|Sony
+playstation\.net|PlayStation Network CDN|Gaming|Sony
+sonyentertainmentnetwork\.com|Sony Entertainment Network|Gaming|Sony
+xbox\.com|Xbox Portal|Gaming|Microsoft
+xboxlive\.com|Xbox Live|Gaming|Microsoft
+xboxservices\.com|Xbox Live Services|Gaming|Microsoft
+gamepass\.com|Xbox Game Pass|Gaming|Microsoft
+riotgames\.com|Riot Games|Gaming|Riot Games
+leagueoflegends\.com|League of Legends|Gaming|Riot Games
+valorant\.com|VALORANT|Gaming|Riot Games
+riotcdn\.net|Riot Games CDN|Gaming|Riot Games
+blizzard\.com|Blizzard Entertainment|Gaming|Blizzard
+battle\.net|Battle.net|Gaming|Blizzard
+blizzard\.net|Blizzard Network Services|Gaming|Blizzard
+overwatch\.com|Overwatch|Gaming|Blizzard
+worldofwarcraft\.com|World of Warcraft|Gaming|Blizzard
+roblox\.com|Roblox|Gaming|Roblox
+robloxcdn\.com|Roblox CDN|Gaming|Roblox
+rbxcdn\.com|Roblox Content Delivery|Gaming|Roblox
+nintendo\.com|Nintendo Services|Gaming|Nintendo
+nintendo\.net|Nintendo Network / Online|Gaming|Nintendo
+nintendo\.co\.jp|Nintendo Japan|Gaming|Nintendo
+ea\.com|EA Services|Gaming|Electronic Arts
+ea\.net|EA Network|Gaming|Electronic Arts
+origin\.com|EA Origin|Gaming|Electronic Arts
+battlefield\.com|Battlefield|Gaming|Electronic Arts
+needforspeed\.com|Need for Speed|Gaming|Electronic Arts
+titanfall\.com|Titanfall|Gaming|Electronic Arts
+ubisoft\.com|Ubisoft Services|Gaming|Ubisoft
+ubisoftconnect\.com|Ubisoft Connect|Gaming|Ubisoft
+ubisoft\.org|Ubisoft Network|Gaming|Ubisoft
+rainbow6\.com|Rainbow Six|Gaming|Ubisoft
+gog\.com|GOG Galaxy|Gaming|CD Projekt
+cdprojektred\.com|CD Projekt Red|Gaming|CD Projekt
+cyberpunk\.net|Cyberpunk 2077|Gaming|CD Projekt
+mojang\.com|Mojang|Gaming|Microsoft
+minecraft\.net|Minecraft|Gaming|Microsoft
+minecraftservices\.com|Minecraft Services|Gaming|Microsoft
+rockstargames\.com|Rockstar Games|Gaming|Take-Two
+take2games\.com|Take-Two Interactive|Gaming|Take-Two
+2k\.com|2K Games|Gaming|Take-Two
+nba2k\.com|NBA 2K|Gaming|Take-Two
+wargaming\.net|Wargaming|Gaming|Wargaming
+worldoftanks\.com|World of Tanks|Gaming|Wargaming
+worldofwarships\.com|World of Warships|Gaming|Wargaming
+geforcenow\.com|GeForce NOW|Gaming|NVIDIA
+moonlight-stream\.org|Moonlight Game Streaming|Gaming|Open Source
+sunshine\.dev|Sunshine Game Server|Gaming|Open Source
+humblebundle\.com|Humble Bundle|Gaming|Humble Bundle
+itch\.io|itch.io|Gaming|itch.io
+gamejolt\.com|Game Jolt|Gaming|Game Jolt
+twitch\.tv|Twitch|Gaming / Streaming|Amazon
+twitchcdn\.net|Twitch CDN|Gaming / Streaming|Amazon
+
+# =============================================================================
+# MEDIA, VIDEO & MUSIC STREAMING
+# =============================================================================
+youtubei\.googleapis\.com|YouTube API|Media & Streaming|Google
+youtube-nocookie\.com|YouTube Privacy|Media & Streaming|Google
+youtubekids\.com|YouTube Kids|Media & Streaming|Google
+youtu\.be|YouTube Shortlink|Media & Streaming|Google
+ytimg\.com|YouTube Static CDN|Media & Streaming|Google
+googlevideo\.com|Google Video Stream|Media & Streaming|Google
+youtube\.com|YouTube|Media & Streaming|Google
+netflix\.net|Netflix Services|Media & Streaming|Netflix
+nflxvideo\.net|Netflix Video CDN|Media & Streaming|Netflix
+nflximg\.net|Netflix UI Assets|Media & Streaming|Netflix
+nflxso\.net|Netflix Stream Delivery|Media & Streaming|Netflix
+nflxext\.com|Netflix External APIs|Media & Streaming|Netflix
+netflix\.com|Netflix|Media & Streaming|Netflix
+disneyplus\.net|Disney+ CDN|Media & Streaming|Disney
+disneyplus\.com|Disney+|Media & Streaming|Disney
+disney\.com|Disney Online|Media & Streaming|Disney
+starplus\.com|Star+|Media & Streaming|Disney
+primevideo\.com|Prime Video|Media & Streaming|Amazon
+amazonvideo\.com|Amazon Video Delivery|Media & Streaming|Amazon
+aiv-cdn\.net|Amazon Video CDN|Media & Streaming|Amazon
+max\.com|Max|Media & Streaming|Warner Bros Discovery
+hbomax\.com|HBO Max|Media & Streaming|Warner Bros Discovery
+discoveryplus\.com|Discovery+|Media & Streaming|Warner Bros Discovery
+hulu\.com|Hulu|Media & Streaming|Disney
+peacocktv\.com|Peacock|Media & Streaming|NBCUniversal
+paramountplus\.com|Paramount+|Media & Streaming|Paramount
+paramount\.com|Paramount Network|Media & Streaming|Paramount
+skyshowtime\.com|SkyShowtime|Media & Streaming|Sky / NBCUniversal
+viaplay\.com|Viaplay|Media & Streaming|Viaplay
+crunchyroll\.net|Crunchyroll CDN|Media & Streaming|Sony
+crunchyroll\.com|Crunchyroll|Media & Streaming|Sony
+vimeo\.com|Vimeo|Media & Streaming|Vimeo
+dailymotion\.com|Dailymotion|Media & Streaming|Dailymotion
+ertflix\.gr|ERTFLIX|Media & Streaming|ERT
+tv\.apple\.com|Apple TV+|Media & Streaming|Apple
+appletv\.com|Apple TV App|Media & Streaming|Apple
+cosmote\.tv|Cosmote TV OTT Stream|Media & Streaming|OTE / Deutsche Telekom
+scdn\.co|Spotify CDN|Music Streaming|Spotify
+spotify\.com|Spotify|Music Streaming|Spotify
+music\.apple\.com|Apple Music|Music Streaming|Apple
+sndcdn\.com|SoundCloud CDN|Music Streaming|SoundCloud
+soundcloud\.com|SoundCloud|Music Streaming|SoundCloud
+deezer\.com|Deezer|Music Streaming|Deezer
+tidal\.com|Tidal|Music Streaming|Tidal
+bandcamp\.com|Bandcamp|Music Streaming|Bandcamp
+musicbrainz\.org|MusicBrainz|Music Metadata|MetaBrainz Foundation
+podcasts\.apple\.com|Apple Podcasts|Audio Streaming|Apple
+audible\.com|Audible|Audio Streaming|Amazon
+
+# =============================================================================
+# SOCIAL MEDIA
+# =============================================================================
+facebook\.net|Facebook Static|Social Media|Meta
+fb\.com|Facebook Redirect|Social Media|Meta
+fbcdn\.net|Facebook CDN|Social Media|Meta
+fbsbx\.com|Facebook Services|Social Media|Meta
+facebook\.com|Facebook|Social Media|Meta
+cdninstagram\.com|Instagram CDN|Social Media|Meta
+instagram\.com|Instagram|Social Media|Meta
+tiktokcdn\.com|TikTok CDN|Social Media|ByteDance
+tiktokv\.com|TikTok API|Social Media|ByteDance
+musical\.ly|TikTok Legacy|Social Media|ByteDance
+tiktok\.com|TikTok|Social Media|ByteDance
+twimg\.com|Twitter Static/Media|Social Media|X
+t\.co|Twitter Link Shortener|Social Media|X
+twitter\.com|Twitter|Social Media|X
+x\.com|X (Twitter)|Social Media|X
+redd\.it|Reddit Shortlink|Social Media|Reddit
+redditmedia\.com|Reddit Media Delivery|Social Media|Reddit
+redditstatic\.com|Reddit Static Assets|Social Media|Reddit
+reddit\.com|Reddit|Social Media|Reddit
+pinimg\.com|Pinterest CDN|Social Media|Pinterest
+pinterest\.com|Pinterest|Social Media|Pinterest
+sc-cdn\.net|Snapchat CDN|Social Media|Snap
+snapchat\.com|Snapchat|Social Media|Snap
+licdn\.com|LinkedIn CDN|Social Media|Microsoft
+linkedin\.com|LinkedIn|Social Media|Microsoft
+tumblr\.co|Tumblr Shortlink|Social Media|Automattic
+tumblr\.com|Tumblr|Social Media|Automattic
+
+# =============================================================================
+# MESSAGING, VOIP & COLLABORATION
+# =============================================================================
+whatsapp\.net|WhatsApp Chat Service|Messaging|Meta
+whatsapp\.org|WhatsApp Protocol|Messaging|Meta
+whatsapp\.com|WhatsApp Web / Portal|Messaging|Meta
+telegram\.me|Telegram Link|Messaging|Telegram
+telegra\.ph|Telegra.ph Publishing|Messaging|Telegram
+telegram\.org|Telegram Web / Services|Messaging|Telegram
+signal\.me|Signal Shortlink|Messaging|Signal Foundation
+signal\.org|Signal Messenger|Messaging|Signal Foundation
+viber\.co|Viber Shortlink|Messaging|Rakuten
+viber\.com|Viber Web / App|Messaging|Rakuten
+discordapp\.com|Discord Web|Messaging|Discord
+discordapp\.net|Discord CDN|Messaging|Discord
+discord\.com|Discord App|Messaging|Discord
+messenger\.com|Meta Messenger|Messaging|Meta
+skypeassets\.com|Skype CDN|Messaging & VoIP|Microsoft
+skype\.com|Skype|Messaging & VoIP|Microsoft
+slack-edge\.com|Slack Edge CDN|Messaging & Collaboration|Salesforce
+slack\.com|Slack|Messaging & Collaboration|Salesforce
+meetings\.google\.com|Google Meetings|Video Conferencing|Google
+meet\.google\.com|Google Meet|Video Conferencing|Google
+teams\.live\.com|Microsoft Teams (Personal)|Video Conferencing|Microsoft
+teams\.microsoft\.com|Microsoft Teams (Work)|Video Conferencing|Microsoft
+zoom\.us|Zoom Meetings|Video Conferencing|Zoom
+zoom\.com|Zoom|Video Conferencing|Zoom
+webexcontent\.com|Cisco Webex Content|Video Conferencing|Cisco
+webex\.com|Cisco Webex|Video Conferencing|Cisco
+gotomeeting\.com|GoToMeeting|Video Conferencing|GoTo
+whereby\.com|Whereby|Video Conferencing|Whereby
+threema\.ch|Threema|Messaging|Threema
+wire\.com|Wire|Messaging|Wire
+element\.io|Element Web/Matrix|Messaging|Element
+matrix\.org|Matrix Homeserver|Messaging|Matrix Foundation
+
+# =============================================================================
+# EMAIL SERVICES
+# =============================================================================
+googlemail\.com|Gmail Alternate|Email|Google
+gmail\.com|Gmail Web|Email|Google
+outlook\.live\.com|Outlook Live|Email|Microsoft
+outlook\.com|Outlook Mail|Email|Microsoft
+hotmail\.com|Hotmail|Email|Microsoft
+protonmail\.com|Proton Mail|Email|Proton
+mail\.icloud\.com|iCloud Mail|Email|Apple
+yahoo\.com|Yahoo Mail|Email|Yahoo
+zoho\.com|Zoho Mail|Email|Zoho
+gmx\.com|GMX Mail|Email|1&1 Mail & Media
+mailbox\.org|Mailbox.org|Email|Heinlein Support
+
+# =============================================================================
+# AI, LLM & MACHINE LEARNING
+# =============================================================================
+oaistatic\.com|OpenAI Static CDN|AI & ML Tools|OpenAI
+oaiusercontent\.com|OpenAI User Content|AI & ML Tools|OpenAI
+chatgpt\.com|ChatGPT|AI & ML Tools|OpenAI
+openai\.com|OpenAI Platform|AI & ML Tools|OpenAI
+claude\.ai|Claude AI|AI & ML Tools|Anthropic
+anthropic\.com|Anthropic|AI & ML Tools|Anthropic
+gemini\.google\.com|Google Gemini|AI & ML Tools|Google
+bard\.google\.com|Google Bard|AI & ML Tools|Google
+copilot\.cloud\.microsoft|Microsoft Copilot Enterprise|AI & ML Tools|Microsoft
+copilot\.microsoft\.com|Microsoft Copilot|AI & ML Tools|Microsoft
+perplexity\.ai|Perplexity AI|AI & ML Tools|Perplexity
+mistral\.ai|Mistral AI|AI & ML Tools|Mistral
+cohere\.com|Cohere|AI & ML Tools|Cohere
+hf\.co|Hugging Face Shortlink|AI & ML Tools|Hugging Face
+huggingface\.co|Hugging Face Hub|AI & ML Tools|Hugging Face
+midjourney\.com|Midjourney|AI & ML Tools|Midjourney
+stability\.ai|Stability AI|AI & ML Tools|Stability AI
+runway\.ml|Runway ML|AI & ML Tools|Runway
+runwayml\.com|Runway ML|AI & ML Tools|Runway
+character\.ai|Character AI|AI & ML Tools|Character AI
+poe\.com|Poe AI|AI & ML Tools|Quora
+grok\.x\.ai|Grok AI|AI & ML Tools|xAI
+x\.ai|xAI Platform|AI & ML Tools|xAI
+
+# =============================================================================
+# CLOUD STORAGE, BACKUP & FILE TRANSFERS
+# =============================================================================
+dropboxapi\.com|Dropbox API|Cloud Storage|Dropbox
+dropboxusercontent\.com|Dropbox Content Delivery|Cloud Storage|Dropbox
+dropbox\.com|Dropbox|Cloud Storage|Dropbox
+onedrive\.live\.com|OneDrive Personal|Cloud Storage|Microsoft
+onedrive\.com|OneDrive|Cloud Storage|Microsoft
+drive\.usercontent\.google\.com|Google Drive Content|Cloud Storage|Google
+drive\.google\.com|Google Drive|Cloud Storage|Google
+docs\.google\.com|Google Docs / Sheets / Slides|Cloud Storage|Google
+mega\.co\.nz|MEGA Cloud NZ|Cloud Storage|MEGA
+mega\.io|MEGA IO|Cloud Storage|MEGA
+mega\.nz|MEGA Cloud|Cloud Storage|MEGA
+icloud-content\.com|Apple iCloud Storage CDN|Cloud Storage|Apple
+apple-cloudkit\.com|Apple CloudKit|Cloud Storage|Apple
+boxcdn\.net|Box CDN|Cloud Storage|Box
+box\.com|Box Storage|Cloud Storage|Box
+pcloud\.com|pCloud|Cloud Storage|pCloud
+sync\.com|Sync.com|Cloud Storage|Sync.com
+protondrive\.com|Proton Drive|Cloud Storage|Proton
+backblazeb2\.com|Backblaze B2 Storage|Backup / Storage|Backblaze
+backblaze\.com|Backblaze Cloud Backup|Backup / Storage|Backblaze
+crashplan\.com|CrashPlan|Backup / Storage|Code42
+idrive\.com|IDrive|Backup / Storage|IDrive
+carbonite\.com|Carbonite|Backup / Storage|OpenText
+mediafire\.com|MediaFire|File Sharing|MediaFire
+4shared\.com|4shared|File Sharing|4shared
+zippyshare\.com|Zippyshare|File Sharing|Zippyshare
+torrentfreak\.com|TorrentFreak|P2P News|TorrentFreak
+transmissionbt\.com|Transmission BT|P2P Software|Transmission
+qbittorrent\.org|qBittorrent|P2P Software|qBittorrent
+
+# =============================================================================
+# PRODUCTIVITY, OFFICE & CREATIVE TOOLS
+# =============================================================================
+officeapps\.live\.com|Office Online Apps|Productivity|Microsoft
+office365\.com|Microsoft 365 Portal|Productivity|Microsoft
+office\.com|Microsoft 365 / Office Online|Productivity|Microsoft
+sharepoint\.com|SharePoint Online|Productivity|Microsoft
+powerbi\.com|Power BI|Productivity|Microsoft
+notion-static\.com|Notion Static CDN|Productivity|Notion
+notion\.so|Notion Workspace|Productivity|Notion
+evernote\.com|Evernote|Productivity|Evernote
+todoist\.com|Todoist|Productivity|Doist
+ticktick\.com|TickTick|Productivity|TickTick
+any\.do|Any.do|Productivity|Any.do
+trello\.com|Trello|Productivity|Atlassian
+atlassian\.com|Atlassian Cloud Services|Productivity|Atlassian
+asana\.com|Asana|Productivity|Asana
+clickup\.com|ClickUp|Productivity|ClickUp
+monday\.com|Monday.com|Productivity|Monday
+airtable\.com|Airtable|Productivity|Airtable
+obsidian\.md|Obsidian MD Sync|Productivity|Obsidian
+logseq\.com|Logseq|Productivity|Logseq
+craft\.do|Craft Docs|Productivity|Craft
+figmausercontent\.com|Figma Asset Storage|Design|Figma
+figma\.com|Figma|Design|Figma
+canva\.com|Canva|Design|Canva
+miro\.com|Miro Whiteboard|Design|Miro
+whimsical\.com|Whimsical|Design|Whimsical
+excalidraw\.com|Excalidraw|Design|Excalidraw
+adobelogin\.com|Adobe Identity|Creative|Adobe
+adobe\.io|Adobe Cloud APIs|Creative|Adobe
+adobe\.com|Adobe Creative Cloud|Creative|Adobe
+
+# =============================================================================
+# OPERATING SYSTEMS, PLATFORMS & UPDATES
+# =============================================================================
+windowsupdate\.microsoft\.com|Windows Update Service|OS Update|Microsoft
+download\.windowsupdate\.com|Windows Update Download CDN|OS Update|Microsoft
+windowsupdate\.com|Windows Update Core|OS Update|Microsoft
+dl\.delivery\.mp\.microsoft\.com|Windows Delivery Optimization CDN|OS Update|Microsoft
+delivery\.mp\.microsoft\.com|Windows Delivery Optimization|OS Update|Microsoft
+update\.microsoft\.com|Microsoft Update Catalog|OS Update|Microsoft
+windows\.net|Microsoft Windows Network|OS & Platform|Microsoft
+windows\.com|Windows Portal|OS & Platform|Microsoft
+microsoftonline-p\.com|Microsoft Auth Infrastructure|OS & Platform|Microsoft
+microsoftonline\.com|Microsoft Online Identity|OS & Platform|Microsoft
+live\.net|Microsoft Live Network|OS & Platform|Microsoft
+live\.com|Microsoft Live Services|OS & Platform|Microsoft
+microsoft\.com|Microsoft Core Services|OS & Platform|Microsoft
+android\.clients\.google\.com|Android Device Registration|OS & Platform|Google
+play-services\.googleapis\.com|Google Play Services Backend|OS & Platform|Google
+play\.google\.com|Google Play Store|App Store|Google
+androidify\.com|Androidify|OS & Platform|Google
+android\.com|Android Portal|OS & Platform|Google
+firebaseio\.com|Firebase Realtime DB|Cloud Platform|Google
+firebaseinstallations\.googleapis\.com|Firebase Device Installations|Mobile Backend|Google
+firebase\.google\.com|Firebase Developer Console|Developer|Google
+fcm\.googleapis\.com|Firebase Cloud Messaging|Mobile Backend|Google
+crashlytics\.com|Crashlytics Telemetry|Developer|Google
+googleapis\.com|Google Core APIs|OS & Platform|Google
+googleusercontent\.com|Google User Hosted Content|OS & Platform|Google
+gstatic\.com|Google Static CDN|OS & Platform|Google
+clients[0-9]*\.google\.com|Google Client Services|OS & Platform|Google
+google\.com|Google Core Services|OS & Platform|Google
+appleid\.apple\.com|Apple ID Authentication|Identity & Access|Apple
+appleid\.com|Apple ID Services|Identity & Access|Apple
+mzstatic\.com|Apple App Store / Music Assets|App Store|Apple
+itunes\.apple\.com|Apple iTunes API|Media Store|Apple
+itunes\.com|Apple iTunes Portal|Media Store|Apple
+apps\.apple\.com|Apple App Store Online|App Store|Apple
+appstore\.com|Apple App Store Gateway|App Store|Apple
+courier-push-apple\.com|Apple Push Network Courier|Mobile Backend|Apple
+push\.apple\.com|Apple Push Notification (APNs)|Mobile Backend|Apple
+cdn-apple\.com|Apple CDN|OS & Platform|Apple
+icloud\.com|Apple iCloud Portal|OS & Platform|Apple
+apple\.com|Apple Core Services|OS & Platform|Apple
+
+# =============================================================================
+# IDENTITY & ACCESS MANAGEMENT
+# =============================================================================
+accounts\.google\.com|Google Accounts & OAuth|Identity & Access|Google
+login\.live\.com|Microsoft Consumer Login|Identity & Access|Microsoft
+login\.microsoftonline\.com|Microsoft Entra / Azure AD Login|Identity & Access|Microsoft
+1password\.com|1Password|Password Manager|1Password
+bitwarden\.com|Bitwarden|Password Manager|Bitwarden
+lastpass\.com|LastPass|Password Manager|LastPass
+dashlane\.com|Dashlane|Password Manager|Dashlane
+keepersecurity\.com|Keeper Security|Password Manager|Keeper Security
+authy\.com|Twilio Authy MFA|Identity & Access|Twilio
+duo\.com|Cisco Duo Security|Identity & Access|Cisco
+auth0\.com|Auth0 by Okta|Identity & Access|Okta
+okta\.com|Okta SSO|Identity & Access|Okta
+
+# =============================================================================
+# SECURITY, VPN, TUNNELING & PRIVACY
+# =============================================================================
+bitdefender\.net|Bitdefender Cloud Services|Endpoint Security|Bitdefender
+bitdefender\.com|Bitdefender|Endpoint Security|Bitdefender
+malwarebytes\.com|Malwarebytes|Endpoint Security|Malwarebytes
+nortonlifelock\.com|Norton LifeLock|Endpoint Security|Gen Digital
+norton\.com|Norton Security|Endpoint Security|Gen Digital
+mcafee\.com|McAfee|Endpoint Security|McAfee
+kaspersky\.com|Kaspersky|Endpoint Security|Kaspersky
+eset\.com|ESET Antivirus|Endpoint Security|ESET
+avast\.com|Avast Antivirus|Endpoint Security|Gen Digital
+avg\.com|AVG Antivirus|Endpoint Security|Gen Digital
+sophos\.com|Sophos|Endpoint Security|Sophos
+trendmicro\.com|Trend Micro|Endpoint Security|Trend Micro
+crowdstrike\.com|CrowdStrike Falcon|Endpoint Security|CrowdStrike
+protonvpn\.com|Proton VPN|VPN|Proton
+mullvad\.net|Mullvad VPN|VPN|Mullvad
+ivpn\.net|IVPN|VPN|IVPN
+nordvpn\.net|NordVPN Infrastructure|VPN|Nord Security
+nordvpn\.com|NordVPN|VPN|Nord Security
+expressvpn\.com|ExpressVPN|VPN|ExpressVPN
+surfshark\.com|Surfshark VPN|VPN|Surfshark
+windscribe\.com|Windscribe VPN|VPN|Windscribe
+hide\.me|Hide.me VPN|VPN|Hide.me
+privateinternetaccess\.com|Private Internet Access|VPN|Kape Technologies
+cyberghostvpn\.com|CyberGhost VPN|VPN|Kape Technologies
+perfect-privacy\.com|Perfect Privacy|VPN|Perfect Privacy
+tailscale\.com|Tailscale Mesh VPN|Remote Access & Mesh|Tailscale
+zerotier\.com|ZeroTier Virtual Network|Remote Access & Mesh|ZeroTier
+wireguard\.com|WireGuard Protocol|VPN|WireGuard
+openvpn\.net|OpenVPN Access|VPN|OpenVPN
+torproject\.net|Tor Infrastructure|Privacy & Anonymity|Tor Project
+torproject\.org|Tor Project|Privacy & Anonymity|Tor Project
+onion\.im|Tor Onion Directory|Privacy & Anonymity|Tor Ecosystem
+ngrok\.io|ngrok Ingress Endpoint|Network Tunneling|ngrok
+ngrok\.com|ngrok Reverse Tunnel|Network Tunneling|ngrok
+
+# =============================================================================
+# REMOTE DESKTOP & REMOTE MANAGEMENT
+# =============================================================================
+teamviewerusercontent\.com|TeamViewer CDN / Relay|Remote Desktop|TeamViewer
+teamviewer\.com|TeamViewer|Remote Desktop|TeamViewer
+anydesk\.net|AnyDesk Infrastructure|Remote Desktop|AnyDesk
+anydesk\.com|AnyDesk|Remote Desktop|AnyDesk
+parsec\.app|Parsec Gaming Remote|Remote Desktop|Parsec
+rustdesk\.com|RustDesk|Remote Desktop|RustDesk
+realvnc\.com|RealVNC Connect|Remote Desktop|RealVNC
+tightvnc\.com|TightVNC|Remote Desktop|TightVNC
+chrome-remote-desktop\.googleapis\.com|Chrome Remote Desktop API|Remote Desktop|Google
+remotedesktop\.google\.com|Chrome Remote Desktop Portal|Remote Desktop|Google
+
+# =============================================================================
+# SMART HOME, IOT & SECURITY CAMERAS
+# =============================================================================
+nabu\.casa|Home Assistant Cloud|Smart Home|Nabu Casa
+home-assistant\.io|Home Assistant Core|Smart Home|Nabu Casa
+esphome\.io|ESPHome|Smart Home|Nabu Casa
+tasmota\.github\.io|Tasmota|Smart Home|Tasmota
+openhab\.org|openHAB|Smart Home|openHAB Foundation
+domoticz\.com|Domoticz|Smart Home|Domoticz
+zigbee2mqtt\.io|Zigbee2MQTT|Smart Home|Open Source
+mqtt\.org|MQTT Protocol Hub|Smart Home|OASIS
+homebridge\.io|Homebridge|Smart Home|Homebridge
+homekit\.apple\.com|Apple HomeKit Backend|Smart Home|Apple
+googlehome\.com|Google Home|Smart Home|Google
+nest\.com|Google Nest|Smart Home|Google
+smartthings\.com|Samsung SmartThings|Smart Home|Samsung
+discovery\.meethue\.com|Philips Hue Local Discovery|Smart Home|Signify
+hue\.philips\.com|Philips Hue Cloud|Smart Home|Signify
+meethue\.com|Philips Hue Portal|Smart Home|Signify
+philips-hue\.com|Philips Hue|Smart Home|Signify
+shelly\.eu|Shelly Europe|Smart Home|Allterco / Shelly
+shelly\.io|Shelly API Engine|Smart Home|Allterco / Shelly
+shelly\.cloud|Shelly Cloud IoT|Smart Home|Allterco / Shelly
+tuyaus\.com|Tuya US Region|Smart Home|Tuya
+smartlife\.com|Smart Life IoT|Smart Home|Tuya
+tuya\.com|Tuya Smart Cloud|Smart Home|Tuya
+kasa\.com|TP-Link Kasa|Smart Home|TP-Link
+tapo\.tplinkcloud\.com|TP-Link Tapo Cloud API|Smart Home|TP-Link
+tapo\.com|TP-Link Tapo|Smart Home|TP-Link
+tplinkcloud\.com|TP-Link Smart Home Cloud|Smart Home|TP-Link
+mijia\.com|Xiaomi Mijia Smart Home|Smart Home|Xiaomi
+mi\.com|Xiaomi Ecosystem|Smart Home|Xiaomi
+xiaomi\.com|Xiaomi Global Platform|Smart Home|Xiaomi
+aqara\.com|Aqara Smart Devices|Smart Home|Lumi United
+yeelight\.com|Yeelight Smart Lighting|Smart Home|Yeelight
+switchbot\.com|SwitchBot|Smart Home|Woan Technology
+govee\.com|Govee Smart Lighting|Smart Home|Govee
+meross\.com|Meross IoT|Smart Home|Meross
+lifx\.com|LIFX Smart Bulbs|Smart Home|Feit Electric
+nanoleaf\.me|Nanoleaf Modular Lights|Smart Home|Nanoleaf
+ecobee\.com|ecobee Smart Thermostats|Smart Home|ecobee
+irobot\.com|iRobot Roomba Cloud|Smart Home|iRobot
+ring\.co|Ring Backend Services|Smart Home / Cameras|Amazon
+ring\.com|Ring Security Devices|Smart Home / Cameras|Amazon
+arlo\.co|Arlo Backend Services|Smart Home / Cameras|Arlo
+arlo\.com|Arlo Security Cameras|Smart Home / Cameras|Arlo
+eufy\.com|Eufy Security / Smart Home|Smart Home / Cameras|Anker
+anker\.com|Anker Portal|Smart Home|Anker
+wyze\.com|Wyze Labs IoT|Smart Home / Cameras|Wyze Labs
+hik-connect\.com|Hik-Connect P2P Cloud|Security Cameras|Hikvision
+hikvision\.com|Hikvision IP Cameras|Security Cameras|Hikvision
+dahuavision\.com|Dahua Vision Cloud|Security Cameras|Dahua
+dahuasecurity\.com|Dahua IP Cameras|Security Cameras|Dahua
+reolink\.net|Reolink P2P Cloud|Security Cameras|Reolink
+reolink\.com|Reolink Cameras|Security Cameras|Reolink
+
+# =============================================================================
+# HARDWARE, SMART APPLIANCES & STREAMING DEVICES
+# =============================================================================
+sonosusercontent\.com|Sonos User Content|Smart Audio|Sonos
+sonos\.com|Sonos Speaker System|Smart Audio|Sonos
+roku\.tv|Roku Smart TV Platform|Streaming Devices|Roku
+roku\.com|Roku OS & Streaming|Streaming Devices|Roku
+chromecast\.com|Chromecast Setup|Streaming Devices|Google
+googlecast\.com|Google Cast Discovery|Streaming Devices|Google
+androidtv\.googleapis\.com|Android TV System Services|Streaming Devices|Google
+androidtv\.com|Android TV|Streaming Devices|Google
+alexa\.amazon\.com|Amazon Alexa App|Smart Devices|Amazon
+amazonalexa\.com|Amazon Alexa Services|Smart Devices|Amazon
+firetv\.amazon\.com|Amazon Fire TV Delivery|Streaming Devices|Amazon
+tizen\.org|Samsung Tizen TV OS|Smart TV|Samsung
+samsungcloud\.com|Samsung Device Cloud|Smart Devices|Samsung
+samsung\.com|Samsung Services|Consumer Electronics|Samsung
+lge\.com|LG Electronics Backend|Consumer Electronics|LG
+lg\.com|LG ThinQ & webOS|Consumer Electronics|LG
+sony\.com|Sony Consumer Services|Consumer Electronics|Sony
+panasonic\.com|Panasonic Cloud|Consumer Electronics|Panasonic
+hpconnected\.com|HP ePrint / Connected|Printers|HP
+hpeprint\.com|HP ePrint Cloud|Printers|HP
+hp\.com|HP Connected Devices|Printers|HP
+epsonconnect\.com|Epson Connect Cloud|Printers|Epson
+epson\.com|Epson Device Services|Printers|Epson
+ij-start-canon\.com|Canon Printer Setup|Printers|Canon
+canon\.com|Canon Device Cloud|Printers|Canon
+brother-usa\.com|Brother USA Online|Printers|Brother
+brother\.com|Brother Device Cloud|Printers|Brother
+mirrors\.kodi\.tv|Kodi Media Center|Media Center|Kodi
+
+# =============================================================================
+# SELF-HOSTED INFRASTRUCTURE, NAS & HOMELAB
+# =============================================================================
+plexapp\.com|Plex Infrastructure|Media Server|Plex
+plex\.tv|Plex Media Server Authentication|Media Server|Plex
+jellyfin\.org|Jellyfin Media Server|Media Server|Jellyfin
+emby\.media|Emby Media Server|Media Server|Emby
+synology\.me|Synology QuickConnect DDNS|NAS|Synology
+quickconnect\.to|Synology QuickConnect Relay|NAS|Synology
+synology\.com|Synology DSM Cloud|NAS|Synology
+myqnapcloud\.com|QNAP myQNAPcloud DDNS|NAS|QNAP
+qnap\.com|QNAP QTS Platform|NAS|QNAP
+ixsystems\.com|iXsystems Infrastructure|NAS|iXsystems
+truenas\.com|TrueNAS CORE / SCALE|NAS|iXsystems
+unraid\.net|Unraid OS Cloud|NAS|Lime Technology
+nextcloud\.org|Nextcloud Community|Self-Hosted Cloud|Nextcloud
+nextcloud\.com|Nextcloud Hub|Self-Hosted Cloud|Nextcloud
+proxmox\.com|Proxmox VE Enterprise Repo|Home Server|Proxmox
+portainer\.io|Portainer CE / EE|Developer Tools|Portainer
+westerndigital\.com|Western Digital Devices|NAS|Western Digital
+wd\.com|Western Digital MyCloud|NAS|Western Digital
+
+# =============================================================================
+# DEVELOPER ECOSYSTEM, CODE REPOSITORIES & PACKAGES
+# =============================================================================
+githubusercontent\.com|GitHub Raw / User Content|Developer|Microsoft
+githubassets\.com|GitHub Static Assets|Developer|Microsoft
+github\.io|GitHub Pages Hosting|Developer|Microsoft
+github\.com|GitHub Repositories|Developer|Microsoft
+gitlab\.com|GitLab SaaS|Developer|GitLab
+bitbucket\.org|Bitbucket Repositories|Developer|Atlassian
+dockerusercontent\.com|Docker Hub Container Blobs|Developer|Docker
+docker\.io|Docker Hub Registry|Developer|Docker
+docker\.com|Docker Desktop / Engine|Developer|Docker
+npmjs\.org|npm Community Mirror|Developer|npm
+npmjs\.com|npm Registry|Developer|npm
+yarnpkg\.com|Yarn Package Registry|Developer|Yarn
+pypi\.org|Python Package Index|Developer|Python Software Foundation
+python\.org|Python Infrastructure|Developer|Python Software Foundation
+rust-lang\.org|Rust Language & Crates|Developer|Rust Foundation
+golang\.org|Go Language & Packages|Developer|Google
+stackexchange\.com|Stack Exchange Network|Developer|Stack Exchange
+stackoverflow\.com|Stack Overflow|Developer|Stack Exchange
+
+# =============================================================================
+# NETWORKING HARDWARE, ROUTERS, DNS & CDNS
+# =============================================================================
+ookla\.com|Ookla Network Telemetry|Network Diagnostics|Ookla
+speedtest\.net|Ookla Speedtest|Network Diagnostics|Ookla
+fast\.com|Fast.com Speedtest|Network Diagnostics|Netflix
+nperf\.com|nPerf Diagnostics|Network Diagnostics|nPerf
+dnsleaktest\.com|DNS Leak Test|Network Diagnostics|DNSLeakTest
+whatismyipaddress\.com|WhatIsMyIPAddress|Network Diagnostics|WhatIsMyIPAddress
+whatismyip\.org|WhatIsMyIP|Network Diagnostics|WhatIsMyIP
+cloudflare-dns\.com|Cloudflare 1.1.1.1 DoH|DNS Security|Cloudflare
+one\.one\.one\.one|Cloudflare Public DNS|DNS Security|Cloudflare
+cloudflare\.com|Cloudflare CDN / Security|CDN & Network|Cloudflare
+adguard\.com|AdGuard Home / DNS|DNS Security|AdGuard
+nextdns\.io|NextDNS|DNS Security|NextDNS
+control-d\.com|Control D DNS|DNS Security|Control D
+pi-hole\.net|Pi-hole Ad-blocker|DNS Security|Pi-hole
+quad9\.net|Quad9 Anycast DNS|DNS Security|Quad9
+google-public-dns-a\.google\.com|Google DNS Core|DNS Security|Google
+dns\.google|Google Public DNS DoH|DNS Security|Google
+opendns\.com|Cisco OpenDNS|DNS Security|Cisco
+cisco\.com|Cisco Networking Platform|Networking|Cisco
+unifi\.ui\.com|UniFi Remote Cloud Controller|Networking|Ubiquiti
+ui\.com\.cloud|Ubiquiti Cloud Ingress|Networking|Ubiquiti
+ubnt\.com|Ubiquiti AirOS / Legacy|Networking|Ubiquiti
+ui\.com|Ubiquiti UniFi Portal|Networking|Ubiquiti
+routerboard\.com|RouterBOARD Updates|Networking|MikroTik
+mikrotik\.com|MikroTik RouterOS|Networking|MikroTik
+tp-link\.com|TP-Link Routers|Networking|TP-Link
+asuscomm\.com|ASUS Router DDNS|Networking|ASUS
+asus\.com|ASUS Networking|Networking|ASUS
+netgear\.com|NETGEAR Insight & Routers|Networking|NETGEAR
+dlinkcloud\.com|D-Link Mydlink Cloud|Networking|D-Link
+dlink\.com|D-Link Router Systems|Networking|D-Link
+duckdns\.org|DuckDNS Dynamic DNS|Dynamic DNS|DuckDNS
+noip\.com|No-IP Dynamic DNS|Dynamic DNS|No-IP
+afraid\.org|FreeDNS Dynamic DNS|Dynamic DNS|FreeDNS
+cloudfront\.net|Amazon CloudFront CDN|CDN|Amazon
+awsstatic\.com|AWS Static Assets|Cloud Platform|Amazon
+amazonaws\.com|Amazon Web Services (AWS)|Cloud Platform|Amazon
+azureedge\.net|Microsoft Azure CDN|Cloud Platform|Microsoft
+azure\.com|Microsoft Azure Cloud|Cloud Platform|Microsoft
+alibabacloud\.com|Alibaba Cloud Platform|Cloud Platform|Alibaba
+akamaized\.net|Akamai Edge CDN|CDN|Akamai
+akamaihd\.net|Akamai HD Network|CDN|Akamai
+akamai\.net|Akamai CDN Network|CDN|Akamai
+fastlylb\.net|Fastly Load Balancer|CDN|Fastly
+fastly\.net|Fastly Edge Cloud|CDN|Fastly
+
+# =============================================================================
+# WEB BROWSERS & SYSTEM WEB CLIENTS
+# =============================================================================
+firefox\.net|Firefox Sync & Telemetry|Web Browser|Mozilla
+firefox\.com|Mozilla Firefox|Web Browser|Mozilla
+mozilla\.org|Mozilla Foundation|Web Browser|Mozilla
+bravesoftware\.com|Brave Services Backend|Web Browser|Brave Software
+brave\.com|Brave Browser|Web Browser|Brave Software
+opera\.net|Opera Sync & Proxy|Web Browser|Opera
+opera\.com|Opera Browser|Web Browser|Opera
+vivaldi\.net|Vivaldi Sync Services|Web Browser|Vivaldi
+vivaldi\.com|Vivaldi Browser|Web Browser|Vivaldi
+edge\.microsoft\.com|Microsoft Edge Services & SmartScreen|Web Browser|Microsoft
+microsoftedge\.com|Microsoft Edge Browser|Web Browser|Microsoft
+googlechrome\.github\.io|Google Chrome Extensions Hub|Web Browser|Google
+chromium\.org|Chromium Open Source|Web Browser|Google
+chrome\.com|Google Chrome|Web Browser|Google
+
+# =============================================================================
+# HEALTH, FITNESS & WEARABLES
+# =============================================================================
+fitbit\.com|Fitbit Ecosystem|Health & Fitness|Google
+garminconnect\.com|Garmin Connect Cloud|Health & Fitness|Garmin
+garmin\.com|Garmin Devices|Health & Fitness|Garmin
+withings\.com|Withings Health Mate|Health & Fitness|Withings
+oura\.com|Oura Ring Cloud|Health & Fitness|Oura
+strava\.com|Strava|Health & Fitness|Strava
+myfitnesspal\.com|MyFitnessPal|Health & Fitness|MyFitnessPal
+peloton\.com|Peloton Interactive|Health & Fitness|Peloton
+whoop\.com|WHOOP Performance Band|Health & Fitness|WHOOP
+
+# =============================================================================
+# PHOTOS & IMAGE HOSTING
+# =============================================================================
+photos\.googleusercontent\.com|Google Photos Library Stream|Photos|Google
+photos\.google\.com|Google Photos Web|Photos|Google
+flickr\.com|Flickr|Photos|SmugMug
+imgur\.com|Imgur Image Host|Photos|MediaLab
+500px\.com|500px Photography|Photos|Visual China Group
+
+# =============================================================================
+# SEARCH ENGINES & PORTALS
+# =============================================================================
+google\.gr|Google Search Greece|Search Engine|Google
+bing\.com|Microsoft Bing|Search Engine|Microsoft
+duckduckgo\.com|DuckDuckGo|Search Engine|DuckDuckGo
+search\.brave\.com|Brave Search|Search Engine|Brave Software
+
+# =============================================================================
+# MAPS & GEOLOCATION
+# =============================================================================
+maps\.google\.com|Google Maps|Maps & Navigation|Google
+mapbox\.com|Mapbox API|Maps & Navigation|Mapbox
+openstreetmap\.org|OpenStreetMap|Maps & Navigation|OpenStreetMap Foundation
+here\.com|HERE Technologies Maps|Maps & Navigation|HERE
+
+# =============================================================================
+# WEATHER SERVICES
+# =============================================================================
+weather\.com|The Weather Channel|Weather|IBM
+openweathermap\.org|OpenWeatherMap API|Weather|OpenWeather
+accuweather\.com|AccuWeather|Weather|AccuWeather
+meteo\.gr|meteo.gr|Weather|National Observatory of Athens
+emy\.gr|HNMS Weather Service|Weather|HNMS
+
+# =============================================================================
+# EDUCATION & E-LEARNING
+# =============================================================================
+coursera\.org|Coursera|Education|Coursera
+udemy\.com|Udemy|Education|Udemy
+khanacademy\.org|Khan Academy|Education|Khan Academy
+edx\.org|edX|Education|edX
+skillshare\.com|Skillshare|Education|Skillshare
+duolingo\.cn|Duolingo China|Education|Duolingo
+duolingo\.com|Duolingo|Education|Duolingo
+quizlet\.com|Quizlet|Education|Quizlet
+brilliant\.org|Brilliant.org|Education|Brilliant Worldwide
+codecademy\.com|Codecademy|Education|Skillsoft
+abcmouse\.com|ABCmouse|Education|Age of Learning
+epic\.com|Epic! Digital Library|Education|Epic Creations
+
+# =============================================================================
+# E-COMMERCE, RETAIL & MARKETPLACES (GLOBAL & GREECE)
+# =============================================================================
+amazon\.co\.uk|Amazon UK|E-Commerce|Amazon
+amazon\.de|Amazon Germany|E-Commerce|Amazon
+amazon\.it|Amazon Italy|E-Commerce|Amazon
+amazon\.es|Amazon Spain|E-Commerce|Amazon
+amazon\.fr|Amazon France|E-Commerce|Amazon
+amazon\.gr|Amazon Greece Entry|E-Commerce|Amazon
+amazon\.com|Amazon Global Store|E-Commerce|Amazon
+ebaystatic\.com|eBay Static CDN|E-Commerce|eBay
+ebay\.com|eBay Global|E-Commerce|eBay
+aliexpress\.com|AliExpress|E-Commerce|Alibaba
+alibaba\.com|Alibaba Wholesale|E-Commerce|Alibaba
+etsy\.com|Etsy Marketplace|E-Commerce|Etsy
+shein\.com|Shein Fashion|E-Commerce|Shein
+temu\.com|Temu Marketplace|E-Commerce|PDD Holdings
+walmart\.com|Walmart Online|E-Commerce|Walmart
+target\.com|Target Online|E-Commerce|Target
+bestbuy\.com|Best Buy|E-Commerce|Best Buy
+newegg\.com|Newegg Tech Store|E-Commerce|Newegg
+skroutz\.gr|Skroutz Marketplace|E-Commerce|Skroutz
+bestprice\.gr|BestPrice Comparison|E-Commerce|BestPrice
+shopflix\.gr|SHOPFLIX Marketplace|E-Commerce|SHOPFLIX
+vendora\.gr|Vendora Marketplace|E-Commerce / Classifieds|Vendora
+car\.gr|Car.gr Marketplace|E-Commerce / Classifieds|Car.gr
+xe\.gr|XE Classifieds|Classifieds|Golden Opportunity
+public\.gr|Public Retail|E-Commerce|Public Group
+plaisio\.gr|Plaisio Computers|E-Commerce|Plaisio
+kotsovolos\.gr|Kotsovolos|E-Commerce|Currys / PPC
+you\.gr|You.gr Electronics|E-Commerce|Quest Group
+e-shop\.gr|e-shop.gr|E-Commerce|e-shop.gr
+germanos\.gr|Germanos Telecom Retail|E-Commerce|OTE Group
+cosmodata\.gr|Cosmodata|E-Commerce / Electronics|Cosmodata
+visionstudio\.gr|Visionstudio|E-Commerce / Electronics|Visionstudio
+mgmanager\.gr|MG Manager|E-Commerce / Electronics|MG Manager
+electroline\.gr|Electroline Greece|E-Commerce / Electronics|Electroline
+kafkas\.gr|Kafkas|E-Commerce / Electrical|Kafkas
+e-argo\.gr|Argo Electronics|E-Commerce / Electronics|Argo
+ikea\.gr|IKEA Greece|E-Commerce / Home|Fourlis Group
+ikea\.com|IKEA Global|E-Commerce / Home|Inter IKEA
+leroymerlin\.gr|Leroy Merlin Greece|E-Commerce / Home|Adeo
+praktiker\.gr|Praktiker Greece|E-Commerce / Home|Praktiker
+jysk\.gr|JYSK Greece|E-Commerce / Home|JYSK
+jumbo\.gr|Jumbo|E-Commerce / Home|Jumbo
+neon\.gr|Neon Home|E-Commerce / Home|Neon
+moustakastoys\.gr|Moustakas Toys|E-Commerce / Toys|Moustakas
+moustakas\.gr|Moustakas Toys|E-Commerce / Toys|Moustakas
+toy-shop\.gr|Toy Shop Greece|E-Commerce / Toys|Toy Shop
+ab\.gr|AB Vassilopoulos Supermarket|E-Commerce / Grocery|Ahold Delhaize
+sklavenitis\.gr|Sklavenitis Supermarket|E-Commerce / Grocery|Sklavenitis Group
+mymarket\.gr|My Market Supermarket|E-Commerce / Grocery|METRO AEBE
+masoutis\.gr|Masoutis Supermarket|E-Commerce / Grocery|Masoutis
+lidl-hellas\.gr|Lidl Hellas|E-Commerce / Grocery|Schwarz Gruppe
+lidl\.gr|Lidl Hellas|E-Commerce / Grocery|Schwarz Gruppe
+market-in\.gr|Market In Supermarket|E-Commerce / Grocery|Market In
+kritikos-sm\.gr|Kritikos Supermarket|E-Commerce / Grocery|Kritikos
+chalkiadakis\.gr|Chalkiadakis Supermarket|E-Commerce / Grocery|Chalkiadakis
+thanopoulos\.gr|Thanopoulos Supermarket|E-Commerce / Grocery|Thanopoulos
+galaxias\.gr|Galaxias Supermarket|E-Commerce / Grocery|Galaxias
+synka\.gr|SYN.KA Supermarket|E-Commerce / Grocery|SYN.KA
+ofarmakopoiosmou\.gr|O Farmakopoios Mou|E-Commerce / Pharmacy|O Farmakopoios Mou
+pharm24\.gr|Pharm24|E-Commerce / Pharmacy|Pharm24
+vita4you\.gr|Vita4You|E-Commerce / Pharmacy|Vita4You
+galen\.gr|Galen|E-Commerce / Pharmacy|Galen
+pharmacy2go\.gr|Pharmacy2Go|E-Commerce / Pharmacy|Pharmacy2Go
+pharmacy295\.gr|Pharmacy295|E-Commerce / Pharmacy|Pharmacy295
+hondoscenter\.com|Hondos Center|E-Commerce / Beauty|Hondos Center
+sephora\.gr|Sephora Greece|E-Commerce / Beauty|Sephora
+atticadps\.gr|attica Department Stores|E-Commerce / Fashion|attica
+notino\.gr|Notino Greece|E-Commerce / Beauty|Notino
+cosmossport\.gr|Cosmos Sport|E-Commerce / Sports|Cosmos Sport
+jdsports\.gr|JD Sports Greece|E-Commerce / Sports|JD Sports
+sneaker10\.gr|Sneaker10|E-Commerce / Sports|Sneaker10
+slam-dunk\.gr|Slam Dunk|E-Commerce / Sports|Cosmos Sport Group
+zakcret\.gr|Zakcret Sports|E-Commerce / Sports|Zakcret
+intersport\.gr|Intersport Greece|E-Commerce / Sports|Fourlis Group
+hallofbrands\.gr|Hall of Brands|E-Commerce / Fashion|Hall of Brands
+factoryoutlet\.gr|Factory Outlet|E-Commerce / Fashion|Factory Outlet
+attrattivo\.com|Attrattivo|E-Commerce / Fashion|Attrattivo
+tsakirismallas\.gr|Tsakiris Mallas|E-Commerce / Fashion|Tsakiris Mallas
+pet4u\.gr|Pet4U|E-Commerce / Pet|Pet4U
+petcity\.gr|Pet City|E-Commerce / Pet|Pet City
+zooplus\.gr|Zooplus Greece|E-Commerce / Pet|Zooplus
+petshop\.gr|Petshop.gr|E-Commerce / Pet|Petshop
+ianos\.gr|IANOS Books|E-Commerce / Books|IANOS
+booksite\.gr|Booksite|E-Commerce / Books|Booksite
+politeianet\.gr|Politeia Books|E-Commerce / Books|Politeia
+protoporia\.gr|Protoporia Books|E-Commerce / Books|Protoporia
+
+# =============================================================================
+# FOOD DELIVERY & RESTAURANTS
+# =============================================================================
+e-food\.gr|e-food Delivery|Food Delivery|Delivery Hero
+box\.gr|BOX Delivery|Food Delivery|OTE / Cosmote
+wolt\.com\.tr|Wolt Turkey|Food Delivery|DoorDash
+wolt\.com|Wolt Delivery|Food Delivery|DoorDash
+delivery\.gr|Delivery.gr|Food Delivery|Delivery.gr
+foody\.gr|Foody|Food Delivery|Delivery Hero
+ubereats\.com|Uber Eats|Food Delivery|Uber
+deliveroo\.com|Deliveroo|Food Delivery|Deliveroo
+just-eat\.com|Just Eat|Food Delivery|Just Eat Takeaway
+mcdonalds\.gr|McDonald's Greece|Food & Restaurant|McDonald's
+mcdonalds\.com|McDonald's Global|Food & Restaurant|McDonald's
+burgerking\.com|Burger King|Food & Restaurant|Restaurant Brands International
+kfc\.com|KFC Global|Food & Restaurant|Yum! Brands
+dominos\.gr|Domino's Pizza Greece|Food & Restaurant|Domino's Pizza
+coffeeisland\.gr|Coffee Island|Food / Retail|Coffee Island
+mikelcoffee\.com|Mikel Coffee|Food / Retail|Mikel
+gregorys\.gr|Gregorys|Food / Retail|Gregorys
+everest\.gr|Everest|Food / Retail|Everest
+goodysgroup\.com|Goody's Burger House|Food / Retail|Goody's
+loukakos\.gr|Loukoumi Food|Food / Retail|Greek Retail
+
+# =============================================================================
+# LOGISTICS & COURIER SERVICES
+# =============================================================================
+boxnow\.gr|BOX NOW Greece|Logistics & Locker|BOX NOW
+box\.now|BOX NOW Delivery Locker|Logistics & Locker|BOX NOW
+acs\.gr|ACS Postal Services|Logistics & Courier|Quest Group
+elta-courier\.gr|ELTA Courier|Delivery / Courier|Hellenic Post
+elta\.gr|Hellenic Post (ELTA)|Logistics & Courier|ELTA Group
+speedex\.gr|Speedex Courier|Delivery / Courier|Speedex
+taxydromiki\.gr|Geniki Taxydromiki|Delivery / Courier|Geniki Taxydromiki
+geniki\.gr|Geniki Taxydromiki|Delivery / Courier|Geniki Taxydromiki
+couriercenter\.gr|Courier Center|Delivery / Courier|Courier Center
+
+# =============================================================================
+# TRAVEL, RIDE-HAILING, FLIGHTS & FERRIES
+# =============================================================================
+airbnb\.com|Airbnb|Travel & Lodging|Airbnb
+booking\.com|Booking.com|Travel & Lodging|Booking Holdings
+expedia\.com|Expedia|Travel & Lodging|Expedia Group
+hotels\.com|Hotels.com|Travel & Lodging|Expedia Group
+hotelscombined\.gr|HotelsCombined Greece|Travel|HotelsCombined
+tripadvisor\.gr|Tripadvisor Greece|Travel Reviews|Tripadvisor
+tripadvisor\.com|Tripadvisor|Travel Reviews|Tripadvisor
+greeka\.com|Greeka Travel|Travel / Greece|Greeka
+discovergreece\.com|Discover Greece|Travel / Greece|Marketing Greece
+skyscanner\.gr|Skyscanner Greece|Travel & Flights|Trip.com Group
+skyscanner\.net|Skyscanner Global|Travel & Flights|Trip.com Group
+aegeanair\.com|Aegean Airlines|Travel & Airline|Aegean Airlines
+olympicair\.com|Olympic Air|Travel / Aviation|Aegean Airlines
+skyexpress\.gr|SKY express|Travel / Aviation|SKY express
+ryanair\.com|Ryanair|Travel & Airline|Ryanair Holdings
+hellenictrain\.gr|Hellenic Train Services|Transport & Rail|Ferrovie dello Stato Italiane
+ferryhopper\.com|Ferryhopper|Travel / Ferries|Ferryhopper
+seajets\.com|Seajets|Travel / Ferries|Seajets
+bluestarferries\.com|Blue Star Ferries|Travel / Ferries|Attica Group
+minoan\.gr|Minoan Lines|Travel / Ferries|Minoan Lines
+anek\.gr|ANEK Lines|Travel / Ferries|ANEK
+goldenstarferries\.com|Golden Star Ferries|Travel / Ferries|Golden Star Ferries
+fastferries\.com|Fast Ferries|Travel / Ferries|Fast Ferries
+ktel\.gr|KTEL Greece|Transport|KTEL
+oasa\.gr|OASA Athens|Transport|OASA
+stasy\.gr|STASY Athens|Transport|STASY
+oseth\.com\.gr|OSeTh Thessaloniki|Transport|OSeTh
+uber\.net|Uber Telemetry & Dispatch|Transport & Mobility|Uber
+uber\.com|Uber Ride-Hailing|Transport & Mobility|Uber
+thebeat\.co|Beat Taxi (FREENOW Legacy)|Transport & Mobility|BMW / Mercedes-Benz
+freenow\.com|FREENOW Mobility|Transport & Mobility|BMW / Mercedes-Benz
+
+# =============================================================================
+# REAL ESTATE
+# =============================================================================
+spitogatos\.gr|Spitogatos|Real Estate|Spitogatos
+spiti24\.gr|Spiti24|Real Estate|Spiti24
+tospitimou\.gr|To Spiti Mou|Real Estate|Greek Real Estate
+plot\.gr|Plot.gr|Real Estate|Plot.gr
+
+# =============================================================================
+# AUTOMOTIVE & MEDIA
+# =============================================================================
+carandmotor\.gr|Car & Motor|Automotive|Car & Motor
+autotriti\.gr|AutoTriti|Automotive / Media|AutoTriti
+gocar\.gr|Gocar|Automotive / Media|Gocar
+4troxoi\.gr|4Troxoi|Automotive / Media|4Troxoi
+shell\.gr|Shell Greece|Energy / Retail|Shell
+eko\.gr|EKO Greece|Energy / Retail|EKO
+bp\.com|BP|Energy / Retail|BP
+revoil\.gr|Revoil|Energy / Retail|Revoil
+elin\.gr|ELIN|Energy / Retail|ELIN
+
+# =============================================================================
+# BANKING, FINTECH & CRYPTOCURRENCY
+# =============================================================================
+paypalobjects\.com|PayPal CDN / Static|Banking & Fintech|PayPal
+paypal\.com|PayPal Payments|Banking & Fintech|PayPal
+revolut\.net|Revolut Core Network|Banking & Fintech|Revolut
+revolut\.com|Revolut Digital Bank|Banking & Fintech|Revolut
+n26\.com|N26 Digital Bank|Banking & Fintech|N26
+transferwise\.com|TransferWise Legacy|Banking & Fintech|Wise
+wise\.com|Wise Global Transfers|Banking & Fintech|Wise
+alphaevolution\.gr|Alpha Bank Digital Infrastructure|Banking & Fintech|Alpha Bank
+alpha\.gr|Alpha Bank E-Banking|Banking & Fintech|Alpha Bank
+eurobank\.gr|Eurobank E-Banking|Banking & Fintech|Eurobank
+nbg\.gr|National Bank of Greece (NBG)|Banking & Fintech|National Bank of Greece
+piraeusbank\.gr|Piraeus Bank Winbank|Banking & Fintech|Piraeus Bank
+viva\.wallet|Viva Wallet Infrastructure|Banking & Fintech|Viva.com
+vivawallet\.com|Viva Wallet Portal|Banking & Fintech|Viva.com
+viva\.com|Viva.com (Viva Wallet)|Banking & Fintech|Viva.com
+coinbase\.com|Coinbase Exchange|Cryptocurrency|Coinbase
+binance\.com|Binance Exchange|Cryptocurrency|Binance
+kraken\.com|Kraken Exchange|Cryptocurrency|Payward
+crypto\.com|Crypto.com App|Cryptocurrency|Crypto.com
+
+# =============================================================================
+# GREEK PUBLIC SECTOR, UTILITIES & TELECOMS
+# =============================================================================
+e-katanalotis\.gov\.gr|e-Katanalotis Hub|Government / Consumer|Greek Government
+posokanei\.gr|PosoKanei Price Monitor|E-Commerce / Price Index|Greek Government
+pricefox\.gr|Pricefox Comparison|Price Comparison / Insurance|Pricefox
+fly\.gr|Fly Deals|Deals|Greek Retail
+pestemeno\.gr|Pestemeno|Deals / Shopping|Greek Deals
+kypl\.gr|Deals Greece|Deals|Greek Retail
+gov\.gr|gov.gr Central Portal|Government & Public|Greek Government
+gsis\.gr|Taxisnet / GSIS General Secretariat|Government & Public|Greek Government
+aade\.gr|AADE Tax Authority|Government & Public|Greek Government
+efka\.gov\.gr|e-EFKA Social Security|Government & Public|Greek Government
+idika\.gr|IDIKA Health Insurance Backend|Government & Public|Greek Government
+ergani\.gov\.gr|ERGANI Employment Platform|Government & Public|Greek Government
+dei\.gr|PPC / DEI Power Utility|Utilities|PPC
+deddie\.gr|HEDNO / DEDDIE Distribution Grid|Utilities|HEDNO
+eydap\.gr|EYDAP Water Utility|Utilities|EYDAP
+ote\.gr|OTE Fixed Infrastructure|Telecom & ISP|OTE / Deutsche Telekom
+cosmote\.gr|Cosmote Portal & My Cosmote|Telecom & ISP|OTE / Deutsche Telekom
+vodafone\.gr|Vodafone Greece My Vodafone|Telecom & ISP|Vodafone Group
+nova\.gr|Nova Telecom & EON TV|Telecom & ISP|United Group
+
+# =============================================================================
+# NEWS AGENCIES & JOURNALISM
+# =============================================================================
+bbc\.co\.uk|BBC UK Portal|News & Journalism|BBC
+bbc\.com|BBC Global News|News & Journalism|BBC
+cnn\.gr|CNN Greece|Media / News|CNN Greece
+cnn\.com|CNN International|News & Journalism|Warner Bros Discovery
+reuters\.com|Reuters News Service|News & Journalism|Thomson Reuters
+theguardian\.com|The Guardian|News & Journalism|Guardian Media Group
+nytimes\.com|The New York Times|News & Journalism|The New York Times Company
+in\.gr|in.gr News Portal|News & Journalism|Alter Ego Media
+tanea\.gr|TA NEA Newspaper|News & Journalism|Alter Ego Media
+news247\.gr|News 24/7 Greece|News & Journalism|24MEDIA
+skai\.gr|SKAI News Portal|News & Journalism|SKAI Group
+protothema\.gr|Proto Thema Online|News & Journalism|Proto Thema
+kathimerini\.gr|I Kathimerini Online|News & Journalism|Kathimerini Publishing
+newsit\.gr|NewsIt Greece|Media / News|NewsIt
+iefimerida\.gr|iefimerida Greece|Media / News|iefimerida
+naftemporiki\.gr|Naftemporiki Business|Media / Business|Naftemporiki
+capital\.gr|Capital.gr Finance|Media / Business|Capital
+moneyreview\.gr|Money Review Greece|Media / Finance|Kathimerini Group
+ert\.gr|ERT Public Broadcaster|Media / News|ERT
+
+# =============================================================================
+# LOCAL NETWORK & MDNS DOMAINS
+# =============================================================================
+homeassistant\.local|Home Assistant Local Host|Local Network|Home Assistant
+plex\.local|Plex Local Host|Local Network|Plex
+nas\.local|Generic NAS Local Host|Local Network|Local
+\.home$|Home Local Domain|Local Network|Local
+\.lan$|LAN Local Domain|Local Network|Local
+\.local$|mDNS Local Multicast|Local Network|Local

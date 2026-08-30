@@ -1,0 +1,469 @@
+# ==============================================================================
+# Database: DNS Query Pattern Fingerprints (OS & Core Ecosystem)
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   Regex FQDN | OS / Core Service Name | Confidence Score (1-99) | Device Type | Vendor
+#
+# Rules for Adding Entries:
+#   1. Confidence Tiers:
+#      - 90-99: Core OS telemetry & update CDNs (e.g. msftncsi, mesu.apple.com).
+#      - 60-85: Dedicated ecosystem infrastructure (e.g. miui, smartthings).
+#      - 30-55: Multi-platform services, portals, web clients.
+#   2. Specific subdomains MUST precede parent root domains.
+#   3. Linux distribution repos must use 'server' or 'pc' as Device Type (NEVER 'Windows').
+#
+# Example:
+#   dns\.msftncsi\.com|Windows|96|pc|Microsoft
+#   deb\.debian\.org|Linux (Debian)|95|server|Debian
+# ==============================================================================
+
+# ==============================================================================
+# Windows Core & NCSI Connectivity (Definitive OS Stack)
+# ==============================================================================
+dns\.msftncsi\.com|Windows|96|pc|Microsoft
+www\.msftconnecttest\.com|Windows|96|pc|Microsoft
+www\.msftncsi\.com|Windows|96|pc|Microsoft
+ipv6\.msftconnecttest\.com|Windows|94|pc|Microsoft
+msftconnecttest\.com|Windows|94|pc|Microsoft
+edge-http\.microsoft\.com|Windows|88|pc|Microsoft
+
+# ==============================================================================
+# Windows Subsystems, Lockscreen & Core Telemetry
+# ==============================================================================
+arc\.msn\.com|Microsoft MSN Client|40|generic|Microsoft
+skydrive\.wns\.windows\.com|Windows|95|pc|Microsoft
+wns\.windows\.com|Windows|95|pc|Microsoft
+self\.events\.data\.microsoft\.com|Microsoft Telemetry Client|50|generic|Microsoft
+v10\.events\.data\.microsoft\.com|Microsoft Telemetry Client|50|generic|Microsoft
+settings-win\.data\.microsoft\.com|Windows|90|pc|Microsoft
+watson\.telemetry\.microsoft\.com|Windows|85|pc|Microsoft
+.*\.events\.data\.microsoft\.com|Windows|80|pc|Microsoft
+.*-mobile\.events\.data\.microsoft\.com|Microsoft Mobile Telemetry|45|generic|Microsoft
+ecs\.office\.com|Microsoft 365 Client|55|generic|Microsoft
+roaming\.officeapps\.live\.com|Microsoft Office Client|50|generic|Microsoft
+api\.onedrive\.com|Microsoft OneDrive App|45|generic|Microsoft
+
+# ==============================================================================
+# Windows Update & System Delivery
+# ==============================================================================
+download\.windowsupdate\.com|Windows|94|pc|Microsoft
+ctldl\.windowsupdate\.com|Windows|92|pc|Microsoft
+windowsupdate\.com|Windows|92|pc|Microsoft
+fe3\.delivery\.mp\.microsoft\.com|Windows|90|pc|Microsoft
+fe2\.update\.microsoft\.com|Windows|88|pc|Microsoft
+sls\.update\.microsoft\.com|Windows|88|pc|Microsoft
+dl\.delivery\.mp\.microsoft\.com|Windows|88|pc|Microsoft
+storeedgefd\.dsx\.mp\.microsoft\.com|Windows|88|pc|Microsoft
+update\.microsoft\.com|Windows|88|pc|Microsoft
+delivery\.mp\.microsoft\.com|Windows|86|pc|Microsoft
+prod\.do\.dsp\.mp\.microsoft\.com|Windows|86|pc|Microsoft
+displaycatalog\.mp\.microsoft\.com|Windows|85|pc|Microsoft
+officecdn\.microsoft\.com|Windows (Office Update)|65|pc|Microsoft
+login\.microsoftonline\.com|Microsoft Online Account|35|generic|Microsoft
+teams\.microsoft\.com|Microsoft Teams Client|30|generic|Microsoft
+onedrive\.live\.com|Microsoft OneDrive Web|30|generic|Microsoft
+xbox\.com|Xbox Web Portal|35|generic|Microsoft
+
+# ==============================================================================
+# Apple macOS (Workstations & Laptops)
+# ==============================================================================
+oscdn\.apple\.com|Apple macOS PC|95|mac-pc|Apple
+osrecovery\.apple\.com|Apple macOS PC|95|mac-pc|Apple
+swcdn\.apple\.com|Apple macOS PC|92|mac-pc|Apple
+swdist\.apple\.com|Apple macOS PC|90|mac-pc|Apple
+swdownload\.apple\.com|Apple macOS PC|90|mac-pc|Apple
+swscan\.apple\.com|Apple macOS PC|90|mac-pc|Apple
+
+# ==============================================================================
+# Apple iOS / iPadOS & Universal Ecosystem
+# ==============================================================================
+mesu\.apple\.com|Apple iPhone / iPad (iOS)|95|smartphone|Apple
+gdmf\.apple\.com|Apple iPhone / iPad (iOS)|94|smartphone|Apple
+albert\.apple\.com|Apple iPhone / iPad (iOS)|94|smartphone|Apple
+setup\.icloud\.com|Apple iPhone / iPad (iOS)|92|smartphone|Apple
+init\.push\.apple\.com|Apple Ecosystem Device|94|generic|Apple
+courier\.push\.apple\.com|Apple Ecosystem Device|94|generic|Apple
+push\.apple\.com|Apple Ecosystem Device|90|generic|Apple
+lcdn-locator\.apple\.com|Apple Ecosystem Device|90|generic|Apple
+doh\.dns\.apple\.com|Apple Ecosystem Device|90|generic|Apple
+api\.apple-cloudkit\.com|Apple Ecosystem Device|75|generic|Apple
+configuration\.apple\.com|Apple Ecosystem Device|75|generic|Apple
+icloud-content\.com|Apple Ecosystem Device|70|generic|Apple
+gsa\.apple\.com|Apple Ecosystem Device|70|generic|Apple
+identity\.apple\.com|Apple Ecosystem Device|70|generic|Apple
+xp\.apple\.com|Apple Ecosystem Device|70|generic|Apple
+gs\.apple\.com|Apple Ecosystem Device|70|generic|Apple
+gg\.apple\.com|Apple Ecosystem Device|70|generic|Apple
+skl\.apple\.com|Apple Ecosystem Device|70|generic|Apple
+apps\.apple\.com|Apple App Store Client|45|generic|Apple
+idmsa\.apple\.com|Apple ID Authentication|45|generic|Apple
+mzstatic\.com|Apple Media Content|35|generic|Apple
+itunes\.apple\.com|Apple iTunes / Music|35|generic|Apple
+icloud\.com|Apple iCloud Web Portal|30|generic|Apple
+captive\.apple\.com|Apple Captive Portal Check|30|generic|Apple
+
+# ==============================================================================
+# Android Ecosystem & Google Mobile Services
+# ==============================================================================
+connectivitycheck\.android\.com|Android|80|smartphone|Google
+android\.clients\.google\.com|Android|80|smartphone|Google
+play\.googleapis\.com|Android|80|smartphone|Google
+time\.android\.com|Android|80|smartphone|Google
+android\.googleapis\.com|Android|80|smartphone|Google
+mtalk\.google\.com|Android|80|smartphone|Google
+play-fe\.googleapis\.com|Android|80|smartphone|Google
+firebaseinstallations\.googleapis\.com|Android App|55|smartphone|Google
+inputtools\.google\.com|Google Gboard / Tools|50|generic|Google
+fcm\.googleapis\.com|Google Cloud Messaging|40|generic|Google
+connectivitycheck\.gstatic\.com|Google Connectivity Check|55|generic|Google
+connectivitycheck\.google\.com|Google Connectivity Check|55|generic|Google
+clients3\.google\.com|Google Captive Portal Check|35|generic|Google
+clients4\.google\.com|Google Captive Portal Check|35|generic|Google
+clients6\.google\.com|Google Captive Portal Check|30|generic|Google
+dl\.google\.com|Google Chrome / Download CDN|30|generic|Google
+gvt1\.com|Google Media Delivery|25|generic|Google
+gvt2\.com|Google Media Delivery|25|generic|Google
+
+# ==============================================================================
+# Google ChromeOS
+# ==============================================================================
+chromeosupdate\.appspot\.com|Google ChromeOS PC|95|chrome-pc|Google
+clients2\.google\.com|Google ChromeOS PC|75|chrome-pc|Google
+update\.googleapis\.com|Google Update Service|40|generic|Google
+
+# ==============================================================================
+# Linux Distributions Package Repositories (Debian, Ubuntu, Arch, RedHat, etc.)
+# ==============================================================================
+deb\.debian\.org|Linux (Debian)|95|server|Debian
+security\.debian\.org|Linux (Debian)|95|server|Debian
+ftp\.debian\.org|Linux (Debian)|90|server|Debian
+packages\.debian\.org|Linux (Debian)|85|server|Debian
+snapshot\.debian\.org|Linux (Debian)|85|server|Debian
+debian\.org|Debian Web|10|generic|Debian
+
+archive\.ubuntu\.com|Linux (Ubuntu)|85|server|Canonical
+security\.ubuntu\.com|Linux (Ubuntu)|85|server|Canonical
+ports\.ubuntu\.com|Linux (Ubuntu)|85|server|Canonical
+esm\.ubuntu\.com|Linux (Ubuntu)|85|server|Canonical
+landscape\.canonical\.com|Linux (Ubuntu)|85|server|Canonical
+archive\.canonical\.com|Linux (Ubuntu)|85|server|Canonical
+ppa\.launchpadcontent\.net|Ubuntu PPA Repo|60|server|Canonical
+api\.snapcraft\.io|Snapcraft App Store|60|generic|Canonical
+snapcraft\.io|Snapcraft Web|40|generic|Canonical
+ubuntu\.com|Ubuntu Web|10|generic|Canonical
+canonical\.com|Canonical Web|10|generic|Canonical
+
+geo\.mirror\.pkgbuild\.com|Linux (Arch Linux)|96|pc|Arch Linux
+mirror\.pkgbuild\.com|Linux (Arch Linux)|96|pc|Arch Linux
+aur\.archlinux\.org|Linux (Arch Linux AUR)|95|pc|Arch Linux
+pkgbuild\.com|Linux (Arch Linux)|85|pc|Arch Linux
+archlinux\.org|Arch Linux Web|35|generic|Arch Linux
+
+repo\.manjaro\.org|Linux (Manjaro)|90|pc|Manjaro
+packages\.manjaro\.org|Linux (Manjaro)|90|pc|Manjaro
+manjaro\.org|Manjaro Web|35|generic|Manjaro
+
+mirror\.endeavouros\.com|Linux (EndeavourOS)|95|pc|EndeavourOS
+repo\.endeavouros\.com|Linux (EndeavourOS)|95|pc|EndeavourOS
+endeavouros\.com|EndeavourOS Web|35|generic|EndeavourOS
+
+mirror\.cachyos\.org|Linux (CachyOS)|95|pc|CachyOS
+cachyos\.org|CachyOS Web|35|generic|CachyOS
+
+repo\.arcolinux\.com|Linux (ArcoLinux)|95|pc|ArcoLinux
+
+mirrors\.fedoraproject\.org|Linux (Fedora)|95|pc|Fedora
+download\.fedoraproject\.org|Linux (Fedora)|95|pc|Fedora
+updates\.fedoraproject\.org|Linux (Fedora)|92|pc|Fedora
+dl\.fedoraproject\.org|Fedora / EPEL Repo|85|server|Fedora
+fedoraproject\.org|Fedora Web|35|generic|Fedora
+
+cdn\.redhat\.com|Linux (Red Hat Enterprise)|96|server|Red Hat
+subscription\.rhsm\.redhat\.com|Linux (Red Hat Enterprise)|96|server|Red Hat
+rhsm\.redhat\.com|Linux (Red Hat Enterprise)|96|server|Red Hat
+access\.redhat\.com|Red Hat Portal|92|server|Red Hat
+
+dl\.rockylinux\.org|Linux (Rocky Linux)|95|server|Rocky Linux
+download\.rockylinux\.org|Linux (Rocky Linux)|95|server|Rocky Linux
+repo\.almalinux\.org|Linux (AlmaLinux)|95|server|AlmaLinux
+mirror\.centos\.org|Linux (CentOS)|95|server|CentOS
+vault\.centos\.org|Linux (CentOS)|90|server|CentOS
+rpm\.nobaraproject\.org|Linux (Nobara)|95|pc|Nobara
+
+download\.opensuse\.org|Linux (openSUSE)|95|server|openSUSE
+updates\.opensuse\.org|Linux (openSUSE)|92|server|openSUSE
+download\.suse\.com|Linux (SUSE)|95|server|SUSE
+updates\.suse\.com|Linux (SUSE)|95|server|SUSE
+scc\.suse\.com|Linux (SUSE)|95|server|SUSE
+
+packages\.linuxmint\.com|Linux (Linux Mint)|95|pc|Linux Mint
+archive\.linuxmint\.com|Linux (Linux Mint)|94|pc|Linux Mint
+apt\.pop-os\.org|Linux (Pop!_OS)|95|pc|System76
+packages\.elementary\.io|Linux (elementary OS)|95|pc|elementary
+repo\.zorin\.com|Linux (Zorin OS)|95|pc|Zorin
+mxrepo\.com|Linux (MX Linux)|95|pc|MX Linux
+repo\.deepin\.com|Linux (Deepin)|95|pc|Deepin
+repo\.antixlinux\.com|Linux (antiX)|95|pc|antiX
+repo\.sparkylinux\.org|Linux (SparkyLinux)|95|pc|SparkyLinux
+repo\.linuxliteos\.com|Linux (Linux Lite)|95|pc|Linux Lite
+repo\.tuxedocomputers\.com|Linux (TUXEDO OS)|95|pc|TUXEDO
+packages\.vanillaos\.org|Linux (Vanilla OS)|95|pc|Vanilla OS
+repo\.endlessm\.com|Linux (Endless OS)|95|pc|Endless OS
+
+http\.kali\.org|Linux (Kali Linux)|95|pc|Kali Linux
+cdimage\.kali\.org|Linux (Kali Linux)|94|pc|Kali Linux
+archive\.kali\.org|Linux (Kali Linux)|92|pc|Kali Linux
+
+download\.tails\.net|Linux (Tails)|95|pc|Tails
+yum\.qubes-os\.org|Linux (Qubes OS)|95|pc|Qubes
+deb\.qubes-os\.org|Linux (Qubes OS)|95|pc|Qubes
+
+dl-cdn\.alpinelinux\.org|Linux (Alpine Linux)|95|server|Alpine Linux
+dl\.alpinelinux\.org|Linux (Alpine Linux)|95|server|Alpine Linux
+
+cache\.nixos\.org|Linux (NixOS)|95|pc|NixOS
+releases\.nixos\.org|Linux (NixOS)|95|pc|NixOS
+ci\.guix\.gnu\.org|Linux (GNU Guix)|95|pc|GNU
+
+distfiles\.gentoo\.org|Linux (Gentoo)|95|pc|Gentoo
+packages\.gentoo\.org|Linux (Gentoo)|92|pc|Gentoo
+repo-default\.voidlinux\.org|Linux (Void Linux)|95|pc|Void Linux
+mirrors\.slackware\.com|Linux (Slackware)|95|pc|Slackware
+packages\.getsol\.us|Linux (Solus)|95|pc|Solus
+packages\.pclinuxos\.com|Linux (PCLinuxOS)|95|pc|PCLinuxOS
+mirrors\.mageia\.org|Linux (Mageia)|95|pc|Mageia
+abf\.openmandriva\.org|Linux (OpenMandriva)|95|pc|OpenMandriva
+cdn\.download\.clearlinux\.org|Linux (Clear Linux)|95|pc|Intel
+
+yum\.oracle\.com|Linux (Oracle Linux)|95|server|Oracle
+linux\.oracle\.com|Linux (Oracle Linux)|92|server|Oracle
+cdn\.amazonlinux\.com|Linux (Amazon Linux)|95|server|Amazon
+
+archive\.raspberrypi\.org|Raspberry Pi OS|96|server|Raspberry Pi
+raspbian\.raspberrypi\.org|Raspberry Pi OS|96|server|Raspberry Pi
+downloads\.raspberrypi\.org|Raspberry Pi OS|90|server|Raspberry Pi
+
+registry\.flatpak\.org|Linux Host (Flatpak)|65|generic|Flathub
+flathub\.org|Linux Host (Flathub)|40|generic|Flathub
+cdn\.kernel\.org|Linux Host|50|generic|Linux
+mirrors\.kernel\.org|Linux Host|50|generic|Linux
+kernel\.org|Linux Host|35|generic|Linux
+ipv4\.connman\.net|Linux Host|35|generic|Linux
+
+# ==============================================================================
+# Samsung Galaxy & Smart Ecosystem
+# ==============================================================================
+samsungcloudsolution\.com|Samsung Smart TV (Tizen)|96|smart-tv|Samsung
+samsungcloudsolution\.net|Samsung Smart TV (Tizen)|96|smart-tv|Samsung
+samsungcloud\.tv|Samsung Smart TV (Tizen)|95|smart-tv|Samsung
+samsungosp\.com|Samsung Smart TV (Tizen)|94|smart-tv|Samsung
+samsungacr\.com|Samsung Smart TV (Tizen)|92|smart-tv|Samsung
+.*\.samsungcloud\.com|Samsung Galaxy Device|95|smartphone|Samsung
+vas\.samsungapps\.com|Samsung Galaxy Device|95|smartphone|Samsung
+samsungqbe\.com|Samsung Galaxy Device|92|smartphone|Samsung
+samsungapps\.com|Samsung Galaxy Device|90|smartphone|Samsung
+samsungmobile\.com|Samsung Galaxy Device|90|smartphone|Samsung
+samsungknox\.com|Samsung Galaxy Device|92|smartphone|Samsung
+bixby\.samsung\.com|Samsung Galaxy Device|90|smartphone|Samsung
+.*\.samsungosp\.com|Samsung Galaxy Device|92|smartphone|Samsung
+samsungotn\.net|Samsung Galaxy Device|90|smartphone|Samsung
+samsungrm\.net|Samsung Galaxy Device|88|smartphone|Samsung
+samsungiotcloud\.com|Samsung SmartThings Hub|94|iot|Samsung
+smartthings\.com|Samsung SmartThings Hub|88|iot|Samsung
+account\.samsung\.com|Samsung Account Service|40|generic|Samsung
+
+# ==============================================================================
+# Xiaomi / Redmi / POCO (MIUI / HyperOS)
+# ==============================================================================
+connect\.rom\.miui\.com|Xiaomi / Redmi Smartphone|96|smartphone|Xiaomi
+sec\.miui\.com|Xiaomi / Redmi Smartphone|94|smartphone|Xiaomi
+miui\.com|Xiaomi / Redmi Smartphone|94|smartphone|Xiaomi
+xiaomimobile\.com|Xiaomi / Redmi Smartphone|92|smartphone|Xiaomi
+api\.io\.mi\.com|Xiaomi / Redmi Smartphone|92|smartphone|Xiaomi
+io\.mi\.com|Xiaomi / Redmi Smartphone|90|smartphone|Xiaomi
+xiaomi\.net|Xiaomi / Redmi Smartphone|88|smartphone|Xiaomi
+miot\.xiaomi\.com|Xiaomi Smart Home Hub|96|iot|Xiaomi
+miot-spec\.org|Xiaomi Smart Home Hub|95|iot|Xiaomi
+miio\.cloud|Xiaomi Smart Home Device|94|iot|Xiaomi
+
+# ==============================================================================
+# Huawei & HONOR
+# ==============================================================================
+connectivitycheck\.platform\.hicloud\.com|Huawei Smartphone|96|smartphone|Huawei
+hicloud\.com|Huawei Smartphone|94|smartphone|Huawei
+petalsearch\.huawei\.com|Huawei Smartphone|88|smartphone|Huawei
+appgallery\.huawei\.com|Huawei Smartphone|85|smartphone|Huawei
+connectivitycheck\.platform\.hihonorcloud\.com|HONOR Smartphone|95|smartphone|Honor
+hihonor\.com|HONOR Smartphone|92|smartphone|Honor
+honorfile\.com|HONOR Smartphone|90|smartphone|Honor
+
+# ==============================================================================
+# Smart TVs, Streaming Devices & Media Centers
+# ==============================================================================
+addons\.coreelec\.org|CoreELEC Media Center|90|smart-tv|CoreELEC
+mirrors\.kodi\.tv|Kodi Media Center|75|smart-tv|Kodi
+lgtvsdp\.com|LG Smart TV (webOS)|96|smart-tv|LG
+lgappstv\.com|LG Smart TV (webOS)|96|smart-tv|LG
+nextlgsdp\.com|LG Smart TV (webOS)|94|smart-tv|LG
+lgsmartad\.com|LG Smart TV (webOS)|92|smart-tv|LG
+lgthinq\.com|LG ThinQ Smart Device|94|iot|LG
+bravia\.com|Sony Bravia Smart TV|96|smart-tv|Sony
+roku\.tv|Roku Smart TV|96|smart-tv|Roku
+co\.roku\.com|Roku Streaming Player|95|smart-tv|Roku
+api\.roku\.com|Roku Streaming Player|94|smart-tv|Roku
+scribe\.roku\.com|Roku Streaming Player|92|smart-tv|Roku
+logs\.roku\.com|Roku Streaming Player|90|smart-tv|Roku
+roku\.com|Roku Streaming Device|85|smart-tv|Roku
+firetvcaptiveportal\.com|Amazon Fire TV|96|smart-tv|Amazon
+fireoscaptiveportal\.com|Amazon Fire TV / Tablet|95|smart-tv|Amazon
+fireos\.amazon\.com|Amazon Fire TV|94|smart-tv|Amazon
+todo-firetv-sync\.amazon\.com|Amazon Fire TV|92|smart-tv|Amazon
+chromecast\.com|Google Chromecast / TV|96|smart-tv|Google
+googlecast\.com|Google Chromecast / TV|96|smart-tv|Google
+cast\.google\.com|Google Chromecast / TV|92|smart-tv|Google
+tv\.googleapis\.com|Google TV Device|90|smart-tv|Google
+
+# ==============================================================================
+# Smart Speakers & Voice Assistants
+# ==============================================================================
+alexa\.amazon\.com|Amazon Echo / Alexa Speaker|95|smart-speaker|Amazon
+avs\.amazon\.com|Amazon Echo / Alexa Speaker|94|smart-speaker|Amazon
+device-metrics-us\.amazon\.com|Amazon Echo / Alexa Speaker|92|smart-speaker|Amazon
+device-metrics-us-2\.amazon\.com|Amazon Echo / Alexa Speaker|92|smart-speaker|Amazon
+upnp\.sonos\.com|Sonos Smart Speaker|96|smart-speaker|Sonos
+sonos\.com|Sonos Smart Speaker|60|smart-speaker|Sonos
+googlehome\.com|Google Nest / Home Speaker|94|smart-speaker|Google
+home\.google\.com|Google Nest / Home Speaker|88|smart-speaker|Google
+home\.nest\.com|Google Nest Smart Device|94|smart-speaker|Google
+nest\.com|Google Nest Smart Device|90|smart-speaker|Google
+transport\.googleapis\.com|Google Nest Smart Device|65|smart-speaker|Google
+
+# ==============================================================================
+# Gaming Consoles, Handhelds & Gaming PC Clients
+# ==============================================================================
+conntest\.nintendowifi\.net|Nintendo Switch Console|96|console|Nintendo
+receive-lp1\.dg\.srv\.nintendo\.net|Nintendo Switch Console|94|console|Nintendo
+nintendo\.net|Nintendo Switch Console|90|console|Nintendo
+nintendo\.co\.jp|Nintendo Gaming Device|70|console|Nintendo
+dl\.playstation\.net|Sony PlayStation 5 / 4|95|console|Sony
+api\.playstation\.com|Sony PlayStation 5 / 4|94|console|Sony
+pscdn\.co|Sony PlayStation 5 / 4|90|console|Sony
+playstation\.net|Sony PlayStation Console|85|console|Sony
+xboxab\.net|Xbox Gaming Console|95|console|Microsoft
+xboxone\.com|Xbox Gaming Console|92|console|Microsoft
+xboxlive\.com|Xbox Gaming Console|50|console|Microsoft
+steamdeck\.steamstatic\.com|Steam Deck (SteamOS)|96|console|Valve
+p2p-fra2\.discovery\.steamserver\.net|Steam Deck (SteamOS)|92|console|Valve
+steamdeck-atomupd\.steamos\.cloud|Steam Deck (SteamOS)|96|console|Valve
+server\.rocknix\.org|Linux Handheld Console|90|console|ROCKNIX
+stats\.rocknix\.org|Linux Handheld Console|91|console|ROCKNIX
+cm1-[a-zA-Z0-9_-]+\.steamserver\.net|Steam Client PC|85|pc|Valve
+steamserver\.net|Steam Client PC|82|pc|Valve
+steam-chat\.com|Steam Client PC|80|pc|Valve
+steamcontent\.com|Steam Client PC|80|pc|Valve
+steamstatic\.com|Steam Store Web|40|generic|Valve
+datarouter\.ol\.epicgames\.com|Epic Games Client PC|90|pc|Epic Games
+ol\.epicgames\.com|Epic Games Client PC|85|pc|Epic Games
+battlenet\.com|Blizzard Battle.net PC|85|pc|Blizzard
+riotcdn\.net|Riot Games Client PC|88|pc|Riot
+leagueoflegends\.com|Riot Games Client PC|35|pc|Riot
+valorant\.com|Riot Games Client PC|35|pc|Riot
+graph\.oculus\.com|Meta Quest VR Headset|94|vr-headset|Meta
+fbcdn-oculus\.net|Meta Quest VR Headset|92|vr-headset|Meta
+oculus\.com|Meta Quest VR Headset|85|vr-headset|Meta
+api\.screenscraper\.fr|Retro Gaming Device|60|console|Generic
+
+# ==============================================================================
+# Smart Home Hubs & IoT Nodes
+# ==============================================================================
+api\.meethue\.com|Philips Hue Smart Bridge|98|iot|Philips
+meethue\.com|Philips Hue Smart Bridge|95|iot|Philips
+shelly\.cloud|Shelly Smart IoT Device|96|iot|Shelly
+shelly\.io|Shelly Smart IoT Device|94|iot|Shelly
+iot\.tuya\.com|Tuya Smart IoT Device|95|iot|Tuya
+tuyaeu\.com|Tuya Smart IoT Device|94|iot|Tuya
+tuyaus\.com|Tuya Smart IoT Device|94|iot|Tuya
+tapo\.com|TP-Link Tapo Smart Device|95|iot|TP-Link
+tplinkcloud\.com|TP-Link Smart Home Cloud|92|iot|TP-Link
+openapi\.govee\.com|Govee Smart Lighting|94|iot|Govee
+govee\.com|Govee Smart Home Cloud|90|iot|Govee
+aqara\.com|Aqara Smart Home Hub|92|iot|Aqara
+aqara\.cn|Aqara Smart Home Hub|92|iot|Aqara
+ecobee\.com|Ecobee Smart Thermostat|94|iot|Ecobee
+nabucasa\.com|Home Assistant Server|96|automation-server|Nabu Casa
+my\.home-assistant\.io|Home Assistant Server|85|automation-server|Home Assistant
+esphome\.io|ESPHome Smart Node|75|iot|ESPHome
+
+# ==============================================================================
+# Security Cameras, Doorbells & Vacuums
+# ==============================================================================
+api\.wyzecam\.com|Wyze Smart IP Camera|96|camera|Wyze
+wyzecam\.com|Wyze Smart IP Camera|94|camera|Wyze
+api\.ring\.com|Ring Video Doorbell / Cam|96|camera|Amazon
+ring\.amazon\.com|Ring Video Doorbell / Cam|94|camera|Amazon
+eufylife\.com|Eufy Security Camera|95|camera|Eufy
+
+# ==============================================================================
+# Storage, NAS & Dedicated Appliances
+# ==============================================================================
+quickconnect\.to|Synology NAS (DSM)|98|nas-server|Synology
+synology\.me|Synology NAS (DSM)|94|nas-server|Synology
+myqnapcloud\.com|QNAP NAS (QTS)|98|nas-server|QNAP
+truenas\.com|TrueNAS Storage Server|92|nas-server|iXsystems
+.*openmediavault\.github\.io|OpenMediaVault NAS|96|nas-server|OpenMediaVault
+
+# ==============================================================================
+# Media Services (Clients & Servers)
+# ==============================================================================
+repo\.jellyfin\.org|Jellyfin Media Server|50|media-server|Jellyfin
+jellyfin\.org|Jellyfin Media Service|50|media-server|Jellyfin
+emby\.media|Emby Media Service|50|media-server|Emby
+plex\.tv|Plex Media Service|45|media-server|Plex
+
+# ==============================================================================
+# Network Printers
+# ==============================================================================
+epsonconnect\.com|Epson Network Printer|96|printer|Epson
+hpeprint\.com|HP Network Printer|95|printer|HP
+mycanon\.canon|Canon Network Printer|88|printer|Canon
+brother-usa\.com|Brother Network Printer|80|printer|Brother
+lexmark\.com|Lexmark Network Printer|75|printer|Lexmark
+
+# ==============================================================================
+# Routers, Firewalls & Network Appliances
+# ==============================================================================
+svc\.ui\.com|Ubiquiti UniFi Controller|92|router|Ubiquiti
+ui\.com|Ubiquiti UniFi Device|80|router|Ubiquiti
+ubnt\.com|Ubiquiti Network Device|85|router|Ubiquiti
+nighthawk-app\.com|NETGEAR Nighthawk Router|94|router|NETGEAR
+asuscomm\.com|ASUS Router Gateway|92|router|ASUS
+
+# ==============================================================================
+# VPN Services (Client Apps & Overlay Nodes)
+# ==============================================================================
+login\.tailscale\.com|Tailscale Client Node|45|generic|Tailscale
+tailscale\.com|Tailscale Client Node|40|generic|Tailscale
+my\.zerotier\.com|ZeroTier Client Node|45|generic|ZeroTier
+zerotier\.com|ZeroTier Client Node|40|generic|ZeroTier
+api\.nordvpn\.com|NordVPN Client App|45|generic|NordVPN
+api\.expressvpn\.com|ExpressVPN Client App|45|generic|ExpressVPN
+nordvpn\.com|NordVPN Web Portal|25|generic|NordVPN
+expressvpn\.com|ExpressVPN Web Portal|25|generic|ExpressVPN
+protonvpn\.com|ProtonVPN Web Portal|25|generic|ProtonVPN
+
+# ==============================================================================
+# Automotive & Drones
+# ==============================================================================
+owner-api\.teslamotors\.com|Tesla Connected Vehicle|96|connected-car|Tesla
+fleet-api\.prd\.na\.vn\.cloud\.tesla\.com|Tesla Connected Vehicle|94|connected-car|Tesla
+teslamotors\.com|Tesla Web Portal|45|connected-car|Tesla
+sdk-cn\.dji\.net|DJI Drone Flight Controller|92|drone-device|DJI
+dji\.com|DJI Web Portal|35|drone-device|DJI
+
+# ==============================================================================
+# e-Readers & Generic IoT Transport
+# ==============================================================================
+kindle\.amazon\.com|Amazon Kindle e-Reader|96|tablet-phone|Amazon
+cloudmqtt\.com|Generic MQTT IoT Node|75|iot|IoT
+hivemq\.cloud|Generic MQTT IoT Node|70|iot|IoT
+mqtt\.cloud|Generic MQTT IoT Node|55|iot|IoT

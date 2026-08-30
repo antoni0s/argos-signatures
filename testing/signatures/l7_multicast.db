@@ -1,0 +1,224 @@
+# ==============================================================================
+# Database: L7 Multicast & Broadcast Signatures (mDNS / SSDP / WS-Discovery)
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   Regex Pattern | Protocol / Service Name | Score (1-99) | Device Type | Vendor
+#
+# Rules for Adding Entries:
+#   1. Matched against raw UDP payload broadcasts (ports 5353, 1900, 3702, 137).
+#   2. Unlike other databases, this engine checks all rules and selects the 
+#      highest score (cur_sc > best_l7_sc).
+#
+# Example:
+#   _airplay\._tcp|Apple AirPlay Target|96|smart-speaker|Apple
+#   _googlecast\._tcp|Google Cast Device|96|smart-tv|Google
+# ==============================================================================
+model=iphone|Apple iPhone (iOS)|98|smartphone|Apple
+model=ipad|Apple iPad (iPadOS)|98|tablet-phone|Apple
+model=appletv|Apple TV (tvOS)|98|smart-tv|Apple
+model=audioaccessory.*mini|Apple HomePod mini|98|smart-speaker|Apple
+model=audioaccessory|Apple HomePod (audioOS)|98|smart-speaker|Apple
+
+# ==============================================================================
+# Smart TVs, Streaming Players & Media Centers (mDNS)
+# ==============================================================================
+_xbmc-jsonrpc\._tcp|Kodi Media Center|88|smart-tv|Media Player
+_xbmc-events\._udp|Kodi Media Center|88|smart-tv|Media Player
+_kodi\._tcp|Kodi Media Center|88|smart-tv|Media Player
+_airplay\._tcp|Apple AirPlay Receiver|88|smart-tv|Apple
+_googlecast\._tcp.*md=android.?tv|Android TV (Google Cast)|96|smart-tv|Google
+_googlecast\._tcp.*md=chromecast|Google Chromecast Device|96|smart-tv|Google
+_googlecast\._tcp|Google Cast Protocol Broadcast|40|generic|Google
+_googlezone\._tcp|Google Cast Group Device|88|smart-tv|Google
+_androidtvremote2\._tcp|Android TV Device|95|smart-tv|Google
+_androidtvremote\._tcp|Android TV Device|94|smart-tv|Google
+_amzn-wplay\._tcp|Amazon Fire TV|95|smart-tv|Amazon
+_roku\._tcp|Roku Streaming Player|95|smart-tv|Roku
+_rsp\._tcp|Roku Streaming Player|94|smart-tv|Roku
+_nvstream\._tcp|NVIDIA Shield TV (GameStream)|96|smart-tv|NVIDIA
+
+# ==============================================================================
+# Smart Audio & Wireless Speakers (mDNS)
+# ==============================================================================
+_raop\._tcp|Apple AirPlay Audio (AirTunes)|85|smart-speaker|Apple
+_sonos\._tcp|Sonos Smart Speaker|96|smart-speaker|Sonos
+_spotify-connect\._tcp|Spotify Connect Endpoint|75|smart-speaker|Spotify
+_amazonecho-remote\._tcp|Amazon Echo Speaker|94|smart-speaker|Amazon
+_bose\._tcp|Bose Smart Speaker|94|smart-speaker|Bose
+_soundflow\._tcp|Wireless Smart Speaker|92|smart-speaker|Generic
+
+# ==============================================================================
+# Apple Ecosystem & Continuity (mDNS)
+# ==============================================================================
+_apple-mobdev2\._tcp|Apple iOS Device|96|smartphone|Apple
+_companion-link\._tcp|Apple Ecosystem Device|88|generic|Apple
+_airdrop\._tcp|Apple iOS / macOS Device|90|generic|Apple
+_rdlink\._tcp|Apple Mac Workstation (macOS)|94|mac-pc|Apple
+_sleep-proxy\._udp|Apple Bonjour Sleep Proxy|94|generic|Apple
+_homekit\._tcp|Apple HomeKit Accessory|96|iot|Apple
+_hap\._tcp|Apple HomeKit Accessory|96|iot|Apple
+_device-info\._tcp|Apple Device Capability|40|generic|Apple
+
+# ==============================================================================
+# Smart Home Automation, Hubs & IoT (mDNS)
+# ==============================================================================
+_home-assistant\._tcp|Home Assistant Server|96|automation-server|Home Assistant
+_homeassistant\._tcp|Home Assistant Server|96|automation-server|Home Assistant
+_hassio\._tcp|Home Assistant OS|95|automation-server|Home Assistant
+_philipshue\._tcp|Philips Hue Smart Bridge|96|iot|Philips
+_hue-api\._tcp|Philips Hue Smart Bridge|96|iot|Philips
+_hue\._tcp|Philips Hue Smart Light|95|iot|Philips
+_esphomelib\._tcp|ESPHome Smart Node|95|iot|ESPHome
+_esphome\._tcp|ESPHome Smart Node|95|iot|ESPHome
+_shelly\._tcp|Shelly Smart Device|96|iot|Shelly
+_tuya\._tcp|Tuya Smart Device|94|iot|Tuya
+_wled\._tcp|WLED Controller|95|iot|WLED
+_aqara\._tcp|Aqara Smart Hub|95|iot|Aqara
+_tplink\._tcp|TP-Link Tapo / Kasa Smart Device|94|iot|TP-Link
+_switchbot\._tcp|SwitchBot Smart Hub|94|iot|SwitchBot
+_lutron\._tcp|Lutron Caseta Smart Hub|95|iot|Lutron
+_caseta\._tcp|Lutron Caseta Smart Hub|95|iot|Lutron
+_ecobee\._tcp|Ecobee Smart Thermostat|95|iot|Ecobee
+_nest\._tcp|Google Nest Smart Device|94|iot|Google
+_matter\._tcp|Matter Smart Device|94|iot|Matter
+_matterc\._udp|Matter Commissionable Node|94|iot|Matter
+_matterc\._tcp|Matter Smart Device|92|iot|Matter
+_meshcop\._udp|Thread MeshCoP Service|40|generic|Thread
+_thread\._tcp|Thread Network Device|88|router|Thread
+_zigbee2mqtt\._tcp|Zigbee2MQTT Server|95|automation-server|Zigbee2MQTT
+_deconz\._tcp|deCONZ Zigbee Gateway|94|iot|Phoscon
+
+# ==============================================================================
+# Homelab, Media & Storage Infrastructure (mDNS)
+# ==============================================================================
+_synology\._tcp|Synology NAS (DSM)|98|nas-server|Synology
+_synology-dr\._tcp|Synology Active Backup Server|98|nas-server|Synology
+_qnap\._tcp|QNAP NAS (QTS)|98|nas-server|QNAP
+_truenas\._tcp|TrueNAS Storage Server|98|nas-server|TrueNAS
+_openmediavault\._tcp|OpenMediaVault Storage Server|98|nas-server|OpenMediaVault
+_proxmox\._tcp|Proxmox VE Hypervisor|98|hypervisor-server|Proxmox
+_plex\._tcp|Plex Media Server|96|media-server|Plex
+_plexmediasvr\._tcp|Plex Media Server|96|media-server|Plex
+_jellyfin\._tcp|Jellyfin Media Server|96|media-server|Jellyfin
+_emby\._tcp|Emby Media Server|94|media-server|Emby
+_frigate\._tcp|Frigate NVR Server|95|nvr-server|Frigate
+_afpovertcp\._tcp|Apple File Server (AFP)|94|nas-server|Apple
+_smb\._tcp|Linux Samba / NAS Storage|88|nas-server|Linux
+_nfs\._tcp|NFS Storage Server|92|nas-server|Linux
+_sftp-ssh\._tcp|Linux Server (SFTP/SSH)|88|server|Linux
+_ssh\._tcp|Linux Server (SSH)|86|server|Linux
+_mqtt\._tcp|MQTT Message Broker|92|automation-server|Linux
+_workstation\._tcp|Linux PC (Avahi)|88|pc|Linux
+
+# ==============================================================================
+# Network Printers & Scanners (mDNS)
+# ==============================================================================
+_ipp\._tcp|Network Printer (IPP)|95|printer|Unknown
+_ipps\._tcp|Network Printer (IPPS)|95|printer|Unknown
+_printer\._tcp|Network Printer|92|printer|Unknown
+_pdl-datastream\._tcp|HP Network Printer|94|printer|HP
+_scanner\._tcp|Network Scanner|92|printer|Unknown
+_uscan\._tcp|AirScan Network Scanner|94|printer|Unknown
+
+# ==============================================================================
+# Security Cameras & Smart Vacuums (mDNS)
+# ==============================================================================
+_onvif\._tcp|ONVIF IP Security Camera|95|camera|Generic
+_reolink\._tcp|Reolink IP Camera|96|camera|Reolink
+_eufy\._tcp|Eufy Security Camera|94|camera|Eufy
+_arlo\._tcp|Arlo Security Camera|94|camera|Arlo
+_wyze\._tcp|Wyze Smart Camera|93|camera|Wyze
+_ring\._tcp|Ring Video Doorbell / Cam|95|camera|Amazon
+_roborock\._tcp|Roborock Robot Vacuum|96|vacuum-device|Roborock
+_roomba\._tcp|iRobot Roomba Vacuum|96|vacuum-device|iRobot
+_deebot\._tcp|Ecovacs Deebot Vacuum|95|vacuum-device|Ecovacs
+_ecovacs\._tcp|Ecovacs Smart Appliance|93|vacuum-device|Ecovacs
+
+# ==============================================================================
+# Network Routers & Wireless APs (mDNS)
+# ==============================================================================
+_unifi\._tcp|Ubiquiti UniFi Device|95|network-ap|Ubiquiti
+_ubnt\._tcp|Ubiquiti Network Device|94|network-ap|Ubiquiti
+
+# ==============================================================================
+# UPnP / SSDP ST & Device XML Types (UDP 1900)
+# ==============================================================================
+urn:schemas-upnp-org:device:MediaServer|DLNA / Media Server|94|media-server|Linux
+urn:schemas-upnp-org:device:MediaRenderer|DLNA Streaming Player|92|smart-tv|Generic
+urn:schemas-upnp-org:device:ZonePlayer|Sonos Smart Speaker|96|smart-speaker|Sonos
+urn:schemas-upnp-org:device:InternetGatewayDevice|Network Router Gateway|95|router|Unknown
+urn:schemas-upnp-org:device:WANDevice|Network Router Gateway|94|router|Unknown
+urn:schemas-upnp-org:service:WANIPConnection|Network Router Gateway|92|router|Unknown
+urn:schemas-upnp-org:device:Printer|Network Printer|94|printer|Unknown
+urn:schemas-upnp-org:device:DigitalSecurityCamera|IP Security Camera|94|camera|Generic
+urn:schemas-upnp-org:device:Basic:1|Smart Home IoT Device|80|iot|Generic
+urn:schemas-denon-com:device:AiosDevice|Denon / Marantz HEOS Audio|95|smart-speaker|Denon
+urn:dial-multiscreen-org:service:dial|DIAL Cast Endpoint|40|generic|Generic
+
+# ==============================================================================
+# SSDP Server / User-Agent Discovery Headers
+# ==============================================================================
+server:.*synology|Synology NAS (DSM)|96|nas-server|Synology
+server:.*qnap|QNAP NAS (QTS)|96|nas-server|QNAP
+server:.*asustor|ASUSTOR NAS (ADM)|95|nas-server|ASUSTOR
+server:.*truenas|TrueNAS Storage Server|95|nas-server|TrueNAS
+server:.*openmediavault|OpenMediaVault Server|95|nas-server|OpenMediaVault
+minidlna|MiniDLNA Media Server|80|media-server|Linux
+server:.*debian.*minidlna|Linux (MiniDLNA)|96|server|Debian
+server:.*debian|Debian Linux Server|90|server|Debian
+server:.*ubuntu|Ubuntu Linux Server|90|server|Canonical
+server:.*openwrt|OpenWrt Router Gateway|95|router|OpenWrt
+server:.*dms/.*samsung|Samsung Smart TV (Tizen)|95|smart-tv|Samsung
+user-agent:.*roku|Roku Streaming Player|95|smart-tv|Roku
+user-agent:.*kodi|Kodi Media Center|95|smart-tv|Media Player
+user-agent:.*windows|Windows|90|pc|Microsoft
+chromium.*windows|Windows|90|pc|Microsoft
+
+# ==============================================================================
+# General Multicast Payload & Discovery Strings
+# ==============================================================================
+steamdeck|Steam Deck (SteamOS)|96|console|Valve
+steam-remote|Steam Remote Play PC|95|console|Valve
+valve|Steam Hardware / Device|94|console|Valve
+coreelec|CoreELEC / Kodi Media Center|95|smart-tv|Media Player
+libreelec|LibreELEC Media Center|95|smart-tv|Media Player
+bravia|Sony Bravia Smart TV|94|smart-tv|Sony
+tizen|Samsung Smart TV (Tizen)|94|smart-tv|Samsung
+webos|LG Smart TV (webOS)|94|smart-tv|LG
+roku|Roku Streaming Player|92|smart-tv|Roku
+firetv|Amazon Fire TV|94|smart-tv|Amazon
+smart-?tv|Smart TV Display|90|smart-tv|Generic
+googlecast|Google Cast Protocol Broadcast|40|generic|Google
+homepod|Apple HomePod Speaker|96|smart-speaker|Apple
+appletv|Apple TV (tvOS)|96|smart-tv|Apple
+iphone|Apple iPhone (iOS)|95|smartphone|Apple
+ipad|Apple iPad (iPadOS)|95|tablet-phone|Apple
+macbook|Apple MacBook (macOS)|95|mac-pc|Apple
+galaxy|Samsung Galaxy Smartphone|92|smartphone|Samsung
+pixel|Google Pixel Smartphone|92|smartphone|Google
+redmi|Xiaomi Redmi Smartphone|92|smartphone|Xiaomi
+poco|Xiaomi POCO Smartphone|92|smartphone|Xiaomi
+oneplus|OnePlus Smartphone|92|smartphone|OnePlus
+shelly|Shelly Smart Device|95|iot|Shelly
+sonoff|Sonoff Smart Device|95|iot|Sonoff
+tasmota|Tasmota Smart Device|95|iot|Tasmota
+esphome|ESPHome Smart Node|95|iot|ESPHome
+tuya|Tuya Smart Device|94|iot|Tuya
+philips-hue|Philips Hue Bridge|96|iot|Philips
+synology|Synology NAS (DSM)|95|nas-server|Synology
+diskstation|Synology NAS (DSM)|95|nas-server|Synology
+qnap|QNAP NAS (QTS)|95|nas-server|QNAP
+openmediavault|OpenMediaVault Server|95|nas-server|OpenMediaVault
+truenas|TrueNAS Storage Server|95|nas-server|TrueNAS
+canon-ij|Canon Network Printer|92|printer|Canon
+roborock|Roborock Robot Vacuum|94|vacuum-device|Roborock
+roomba|iRobot Roomba Vacuum|94|vacuum-device|iRobot
+echo-dot|Amazon Echo Speaker|94|smart-speaker|Amazon
+alexa|Amazon Alexa Device|92|smart-speaker|Amazon
+
+# ==============================================================================
+# NetBIOS / LLMNR Core Signatures (Normalized Clean Names)
+# ==============================================================================
+workgroup|Windows|65|pc|Microsoft
+msbrowse|Windows|65|pc|Microsoft
+wpad|Windows|65|pc|Microsoft

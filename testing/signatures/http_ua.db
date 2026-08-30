@@ -1,0 +1,329 @@
+# =============================================================================
+# Argos HTTP User-Agent Database (http_ua.db)
+# =============================================================================
+# Syntax Format (Pipe-delimited):
+# regex_pattern|OS_Name|Score|Device_Type|Vendor|Service_Name
+#
+# Fields Description:
+# 1. regex_pattern  : The text string or regex pattern to match inside the 
+#                     HTTP User-Agent header (automatically evaluated as lowercase).
+# 2. OS_Name        : The identified operating system (e.g., Windows, Android, Tizen).
+# 3. Score          : Confidence score (0 to 100). Higher scores take election 
+#                     precedence when multiple signatures match.
+# 4. Device_Type    : Categorization type (e.g., pc, phone, tv, console, media, generic).
+# 5. Vendor         : Manufacturer or developer name (e.g., Microsoft, Sony, Samsung).
+# 6. Service_Name   : Specific client, browser, or application name (e.g., Chrome, Kodi, PS5 Browser).
+# =============================================================================
+# Matching is performed against lowercase HTTP User-Agent.
+# Higher Score takes precedence when multiple patterns match.
+# Prefer specific patterns over broad ones.
+# =============================================================================
+
+# =============================================================================
+# SMART TVs & STREAMING MEDIA PLAYERS (built-in / TV firmware)
+# =============================================================================
+tizen|Tizen OS|92|tv|Samsung|Tizen Browser
+smart-tv|Smart TV|78|tv|Generic|Smart TV Browser
+smarttv|Smart TV|78|tv|Generic|Smart TV Browser
+webos|LG webOS|92|tv|LG|webOS Browser
+web0s|LG webOS|93|tv|LG|webOS Browser
+netcast|LG NetCast|90|tv|LG|NetCast
+roku|Roku OS|88|tv|Roku|Roku Client
+aftb|FireOS|92|tv|Amazon|Fire TV
+aftm|FireOS|92|tv|Amazon|Fire TV
+aftss|FireOS|92|tv|Amazon|Fire TV
+aftka|FireOS|92|tv|Amazon|Fire TV
+aftmm|FireOS|92|tv|Amazon|Fire TV
+aft|FireOS|85|tv|Amazon|Fire TV
+fire tv|FireOS|90|tv|Amazon|Fire TV
+firetv|FireOS|90|tv|Amazon|Fire TV
+silk|FireOS|88|tv|Amazon|Silk
+googletv|Google TV|90|tv|Google|Google TV
+google tv|Google TV|90|tv|Google|Google TV
+android tv|Android TV|90|tv|Google|Android TV
+androidtv|Android TV|90|tv|Google|Android TV
+nvidia shield|Android TV|95|tv|NVIDIA|Shield TV
+shield android tv|Android TV|95|tv|NVIDIA|Shield TV
+appletv|Apple tvOS|94|tv|Apple|Apple TV
+apple tv|Apple tvOS|94|tv|Apple|Apple TV
+hbbtv|HbbTV|90|tv|Generic|HbbTV
+nettv|Smart TV|80|tv|Generic|Net TV
+viera|Panasonic Smart TV|92|tv|Panasonic|Viera
+panasonic|Panasonic Smart TV|75|tv|Panasonic|Smart TV Browser
+aquos|Sharp Smart TV|90|tv|Sharp|Aquos
+bravia|Sony Smart TV|92|tv|Sony|Bravia Browser
+sony bravia|Sony Smart TV|95|tv|Sony|Bravia Browser
+hisense|VIDAA|85|tv|Hisense|VIDAA Browser
+vidaa|VIDAA|92|tv|Hisense|VIDAA Browser
+titanos|Titan OS|93|tv|Generic|Titan OS
+titan os|Titan OS|93|tv|Generic|Titan OS
+vestel|Smart TV|85|tv|Vestel|Smart TV Browser
+
+# =============================================================================
+# STREAMING DEVICES / DONGLES / SET-TOP
+# =============================================================================
+chromecast|Google Cast|95|media|Google|Chromecast
+googlecast|Google Cast|95|media|Google|Chromecast
+crkey|Google Cast|96|media|Google|Chromecast
+chromecast hd|Google Cast|96|media|Google|Chromecast
+google tv streamer|Google TV|95|media|Google|Google TV Streamer
+firestick|FireOS|95|media|Amazon|Fire TV Stick
+fire tv stick|FireOS|95|media|Amazon|Fire TV Stick
+fire tv stick 4k|FireOS|96|media|Amazon|Fire TV Stick
+roku ultra|Roku OS|95|media|Roku|Roku Ultra
+roku/dvp|Roku OS|94|media|Roku|Roku
+appletv|Apple tvOS|93|media|Apple|Apple TV
+apple tv|Apple tvOS|93|media|Apple|Apple TV
+
+# =============================================================================
+# CONSOLES & HANDHELDS
+# =============================================================================
+playstation 5|PlayStation 5|96|console|Sony|PS5 Browser
+playstation; playstation 5|PlayStation 5|97|console|Sony|PS5 Browser
+playstation 4|PlayStation 4|95|console|Sony|PS4 Browser
+playstation vita|PlayStation Vita|95|console|Sony|PS Vita Browser
+ps vita|PlayStation Vita|95|console|Sony|PS Vita Browser
+playstation|PlayStation|80|console|Sony|PlayStation Browser
+nintendo switch|Nintendo Switch|96|console|Nintendo|Switch Browser
+nintendo wii|Nintendo Wii|95|console|Nintendo|Wii Browser
+nintendo|Nintendo|80|console|Nintendo|Nintendo Browser
+xbox series|Xbox Series|95|console|Microsoft|Xbox Browser
+xbox one|Xbox One|94|console|Microsoft|Xbox Browser
+xbox|Xbox|88|console|Microsoft|Xbox Browser
+steamdeck|Steam Deck|96|console|Valve|Steam Client
+steam deck|Steam Deck|96|console|Valve|Steam Client
+steam os|SteamOS|92|console|Valve|Steam Client
+steamos|SteamOS|92|console|Valve|Steam Client
+rocknix|ROCKNIX|90|console|Linux|Emulation Frontend
+batocera|Batocera Linux|90|console|Batocera|Batocera
+retropie|RetroPie|90|console|Raspberry Pi|RetroPie
+recalbox|Recalbox|90|console|Recalbox|Recalbox
+chimeraos|ChimeraOS|90|console|Linux|ChimeraOS
+
+# =============================================================================
+# MOBILE - ANDROID
+# =============================================================================
+android.*mobile|Android|92|phone|Generic|Mobile Browser
+android.*wv|Android|90|phone|Google|Android WebView
+; wv|Android|90|phone|Google|Android WebView
+android [0-9]+;|Android|88|phone|Google|Android Browser
+android [0-9]|Android|86|phone|Google|Android Browser
+version/[0-9].*chrome/[0-9].*mobile|Android|82|phone|Google|Chrome Mobile
+android|Android|70|phone|Google|Android Browser
+
+# =============================================================================
+# MOBILE - APPLE
+# =============================================================================
+iphone|iOS|96|phone|Apple|iPhone
+ipad|iPadOS|96|tablet|Apple|iPad
+ipod|iOS|95|phone|Apple|iPod
+cpu iphone os|iOS|96|phone|Apple|iPhone
+cpu os [0-9].*like mac os x|iOS|90|phone|Apple|iPhone
+iphone os|iOS|95|phone|Apple|iPhone
+ipad; cpu os|iPadOS|96|tablet|Apple|iPad
+mobile safari|iOS|82|phone|Apple|Mobile Safari
+
+# =============================================================================
+# ANDROID TABLETS
+# =============================================================================
+android.*tablet|Android|92|tablet|Google|Android Browser
+android.*nexus 7|Android|95|tablet|Google|Nexus 7
+android.*nexus 9|Android|95|tablet|Google|Nexus 9
+android.*pixel c|Android|95|tablet|Google|Pixel C
+android.*sm-t|Android|95|tablet|Samsung|Galaxy Tab
+android.*sm-p|Android|95|tablet|Samsung|Galaxy Tab
+android.*lenovo tab|Android|95|tablet|Lenovo|Tablet
+android.*huawei.*mediapad|Android|95|tablet|Huawei|MediaPad
+
+# =============================================================================
+# DESKTOP OPERATING SYSTEMS
+# =============================================================================
+windows nt 10\.0|Windows 10/11|92|pc|Microsoft|Windows Browser
+windows nt 10\.0|Windows 10/11|92|pc|Microsoft|Microsoft NCSI
+windows nt 6\.3|Windows 8.1|95|pc|Microsoft|Windows Browser
+windows nt 6\.2|Windows 8|95|pc|Microsoft|Windows Browser
+windows nt 6\.1|Windows 7|95|pc|Microsoft|Windows Browser
+windows nt 6\.0|Windows Vista|95|pc|Microsoft|Windows Browser
+windows nt 5\.1|Windows XP|95|pc|Microsoft|Windows Browser
+macintosh; arm mac os x|macOS|96|pc|Apple|macOS Apple Silicon
+macintosh; intel mac os x|macOS|95|pc|Apple|macOS Intel
+mac os x|macOS|90|pc|Apple|macOS Browser
+macintosh|macOS|85|pc|Apple|macOS Browser
+x11; ubuntu|Ubuntu Linux|95|pc|Canonical|Ubuntu Browser
+ubuntu|Ubuntu Linux|90|pc|Canonical|Ubuntu Browser
+fedora|Fedora Linux|95|pc|Fedora|Fedora Browser
+debian|Debian Linux|95|pc|Debian|Debian Browser
+arch linux|Arch Linux|95|pc|Arch|Arch Browser
+x11; linux|Linux|85|pc|Linux|Linux Browser
+
+
+# =============================================================================
+# WEB BROWSERS - CHROME / CHROMIUM
+# =============================================================================
+crios/[0-9]|iOS|96|phone|Google|Chrome iOS
+headlesschrome/[0-9]|Unknown|96|pc|Google|Chrome Headless
+chrome-lighthouse|Unknown|96|pc|Google|Lighthouse
+chrome/[0-9]|Unknown|88|pc|Google|Chrome
+chromium/[0-9]|Unknown|88|pc|Chromium|Chromium
+
+# =============================================================================
+# WEB BROWSERS - FIREFOX
+# =============================================================================
+fxios/[0-9]|iOS|96|phone|Mozilla|Firefox iOS
+fennec/[0-9]|Android|95|phone|Mozilla|Firefox Mobile
+focus/[0-9]|Android/iOS|90|phone|Mozilla|Firefox Focus
+firefox/[0-9]|Unknown|88|pc|Mozilla|Firefox
+
+# =============================================================================
+# WEB BROWSERS - EDGE
+# =============================================================================
+edgios/[0-9]|iOS|96|phone|Microsoft|Edge iOS
+edga/[0-9]|Android|96|phone|Microsoft|Edge Mobile
+edg/[0-9]|Windows/macOS/Linux|90|pc|Microsoft|Edge
+edge/[0-9]|Windows/macOS/Linux|85|pc|Microsoft|Legacy Edge
+
+# =============================================================================
+# WEB BROWSERS - SAFARI
+# =============================================================================
+version/[0-9].*safari/[0-9].*iphone|iOS|96|phone|Apple|Safari Mobile
+version/[0-9].*safari/[0-9].*ipad|iPadOS|96|tablet|Apple|Safari iPad
+safari/[0-9].*macintosh|macOS|90|pc|Apple|Safari
+mobile/[0-9].*safari/[0-9]|iOS|88|phone|Apple|Safari Mobile
+
+# =============================================================================
+# WEB BROWSERS - OPERA / BRAVE / VIVALDI / OTHERS
+# =============================================================================
+opr/[0-9]|Unknown|90|pc|Opera|Opera
+opera mini|Android|92|phone|Opera|Opera Mini
+opera mobi|Android|90|phone|Opera|Opera Mobile
+brave/[0-9]|Unknown|90|pc|Brave|Brave Browser
+vivaldi/[0-9]|Unknown|90|pc|Vivaldi|Vivaldi Browser
+
+# =============================================================================
+# MEDIA CENTERS & SELF-HOSTED CLIENTS
+# =============================================================================
+kodi/[0-9]|Kodi Media Center|96|media|XBMC|Kodi
+kodi|Kodi Media Center|94|media|XBMC|Kodi
+plex web|Plex|96|media|Plex|Plex Web
+plex|Plex|90|media|Plex|Plex Client
+jellyfin|Jellyfin|96|media|Jellyfin|Jellyfin Client
+emby|Emby|96|media|Emby|Emby Client
+universal media server|Universal Media Server|92|media|Universal|Universal Media Server
+libvlc|VLC Media Player|96|media|VideoLAN|libVLC
+vlc|VLC Media Player|90|media|VideoLAN|VLC
+mpv/[0-9]|MPV|95|media|MPV|MPV
+mpv|MPV|90|media|MPV|MPV
+
+# =============================================================================
+# SYNC / CLOUD CLIENTS
+# =============================================================================
+nextcloud-client|Nextcloud|96|pc|Nextcloud|Nextcloud Sync
+nextcloud|Nextcloud|85|pc|Nextcloud|Nextcloud
+owncloud|ownCloud|92|pc|ownCloud|ownCloud Client
+dropbox|Unknown|85|pc|Dropbox|Dropbox Client
+onedrive|Windows|90|pc|Microsoft|OneDrive
+microsoft office|Windows|78|pc|Microsoft|Microsoft Office
+microsoft outlook|Windows|82|pc|Microsoft|Outlook
+google drive|Unknown|85|pc|Google|Google Drive
+
+# =============================================================================
+# DEVELOPMENT / CLI / AUTOMATION CLIENTS
+# =============================================================================
+curl/[0-9]|Unknown|96|generic|curl|curl
+wget/[0-9]|Unknown|96|generic|GNU|wget
+python-requests/[0-9]|Unknown|96|generic|Python|Requests
+python-urllib/[0-9]|Unknown|96|generic|Python|urllib
+aiohttp/[0-9]|Unknown|96|generic|Python|aiohttp
+httpx/[0-9]|Unknown|96|generic|Python|httpx
+go-http-client/[0-9]|Unknown|96|generic|Go|Go HTTP Client
+java/[0-9]|Unknown|90|generic|Oracle|Java HTTP Client
+okhttp/[0-9]|Unknown|96|generic|Square|OkHttp
+libwww-perl|Unknown|96|generic|Perl|LWP
+postmanruntime/[0-9]|Unknown|96|generic|Postman|Postman Runtime
+insomnia/[0-9]|Unknown|96|generic|Kong|Insomnia
+
+# =============================================================================
+# DOWNLOAD / TORRENT / NETWORK CLIENTS
+# =============================================================================
+qbittorrent/[0-9]|Unknown|96|pc|qBittorrent|qBittorrent
+transmission/[0-9]|Unknown|96|pc|Transmission|Transmission
+aria2/[0-9]|Unknown|96|generic|aria2|aria2
+deluge/[0-9]|Unknown|96|pc|Deluge|Deluge
+rtorrent/[0-9]|Unknown|96|pc|rTorrent|rTorrent
+
+# =============================================================================
+# GAMING / GAME CLIENTS
+# =============================================================================
+steam/[0-9]|Unknown|95|console|Valve|Steam
+steam client|SteamOS|92|console|Valve|Steam Client
+epicgames|Unknown|92|pc|Epic Games|Epic Games Launcher
+epic games|Unknown|92|pc|Epic Games|Epic Games Launcher
+battle\.net|Unknown|92|pc|Blizzard|Battle.net
+blizzard|Unknown|85|pc|Blizzard|Blizzard Client
+
+# =============================================================================
+# SMARTPHONE / OEM APPLICATION CLIENTS
+# =============================================================================
+samsungbrowser/[0-9]|Android|96|phone|Samsung|Samsung Internet
+samsungbrowser|Android|95|phone|Samsung|Samsung Internet
+huaweibrowser|HarmonyOS/Android|95|phone|Huawei|Huawei Browser
+miuibrowser|Android|95|phone|Xiaomi|MIUI Browser
+miui|Android|90|phone|Xiaomi|MIUI
+xiaomi|Android|85|phone|Xiaomi|Xiaomi Browser
+oppo|Android|90|phone|OPPO|OPPO Browser
+realme|Android|90|phone|Realme|Realme Browser
+oneplus|Android|90|phone|OnePlus|OnePlus Browser
+
+# =============================================================================
+# SOCIAL / COMMUNICATION APPS
+# =============================================================================
+whatsapp|Unknown|92|phone|Meta|WhatsApp
+telegram|Unknown|92|phone|Telegram|Telegram
+discord|Unknown|88|generic|Discord|Discord
+slack|Unknown|88|pc|Slack|Slack
+msteams|Windows/Android/iOS|92|generic|Microsoft|Teams
+facebook|Unknown|75|phone|Meta|Facebook
+instagram|Unknown|75|phone|Meta|Instagram
+messenger|Unknown|75|phone|Meta|Messenger
+
+# =============================================================================
+# SMART HOME / IOT
+# =============================================================================
+homeassistant|Home Assistant|96|iot|Home Assistant|Home Assistant
+home-assistant|Home Assistant|96|iot|Home Assistant|Home Assistant
+esphome|ESPHome|96|iot|ESPHome|ESPHome
+tasmota|Tasmota|96|iot|Tasmota|Tasmota
+tuya|Unknown|88|iot|Tuya|Tuya Client
+smartthings|Unknown|92|iot|Samsung|SmartThings
+ring|Unknown|88|iot|Amazon|Ring
+nest|Unknown|88|iot|Google|Nest
+eufy|Unknown|88|iot|Eufy|Eufy
+
+# =============================================================================
+# E-READERS
+# =============================================================================
+kindle|FireOS|90|tablet|Amazon|Kindle
+silk|FireOS|85|tablet|Amazon|Silk
+
+# =============================================================================
+# BOTS / CRAWLERS / AUTOMATED CLIENTS (high score to catch early)
+# =============================================================================
+googlebot|Unknown|98|generic|Google|Googlebot
+bingbot|Unknown|98|generic|Microsoft|Bingbot
+slurp|Unknown|95|generic|Yahoo|Yahoo Slurp
+duckduckbot|Unknown|95|generic|DuckDuckGo|DuckDuckBot
+baiduspider|Unknown|95|generic|Baidu|Baiduspider
+yandexbot|Unknown|95|generic|Yandex|YandexBot
+facebookexternalhit|Unknown|95|generic|Meta|Facebook Crawler
+twitterbot|Unknown|95|generic|X|Twitterbot
+linkedinbot|Unknown|95|generic|LinkedIn|LinkedInBot
+semrushbot|Unknown|94|generic|Semrush|SemrushBot
+ahrefsbot|Unknown|94|generic|Ahrefs|AhrefsBot
+mj12bot|Unknown|94|generic|Majestic|MJ12bot
+dotbot|Unknown|94|generic|Moz|DotBot
+petalbot|Unknown|94|generic|Huawei|PetalBot
+bytespider|Unknown|94|generic|ByteDance|Bytespider
+gptbot|Unknown|96|generic|OpenAI|GPTBot
+claudebot|Unknown|96|generic|Anthropic|ClaudeBot
+anthropic-ai|Unknown|96|generic|Anthropic|Anthropic AI
+ccbot|Unknown|95|generic|Common Crawl|CCBot

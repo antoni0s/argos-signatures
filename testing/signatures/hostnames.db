@@ -1,0 +1,286 @@
+# ==============================================================================
+# Database: Hostname Pattern Heuristics
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   Regex Pattern | OS / Model Name | Confidence Score (1-99) | Device Type | Vendor
+#
+# Rules for Adding Entries:
+#   1. Evaluated in order against lowercase hostnames (DHCP/DNS/NetBIOS).
+#   2. Specific hardware models MUST be at the top (e.g. galaxy-s24 before galaxy).
+#   3. Generic prefixes (^win, desktop-, laptop-, server-, nas-) MUST stay at the bottom.
+#   4. Use valid Device Type tokens (pc, server, console, smartphone, etc.).
+#
+# Example:
+#   steam-?deck|Steam Deck (SteamOS)|96|console|Valve
+#   desktop-[a-z0-9]+|Windows Desktop PC|88|pc|Microsoft
+# ==============================================================================
+
+# ==============================================================================
+# Gaming Handhelds & Consoles
+# ==============================================================================
+steam-?deck|Steam Deck (SteamOS)|96|console|Valve
+steamlink|Steam Link Device|94|console|Valve
+valve|Steam Deck (SteamOS)|95|console|Valve
+rog-?ally|ASUS ROG Ally|94|console|ASUS
+legion-?go|Lenovo Legion Go|94|console|Lenovo
+sm8750|AYN Odin Handheld (ROCKNIX)|96|console|AYN
+odin-?3?|AYN Odin Handheld|95|console|AYN
+retroid|Retroid Pocket Handheld|94|console|Retroid
+anbernic|Anbernic Retro Handheld|94|console|Anbernic
+rocknix|ROCKNIX Emulation OS|95|console|Generic
+batocera|Batocera Emulation OS|95|console|Generic
+retrobat|RetroBat Gaming PC|92|console|Generic
+playstation-?5|PlayStation 5|96|console|Sony
+^ps5|PlayStation 5|95|console|Sony
+playstation-?4|PlayStation 4|94|console|Sony
+^ps4|PlayStation 4|94|console|Sony
+playstation|PlayStation Console|90|console|Sony
+xbox-series|Xbox Series X/S|95|console|Microsoft
+xbox-?one|Xbox One Console|95|console|Microsoft
+xbox|Xbox Console|92|console|Microsoft
+nintendo-?switch|Nintendo Switch|95|console|Nintendo
+^switch|Nintendo Switch|92|console|Nintendo
+nintendo|Nintendo Console|90|console|Nintendo
+
+# ==============================================================================
+# Smart TVs, Streaming Players & Media Centers
+# ==============================================================================
+coreelec|CoreELEC Media Center|95|smart-tv|Media Player
+libreelec|LibreELEC Media Center|95|smart-tv|Media Player
+xbmc|Kodi Media Center|94|smart-tv|Media Player
+kodi|Kodi Media Center|95|smart-tv|Media Player
+osmc|OSMC Media Center|94|smart-tv|Media Player
+beelink|Beelink Media Player|92|smart-tv|Media Player
+shield-?android-?tv|NVIDIA Shield TV|96|smart-tv|NVIDIA
+shield-?tv|NVIDIA Shield TV|95|smart-tv|NVIDIA
+apple-?tv|Apple TV (tvOS)|96|smart-tv|Apple
+appletv|Apple TV (tvOS)|96|smart-tv|Apple
+fire-?tv|Amazon Fire TV|95|smart-tv|Amazon
+firetv|Amazon Fire TV|95|smart-tv|Amazon
+firestick|Amazon Fire TV Stick|95|smart-tv|Amazon
+android-?tv|Android TV Device|92|smart-tv|Google
+google-?tv|Google TV Device|92|smart-tv|Google
+chromecast|Google Chromecast|95|smart-tv|Google
+bravia|Sony Bravia Smart TV|94|smart-tv|Sony
+tv7000|Samsung Smart TV|92|smart-tv|Samsung
+tizen|Samsung Smart TV (Tizen)|94|smart-tv|Samsung
+webos|LG Smart TV (webOS)|94|smart-tv|LG
+hisense|Hisense Smart TV|92|smart-tv|Hisense
+tcl-?tv|TCL Smart TV|92|smart-tv|TCL
+vizio|Vizio Smart TV|92|smart-tv|Vizio
+philips.?tv|Philips Smart TV|92|smart-tv|Philips
+smart-?tv|Smart TV Display|90|smart-tv|Various
+
+# ==============================================================================
+# Smart Audio & Speakers
+# ==============================================================================
+homepod-?mini|Apple HomePod mini|96|smart-speaker|Apple
+homepod|Apple HomePod (audioOS)|96|smart-speaker|Apple
+echo-dot|Amazon Echo Dot|95|smart-speaker|Amazon
+echo-show|Amazon Echo Show|94|smart-speaker|Amazon
+^echo-?|Amazon Echo / Alexa|94|smart-speaker|Amazon
+alexa|Amazon Alexa Device|94|smart-speaker|Amazon
+google-home|Google Home Speaker|94|smart-speaker|Google
+nest-audio|Google Nest Audio|95|smart-speaker|Google
+nest-mini|Google Nest Mini|95|smart-speaker|Google
+nest-hub|Google Nest Hub|95|smart-speaker|Google
+sonos|Sonos Smart Speaker|95|smart-speaker|Sonos
+
+# ==============================================================================
+# Apple Workstations & Mobile
+# ==============================================================================
+macbook-?pro|MacBook Pro (macOS)|95|mac-pc|Apple
+macbook-?air|MacBook Air (macOS)|95|mac-pc|Apple
+macbook|Apple MacBook (macOS)|94|mac-pc|Apple
+mac-?mini|Apple Mac mini (macOS)|95|mac-pc|Apple
+mac-?studio|Apple Mac Studio (macOS)|95|mac-pc|Apple
+mac-?pro|Apple Mac Pro (macOS)|95|mac-pc|Apple
+imac|Apple iMac (macOS)|95|mac-pc|Apple
+iphone|Apple iPhone (iOS)|96|smartphone|Apple
+ipad|Apple iPad (iPadOS)|95|tablet-phone|Apple
+
+# ==============================================================================
+# Android Phones, Tablets & E-Readers
+# ==============================================================================
+galaxy-?s[0-9]+|Samsung Galaxy Phone|96|smartphone|Samsung
+galaxy-?z-?fold|Samsung Galaxy Fold|96|smartphone|Samsung
+galaxy-?z-?flip|Samsung Galaxy Flip|96|smartphone|Samsung
+galaxy-?tab|Samsung Galaxy Tab|95|tablet-phone|Samsung
+galaxy.*|Samsung Galaxy Smartphone|95|smartphone|Samsung
+^sm-[a-z0-9]+|Samsung Mobile Device|95|smartphone|Samsung
+pixel-[0-9]+|Google Pixel Phone|96|smartphone|Google
+pixel|Google Pixel Device|94|smartphone|Google
+redmi|Xiaomi Redmi Phone|95|smartphone|Xiaomi
+poco|Xiaomi POCO Phone|95|smartphone|Xiaomi
+oneplus|OnePlus Smartphone|95|smartphone|OnePlus
+kindle|Amazon Kindle e-Reader|92|tablet-phone|Amazon
+android|Android Mobile Device|88|smartphone|Android
+mobile|Mobile Phone|85|smartphone|Unknown
+
+# ==============================================================================
+# Network Printers
+# ==============================================================================
+laserjet|HP LaserJet Printer|95|printer|HP
+deskjet|HP DeskJet Printer|95|printer|HP
+officejet|HP OfficeJet Printer|95|printer|HP
+pixma|Canon PIXMA Printer|95|printer|Canon
+brother|Brother Network Printer|94|printer|Brother
+epson|Epson Network Printer|94|printer|Epson
+canon-?printer|Canon Network Printer|94|printer|Canon
+^hp-?print|HP Network Printer|94|printer|HP
+printer|Network Printer|90|printer|Unknown
+
+# ==============================================================================
+# Storage, NAS & Homelab Infrastructure
+# ==============================================================================
+diskstation|Synology NAS (DSM)|96|nas-server|Synology
+synology|Synology NAS (DSM)|95|nas-server|Synology
+qnap|QNAP NAS (QTS)|95|nas-server|QNAP
+truenas|TrueNAS Storage Server|95|nas-server|TrueNAS
+openmediavault|OpenMediaVault Storage Server|96|nas-server|OpenMediaVault
+^omv|OpenMediaVault Storage Server|94|nas-server|OpenMediaVault
+unraid|Unraid Storage Server|95|nas-server|Unraid
+proxmox|Proxmox VE Hypervisor|96|hypervisor-server|Proxmox
+^pve|Proxmox VE Hypervisor|94|hypervisor-server|Proxmox
+pbs|Proxmox Backup Server|95|backup-server|Proxmox
+home-?assistant|Home Assistant OS|96|automation-server|Home Assistant
+hassio|Home Assistant OS|95|automation-server|Home Assistant
+adguard|AdGuard Home DNS Server|95|dns-server|AdGuard
+pi-?hole|Pi-hole DNS Server|95|dns-server|Pi-hole
+vaultwarden|Vaultwarden Password Server|95|server|Vaultwarden
+immich|Immich Photo Server|96|photo-server|Immich
+netalertx|NetAlertX Network Scanner|95|server|NetAlertX
+upsnap|UpSnap WoL Server|95|server|UpSnap
+ollama|Ollama AI Server|96|ai-server|Ollama
+plex|Plex Media Server|94|media-server|Plex
+jellyfin|Jellyfin Media Server|95|media-server|Jellyfin
+emby|Emby Media Server|93|media-server|Emby
+minidlna|MiniDLNA Media Server|90|media-server|Linux
+radarr|Radarr Media Manager|94|server|Radarr
+sonarr|Sonarr Media Manager|94|server|Sonarr
+prowlarr|Prowlarr Indexer Manager|94|server|Prowlarr
+bazarr|Bazarr Subtitles Manager|94|server|Bazarr
+lidarr|Lidarr Music Manager|94|server|Lidarr
+caddy|Caddy Web Server|92|server|Caddy
+nginx|Nginx Web Server|90|server|Linux
+crowdsec|CrowdSec Security Engine|92|server|CrowdSec
+portainer|Portainer Container Management|92|container-server|Portainer
+docker|Docker Container Host|88|container-server|Docker
+k8s|Kubernetes Node|90|k8s-server|Kubernetes
+grafana|Grafana Metrics Dashboard|90|monitoring-server|Grafana
+prometheus|Prometheus Server|90|monitoring-server|Prometheus
+zabbix|Zabbix Monitoring Server|92|monitoring-server|Zabbix
+node-?red|Node-RED Engine|93|automation-server|Node-RED
+openhab|openHAB Server|92|automation-server|openHAB
+domoticz|Domoticz Server|92|automation-server|Domoticz
+raspberry-?pi|Raspberry Pi (Raspbian)|94|server|Raspberry Pi
+^rpi[0-9]|Raspberry Pi Host|94|server|Raspberry Pi
+^pi$|Raspberry Pi Host|80|server|Raspberry Pi
+^pi-[a-z0-9]+|Raspberry Pi Host|80|server|Raspberry Pi
+ubuntu|Ubuntu Linux Host|78|server|Canonical
+debian|Debian Linux Host|78|server|Debian
+archlinux|Arch Linux Host|78|pc|Arch Linux
+
+# ==============================================================================
+# Smart Home IoT & Hubs
+# ==============================================================================
+hue-bridge|Philips Hue Bridge|96|iot|Philips
+philips-hue|Philips Hue Lighting|95|iot|Philips
+^hue-?|Philips Hue Lighting|92|iot|Philips
+lutron|Lutron Caseta Smart Hub|94|iot|Lutron
+caseta|Lutron Caseta Smart Hub|94|iot|Lutron
+shelly|Shelly Smart Relay/Sensor|95|iot|Shelly
+sonoff|Sonoff Smart Relay/Switch|94|iot|Sonoff
+tasmota|Tasmota IoT Device|94|iot|Tasmota
+esphome|ESPHome IoT Controller|95|iot|ESPHome
+wled|WLED Strip Controller|94|iot|WLED
+zigbee2mqtt|Zigbee2MQTT Gateway|95|automation-server|Zigbee2MQTT
+deconz|deCONZ Zigbee Gateway|92|iot|Phoscon
+tuya|Tuya Smart Device|90|iot|Tuya
+aqara|Aqara Zigbee Hub|93|iot|Aqara
+switchbot|SwitchBot Smart Hub|92|iot|SwitchBot
+matter|Matter Smart Device|90|iot|Various
+
+# ==============================================================================
+# Security Cameras, NVRs & Smart Vacuums
+# ==============================================================================
+reolink|Reolink IP Camera|95|camera|Reolink
+hikvision|Hikvision IP Camera|95|camera|Hikvision
+dahua|Dahua IP Camera|95|camera|Dahua
+amcrest|Amcrest IP Camera|94|camera|Amcrest
+ring-?doorbell|Ring Video Doorbell|96|camera|Amazon
+ring|Ring Security Device|94|camera|Amazon
+nest-cam|Google Nest Cam|95|camera|Google
+eufy|Eufy Security Camera|93|camera|Eufy
+arlo|Arlo IP Camera|93|camera|Arlo
+wyze|Wyze Smart Cam|92|camera|Wyze
+frigate|Frigate NVR Server|94|nvr-server|Frigate
+doorbell|Video Doorbell|85|camera|Unknown
+camera|IP Security Camera|85|camera|Unknown
+roborock|Roborock Robot Vacuum|96|vacuum-device|Roborock
+roomba|iRobot Roomba Vacuum|95|vacuum-device|iRobot
+deebot|Ecovacs Deebot Vacuum|94|vacuum-device|Ecovacs
+ecovacs|Ecovacs Smart Device|92|vacuum-device|Ecovacs
+
+# ==============================================================================
+# Routers, Firewalls & Network Infrastructure
+# ==============================================================================
+openwrt|OpenWrt Router Gateway|96|router|OpenWrt
+filogic|MediaTek Filogic Router (OpenWrt)|96|router|OpenWrt
+zbt|ZBT Router Hardware (OpenWrt)|94|router|OpenWrt
+mikrotik|MikroTik RouterOS Device|95|router|MikroTik
+routeros|MikroTik RouterOS Gateway|95|router|MikroTik
+unifi-?ap|Ubiquiti UniFi AP|95|network-ap|Ubiquiti
+unifi-?switch|Ubiquiti UniFi Switch|95|network-switch|Ubiquiti
+unifi-?udm|Ubiquiti Dream Machine|96|router|Ubiquiti
+unifi|Ubiquiti UniFi Device|94|network-ap|Ubiquiti
+ubnt|Ubiquiti Network Hardware|92|network-ap|Ubiquiti
+pfsense|pfSense Firewall Gateway|96|router|Netgate
+opnsense|OPNsense Firewall Gateway|96|router|Deciso
+fortigate|FortiGate Security Gateway|96|router|Fortinet
+fortinet|Fortinet Network Device|95|router|Fortinet
+deco|TP-Link Deco Mesh Node|94|router|TP-Link
+eero|Amazon eero Mesh Gateway|94|router|Amazon
+orbi|Netgear Orbi Mesh Node|94|router|Netgear
+fritz!box|AVM FRITZ!Box Router|92|router|AVM
+fritz|AVM FRITZ! Network Device|90|router|AVM
+tplink|TP-Link Router / Device|85|router|TP-Link
+asus-?router|ASUS Router Gateway|88|router|ASUS
+netgear|Netgear Router Gateway|85|router|Netgear
+
+# ==============================================================================
+# Automotive & Connected Vehicles
+# ==============================================================================
+tesla|Tesla Connected Vehicle|95|connected-car|Tesla
+
+# ==============================================================================
+# Generic Desktops & Broad Matches (ΑΥΣΤΗΡΑ ΣΤΟ ΤΕΛΟΣ)
+# ==============================================================================
+^win1[01]-|Windows|90|pc|Microsoft
+^win1[01]$|Windows|90|pc|Microsoft
+thinkpad|Lenovo ThinkPad PC|92|pc|Lenovo
+latitude|Dell Latitude PC|90|pc|Dell
+desktop-[a-z0-9]+|Windows Desktop PC|88|pc|Microsoft
+laptop-[a-z0-9]+|Windows Laptop PC|88|pc|Microsoft
+desktop|Desktop PC|82|pc|Microsoft
+laptop|Laptop PC|82|pc|Microsoft
+^server$|Linux Server Host|75|server|Unknown
+^server-|Linux Server Host|75|server|Unknown
+^nas$|Network Attached Storage|85|nas-server|Unknown
+^nas-|Network Attached Storage|85|nas-server|Unknown
+linux|Linux PC Host|75|pc|Linux
+^router$|Network Router Gateway|75|router|Unknown
+^router-|Network Router Gateway|75|router|Unknown
+^gateway$|Network Gateway Device|70|router|Unknown
+^gateway-|Network Gateway Device|70|router|Unknown
+.*s2[0-9]u.*|Samsung Galaxy S-Ultra|95|phone|Samsung
+.*s2[0-9].*|Samsung Galaxy S Device|92|phone|Samsung
+.*s[1-2][0-9].*|Samsung Galaxy S-Series|90|phone|Samsung
+.*a[0-9]{2}.*|Samsung Galaxy A-Series|90|phone|Samsung
+.*sm-[a-z0-9]+.*|Samsung Galaxy|92|phone|Samsung
+.*fold[0-9]?.*|Samsung Galaxy Fold|95|phone|Samsung
+.*flip[0-9]?.*|Samsung Galaxy Flip|95|phone|Samsung
+.*pixel[0-9]?.*|Google Pixel|95|phone|Google
+.*redmi.*|Xiaomi Redmi|92|phone|Xiaomi
+.*poco.*|Xiaomi Poco|92|phone|Xiaomi
+.*oneplus.*|OnePlus Device|92|phone|OnePlus

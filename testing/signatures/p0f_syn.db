@@ -1,0 +1,139 @@
+# ==============================================================================
+# Database: L4 p0f v3 TCP SYN Operating System Signatures
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   TTL Tier (32/64/128/255) | TCP Options Layout | WScale | Win | OS Name | Score (1-99) | Device Type | Vendor
+#
+# Rules for Adding Entries:
+#   1. Strict Specificity Order:
+#      a. Exact WScale & Exact Window Size (e.g. 8|64240)
+#      b. Exact WScale OR Exact Window Size (e.g. 8|* or *|8192)
+#      c. Options layout matches (e.g. ^mss,nop,ws,sok,ts|*|*)
+#      d. Fallbacks with wildcards (*|*|*) ALWAYS at the very bottom of each TTL block.
+#   2. Printer patterns MUST precede gaming consoles to avoid false matches.
+#
+# Example:
+#   128|^mss,nop,ws,nop,nop,ts,sok|8|64240|Windows|94|pc|Microsoft
+#   64|^mss,sok,ts,nop,ws|10|65535|Android|94|smartphone|Android
+# ==============================================================================
+
+# ==============================================================================
+# Windows NT Kernel Family (TTL 128)
+# ==============================================================================
+# 1. Exact WS & Exact Window Size
+128|^mss,nop,ws,nop,nop,ts,sok|8|64240|Windows|94|pc|Microsoft
+128|^mss,nop,ws,sok,ts|8|64240|Windows|92|pc|Microsoft
+128|^mss,nop,ws,nop,nop,ts,sok|8|65535|Windows|90|pc|Microsoft
+128|^mss,nop,ws,nop,nop,ts,sok|8|8192|Windows Server|88|server|Microsoft
+128|^mss,nop,ws,sok,ts|8|8192|Windows Server|86|server|Microsoft
+
+# 2. Semi-Specific (Exact Win or Exact WS)
+128|^mss,nop,ws,nop,nop,ts,sok|*|8192|Windows Server|84|server|Microsoft
+128|^mss,nop,ws,nop,nop,ts,sok|8|*|Windows|90|pc|Microsoft
+128|^mss,nop,ws,sok,ts|8|*|Windows|88|pc|Microsoft
+128|^mss,nop,ws,nop,nop,sok|8|*|Windows|86|pc|Microsoft
+
+# 3. Generic Pattern Matches
+128|^mss,nop,ws,nop,nop,ts,sok|*|*|Windows|88|pc|Microsoft
+128|^mss,nop,ws,sok,ts|*|*|Windows|86|pc|Microsoft
+128|^mss,nop,ws,nop,nop,sok|*|*|Windows|84|pc|Microsoft
+128|^mss,nop,nop,sok|*|*|Windows (Legacy)|80|pc|Microsoft
+128|^mss,nop,ws,nop,nop,ts,eol|*|*|Windows|78|pc|Microsoft
+
+# 4. TTL 128 Fallback
+128|*|*|*|Windows|60|pc|Microsoft
+
+
+# ==============================================================================
+# Apple iOS / iPadOS & macOS (Darwin Kernel - TTL 64)
+# ==============================================================================
+64|^mss,nop,ws,nop,nop,ts,sok|2|*|iPhone / iPad (iOS)|92|smartphone|Apple
+64|^mss,nop,ws,nop,nop,ts,eol|2|*|iPhone / iPad (iOS)|90|smartphone|Apple
+64|^mss,nop,ws,nop,nop,ts,sok|3|*|macOS PC|92|mac-pc|Apple
+64|^mss,nop,ws,nop,nop,ts,sok|4|*|macOS PC|92|mac-pc|Apple
+64|^mss,nop,ws,nop,nop,ts,eol|3|*|macOS PC|90|mac-pc|Apple
+64|^mss,nop,ws,nop,nop,ts,eol|4|*|macOS PC|90|mac-pc|Apple
+64|^mss,nop,ws,nop,nop,ts,sok|5|*|macOS PC|86|mac-pc|Apple
+
+
+# ==============================================================================
+# Android Ecosystem (Mobile Stack - TTL 64)
+# ==============================================================================
+# 1. Exact WS & Exact Window
+64|^mss,sok,ts,nop,ws|10|65535|Android|94|smartphone|Unknown
+64|^mss,sok,ts,nop,ws|11|65535|Android|94|smartphone|Unknown
+64|^mss,nop,ws,nop,nop,ts,sok|8|65535|Android|90|smartphone|Unknown
+
+# 2. Specific Mobile WScale
+64|^mss,sok,ts,nop,ws|10|*|Android|88|smartphone|Unknown
+64|^mss,sok,ts,nop,ws|11|*|Android|88|smartphone|Unknown
+64|^mss,sok,ts,nop,ws|9|*|Android|86|smartphone|Unknown
+64|^mss,nop,ws,nop,nop,ts,sok|10|*|Android|86|smartphone|Unknown
+64|^mss,nop,ws,sok,ts|10|*|Android|84|smartphone|Unknown
+64|^mss,nop,ws,nop,nop,ts,sok|8|*|Android|84|smartphone|Unknown
+
+
+# ==============================================================================
+# Printers & Embedded Peripherals (TTL 64) - ΠΡΙΝ τα generic console fallbacks!
+# ==============================================================================
+64|^mss,nop,nop,sok|2|8192|Network Printer|84|printer|Unknown
+64|^mss,nop,nop,sok|2|16384|Network Printer|82|printer|Unknown
+64|^mss,nop,nop,sok|2|32768|Network Printer|80|printer|Unknown
+
+
+# ==============================================================================
+# Gaming Consoles (TTL 64)
+# ==============================================================================
+64|^mss,nop,nop,sok|*|32768|Nintendo Switch Console|92|console|Nintendo
+64|^mss,nop,ws,sok|*|*|Steam Deck (SteamOS)|88|console|Valve
+64|^mss,nop,nop,sok|*|*|Nintendo Switch Console|74|console|Nintendo
+
+
+# ==============================================================================
+# Linux Server & Desktop Canonical Stacks (TTL 64)
+# ==============================================================================
+# 1. Exact Canonical Window Sizes
+64|^mss,nop,ws,sok,ts|*|64240|Linux|92|server|Linux
+64|^mss,sok,ts,nop,ws|*|64240|Linux|92|server|Linux
+64|^mss,nop,ws,sok,ts|*|29200|Linux|90|server|Linux
+64|^mss,sok,ts,nop,ws|*|29200|Linux|90|server|Linux
+64|^mss,nop,ws,sok,ts|*|14600|Linux|88|server|Linux
+64|^mss,sok,ts,nop,ws|*|14600|Linux|88|server|Linux
+
+# 2. Desktop/Server Specific WScale
+64|^mss,nop,ws,sok,ts|7|*|Linux|86|server|Linux
+64|^mss,nop,ws,sok,ts|8|*|Linux|86|server|Linux
+64|^mss,sok,ts,nop,ws|7|*|Linux|84|server|Linux
+64|^mss,sok,ts,nop,ws|8|*|Linux|84|server|Linux
+
+
+# ==============================================================================
+# Embedded Linux & IoT (TTL 64 / 32)
+# ==============================================================================
+64|^mss,nop,nop,ts|*|5840|Embedded Linux / IoT Node|78|iot|Linux
+64|^mss,nop,nop,ts|*|2920|Embedded Linux / IoT Node|76|iot|Linux
+32|^mss,nop,nop,sok|*|*|Legacy Embedded Router|70|router|Unknown
+32|^mss,nop,nop,ts|*|*|Legacy Embedded Router|68|router|Unknown
+
+
+# ==============================================================================
+# Linux Generic Fallbacks (TTL 64)
+# ==============================================================================
+64|^mss,nop,ws,sok,ts|*|*|Linux|80|server|Linux
+64|^mss,sok,ts,nop,ws|*|*|Linux|80|server|Linux
+64|^mss,nop,nop,sok,nop,ws|*|*|Linux|80|server|Linux
+64|^mss,nop,ws,nop,nop,ts,sok|*|*|Linux / Unix Host|78|server|Linux
+64|*|*|*|Linux Host|50|generic|Linux
+
+
+# ==============================================================================
+# Enterprise Infrastructure & RTOS (TTL 255)
+# ==============================================================================
+255|^mss,nop,nop,sok|*|8192|Network Switch / Router|82|router|Network OS
+255|^mss,nop,ws,sok,ts|*|8192|Network Switch / Router|80|router|Network OS
+255|^mss,nop,ws,sok,ts|*|*|Network Switch / Router|76|router|Network OS
+255|^mss,nop,nop,sok|*|*|Network Switch / Router|74|router|Network OS
+255|^mss|*|8192|Embedded RTOS Device|72|iot|Unknown
+255|^mss|*|5840|Embedded RTOS Device|70|iot|Unknown
+255|^mss|*|*|Embedded RTOS Device|64|iot|Unknown
+255|*|*|*|Network Appliance / Device|52|router|Network OS
