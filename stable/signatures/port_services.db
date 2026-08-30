@@ -1,0 +1,1199 @@
+# ==============================================================================
+# Database: Well-Known TCP/UDP Ports & Service Names
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   Port or Port-Range | Protocol (tcp/udp) | Service Description
+#
+# Rules for Adding Entries:
+#   1. Single ports take priority over ranges (e.g. 8080 before 8000-8999).
+#   2. The parser automatically sanitizes descriptions into clean lowercase 
+#      hyphenated service names (e.g., 'Immich Web API' -> 'immich-web-api').
+#   3. Spaces around pipes '|' are automatically trimmed.
+#
+# Example:
+#   22|tcp|SSH Remote Access
+#   2283|tcp|Immich Web API
+#   5000-5010|tcp|Custom Media Streaming Range
+# ==============================================================================
+1|TCP/UDP|TCPMUX
+2-3 |Res |Compressnet
+5|TCP/UDP|RJE / PIM MIB
+7|tcp|Echo
+9|tcp|Discard
+9|udp|WoL
+11|tcp|Systat
+13|tcp|Daytime
+15|Unkn|Netstat
+17|tcp|QOTD
+18|tcp|Message Send
+19|tcp|Chargen
+20|TCP/UDP|FTP Data
+21|TCP/UDP|FTP Control
+22|TCP/UDP|SSH
+23|TCP/UDP|Telnet
+24|TCP/UDP|LMTP
+25|TCP/UDP|SMTP
+27|tcp|NSW-FE
+28|Unkn|Panorama HA
+29|tcp|MSG-ICP
+31|tcp|MSG-Auth
+33|tcp|DSP
+37|tcp|Time Protocol
+38|tcp|RAP
+39|tcp|RLP
+41|tcp|Graphics
+42|TCP/UDP|Host Name
+43|TCP/UDP|WHOIS
+44|tcp|MPM Flags
+45|tcp|MPM Recv
+46|tcp|MPM Send
+47 |Res |NI FTP
+48|tcp|Auditd
+49|tcp|TACACS
+50|tcp|Remote Mail
+51 |Res |IMP Address
+52|tcp|XNS Time
+53|tcp|DNS
+54|tcp|XNS Name
+55|tcp|ISI Graphics
+56|tcp|XNS Auth
+58|tcp|XNS Mail
+61 |Res |NIFTP Mail
+62|tcp|ACAS
+63|tcp|Whois++
+64|tcp|Covia
+65|tcp|TACACS-DS
+66|tcp|Oracle SQL*Net
+67-68|TCP/UDP|DHCP / BOOTP
+69|TCP/UDP|TFTP
+70|TCP/UDP|Gopher
+71-74|tcp|NETRJS
+76|tcp|DEOS
+78|tcp|Vettcp
+79|TCP/UDP|Finger
+80|tcp|HTTP
+81|Unkn|TorPark Onion
+82|tcp|XFER Utility
+82|Unkn|TorPark Control
+83-85|tcp|MIT ML Device
+86|tcp|Micro Focus Cobol
+88|tcp|Kerberos
+89|tcp|SU/MIT Gateway
+90|tcp|DNSIX Token
+90|Unkn|PointCast
+91|tcp|MIT Dover
+92|tcp|Print Protocol
+93|tcp|Device Control
+94|tcp|Tivoli Dispatcher
+95|TCP/UDP|SUPDUP
+96|tcp|DIXIE
+97|tcp|Swift RVF
+98|tcp|TAC News
+99|tcp|Metagram Relay
+101|TCP/UDP|NIC Host Name
+102|TCP/UDP|ISO TSAP 0
+104|tcp|DICOM
+105|tcp|CCSO Nameserver
+106|tcp|macOS Password
+107|tcp|RTelnet
+108|tcp|IBM SNA Gateway
+109|TCP/UDP|POP2
+110|TCP/UDP|POP3
+111|tcp|ONC RPC
+112|tcp|McIDAS
+113|tcp|Ident / Auth
+115|TCP/UDP|Simple FTP
+117|tcp|UUCP Path
+118|tcp|SQL Services
+119|TCP/UDP|NNTP
+123|TCP/UDP|NTP Time
+126|tcp|NXEdit IDE
+135|tcp|DCE / EPMAP
+137|tcp|NetBIOS Name
+138|TCP/UDP|NetBIOS Datagram
+139|TCP/UDP|NetBIOS Session
+143|TCP/UDP|IMAP
+151|tcp|HEMS
+152|tcp|BFTP
+153|tcp|SGMP
+156|tcp|SQL Service
+158|tcp|DMSP Mail
+161|TCP/UDP|SNMP
+162|tcp|SNMP Trap
+165|tcp|Xerox
+169|tcp|SEND
+170|tcp|PostScript Print
+175|tcp|VMNET NJE
+177|tcp|XDMCP
+179|TCP/UDP|BGP Routing
+180|tcp|RIS
+194|tcp|IRC Chat
+199|tcp|SMUX SNMP
+201|tcp|AppleTalk Route
+202|tcp|AppleTalk Name
+203 |Res |AppleTalk
+204|tcp|AppleTalk Echo
+205 |Res |AppleTalk
+206|tcp|AppleTalk Zone
+207-208 |Res |AppleTalk
+209|TCP/UDP|QMTP
+210|tcp|ANSI Z39.50
+213|tcp|IPX
+218|tcp|MPP
+220|tcp|IMAP3
+225-241 |Res |RFC 1060
+249-255 |Res |RFC 1060
+259|tcp|ESRO
+262|tcp|Arcisdms
+264|tcp|BGMP
+280|tcp|HTTP Management
+300|Unkn|ThinLinc / Spartan
+308|tcp|Novastor Backup
+311|TCP/UDP|macOS Server Admin
+312|Unkn|macOS Xsan
+318|tcp|PKIX Timestamp
+319-320|udp|PTP Time Sync
+323|tcp|RPKI
+350|tcp|MATIP Type A
+351|tcp|MATIP Type B
+356|tcp|Cloanto Amiga
+366|tcp|ODMR Mail
+369|tcp|Rpc2portmap
+370|tcp|Coda Auth / SecureCast
+371|tcp|ClearCase ALBD
+376|tcp|Amiga Envoy
+383|tcp|HP Data Alarm
+384|tcp|Remote Network
+387|tcp|AURP AppleTalk
+388|TCP/UDP|Unidata LDM
+389|TCP/UDP|LDAP Directory
+399|tcp|DECnet
+401|tcp|UPS Power
+427|tcp|SLP Service
+433|tcp|NNTP
+434|tcp|Mobile IP
+443|tcp|HTTPS
+444|tcp|SNPP Paging
+445|TCP/UDP|SMB / Active Directory
+464|tcp|Kerberos Change Password
+465|tcp|SMTPS / TLS
+475|tcp|Hasp Services
+476-490|Unkn|Centro ERP
+491|Unkn|GO-Global
+497|tcp|Retrospect Backup
+500|TCP/UDP|ISAKMP / IKE VPN
+502|tcp|Modbus Protocol
+504|tcp|Citadel Groupware
+510|tcp|FirstClass
+512|TCP/UDP|Rexec / Comsat
+513|TCP/UDP|Rlogin / Who
+514|TCP/UDP|Rsh / Syslog
+515|TCP/UDP|LPD Print
+517-518|udp|Talk / NTalk
+520|TCP/UDP|EFS / RIP
+521|udp|RIPng
+524|tcp|NetWare NCP
+525|udp|Timed Server
+530|tcp|RPC
+532|TCP/UDP|Netnews
+533|udp|Netwall
+540|tcp|UUCP
+542|tcp|Commerce Apps
+543|tcp|KLogin
+544|tcp|KShell
+546|tcp|DHCPv6 Client
+547|tcp|DHCPv6 Server
+548|TCP/UDP|Apple Filing AFP
+550|tcp|New-Rwho
+554|tcp|RTSP Streaming
+556|tcp|Remotefs
+560-561|udp|Rmonitor / Monitor
+563|tcp|NNTPS TLS
+564|Unkn|Plan 9 (9P)
+585|tcp|IMAPS (Deprecated)
+587|TCP/UDP|Message Submission
+591|tcp|FileMaker Web
+593|tcp|HTTP RPC EpMap
+601|tcp|Reliable Syslog
+604|tcp|BEEP Tunnel
+623|udp|IPMI / ASF
+625|Unkn|ODProxy
+631 |TCP/Unkn |IPP / CUPS Admin
+635|tcp|RLZ DBase
+636|TCP/UDP|LDAPS
+639|tcp|MSDP Multicast
+641|tcp|SupportSoft Nexus
+643|tcp|SANity
+646|tcp|LDP MPLS
+647|tcp|DHCP Failover
+648|tcp|RRP Registry
+651|tcp|IEEE-MMS
+653|tcp|SupportSoft Data
+654|tcp|MMS MMP
+655|tcp|Tinc VPN
+657|tcp|IBM RMC / LPAR
+660|TCP/UDP|macOS Server Admin
+662|tcp|NFS Statd
+666 |TCP/Unkn |Doom / Airserv
+674|tcp|ACAP
+684|tcp|CORBA SSL
+688|tcp|REALM-RUSD
+690|tcp|Velneo VATP
+691|tcp|MS Exchange
+694|tcp|Linux-HA Heartbeat
+695|TCP/UDP|IEEE-MMS-SSL
+698|udp|OLSR Routing
+700|tcp|EPP Domain Registry
+701|tcp|LMP Traffic
+702|tcp|IRIS BEEP
+706|tcp|SILC Conferencing
+711|tcp|Cisco Tag Dist
+712|tcp|TBRPF Routing
+749|tcp|Kerberos Admin
+750|udp|Kerberos IV
+751|Unkn|Kerberos Master
+752|Unkn|Kerberos Passwd
+753 |TCP/Unkn |RRH / Userreg
+754 |TCP/Unkn |Tell Send / Krb5 Prop
+760|Unkn|Krbupdate
+777|Unkn|MSX Protocol
+782|Unkn|Conserver Serial
+783|Unkn|SpamAssassin
+800|tcp|MDBS-Daemon
+802|tcp|Modbus Security
+808|Unkn|Net.TCP Port Sharing
+829|TCP/UDP|CMP Certificate
+830|tcp|NETCONF SSH
+831|tcp|NETCONF BEEP
+832|tcp|NETCONF SOAP HTTPS
+833|tcp|NETCONF SOAP BEEP
+843|Unkn|Adobe Flash
+847|tcp|DHCP Failover
+848|tcp|GDOI Protocol
+853|TCP/UDP|DNS over TLS/QUIC
+860|tcp|iSCSI
+861|tcp|OWAMP Control
+862|tcp|TWAMP Control
+873|tcp|rsync
+888|Unkn|CDDB / BigFix
+892|tcp|NFS Mountd
+897-898|Unkn|Brocade SMI-S
+902-903|Unkn|VMware ESXi
+953 |TCP/Res |BIND RNDC
+981|Unkn|Check Point HTTPS
+987|Unkn|Sony WoL / SmallBiz
+988|Unkn|Lustre FileSystem
+989-990|tcp|FTPS
+991|tcp|NAS Admin
+992|tcp|Telnet over TLS
+993|TCP/UDP|IMAPS
+994 |Res |IRCS (Unused)
+995|TCP/UDP|POP3S
+1010|Unkn|ThinLinc Web
+1011-1020 |Res |Reserved
+1023 |Res/Unkn |z/OS NFS
+1024 |Res |Reserved
+1025|tcp|Network Blackjack
+1027 |Res/UDP |6a44 IPv6 NAT
+1029|Unkn|MS DCOM
+1058-1059|tcp|AIX NIM
+1080|tcp|SOCKS Proxy
+1085|tcp|WebObjects
+1098|tcp|Java RMI Activation
+1099|TCP/UDP|Java RMI Registry
+1100|Unkn|Salto Handshake
+1112|Unkn|ESET Virus Updates
+1113|TCP/UDP|LTP DTN Protocol
+1119|tcp|Battle.net
+1144|tcp|DaVinci Fuscript
+1167|TCP/UDP|Cisco IP SLA
+1194|tcp|OpenVPN
+1198|tcp|Cajo Distributed
+1212|Unkn|Equalsocial Fediverse
+1214|tcp|Kazaa P2P
+1220|TCP/UDP|QuickTime Admin
+1234|TCP/UDP|Infoseek / VLC
+1241|Unkn|Nessus Scanner
+1270|tcp|MS SCOM Agent
+1293|tcp|IPSec
+1311 |TCP/Unkn |RxMon / Dell OpenManage
+1314|Unkn|Festival TTS
+1319|tcp|AMX ICSP
+1337 |TCP/Unkn |Men&Mice / Strapi / Sails
+1341|tcp|Qubes MES
+1344|tcp|ICAP Adaptation
+1352|tcp|HCL Domino RPC
+1360|tcp|Mimer SQL
+1414|tcp|IBM MQ
+1417-1420|tcp|Timbuktu / Tauri
+1431|tcp|RGTP Gossip
+1433|tcp|MS SQL Server
+1434|tcp|MS SQL Monitor
+1476|tcp|WiFi Pineapple
+1481|tcp|AIRS Data
+1492|Unkn|CivNet
+1494|Unkn|Citrix ICA
+1500-1501|Unkn|IBM Tivoli
+1503|Unkn|WinLive Messenger
+1512|tcp|MS WINS
+1513|Unkn|Garena Client
+1521 |TCP/Unkn |nCUBE / Oracle Listener
+1524|tcp|Ingreslock
+1527 |TCP/Unkn |Oracle Net / Derby
+1533|tcp|IBM Sametime
+1534 |TCP/Unkn |Eclipse TCF
+1540-1545|Unkn|1C:Enterprise
+1547|tcp|Laplink
+1550|Unkn|1C Debug / Gadu
+1560-1590|Unkn|1C Working Processes
+1581 |TCP/Unkn |VMF / Tivoli Web
+1582-1583|Unkn|Tivoli Web / Pervasive
+1589|tcp|Cisco VQP
+1604|Unkn|DarkComet RAT
+1626-1627|Unkn|iSketch
+1628-1629|tcp|LonTalk
+1645-1646|udp|RADIUS (Legacy)
+1666|Unkn|Perforce
+1677|tcp|Novell GroupWise
+1688|Unkn|MS KMS Activation
+1701|TCP/UDP|L2F / L2TP
+1707 |TCP/Unkn |Windward / L2TP IPsec
+1714-1764|Unkn|KDE Connect
+1716|Unkn|America's Army
+1719|tcp|H.323 Reg
+1720|tcp|H.323 Signaling
+1723|TCP/UDP|PPTP VPN
+1755|tcp|MS Media Services
+1761|Unkn|Novell ZENworks
+1776|tcp|Emergency Info
+1801|tcp|MS Message Queuing
+1812|TCP/UDP|RADIUS Auth
+1813|TCP/UDP|RADIUS Acct
+1863|tcp|MSNP Messenger
+1880|Unkn|Node-RED
+1883|tcp|MQTT Transport
+1900|TCP/UDP|SSDP / UPnP
+1935 |TCP/Unkn |Flash / RTMP
+1965|tcp|Gemini Protocol
+1967|Unkn|Cisco IP SLA
+1972|tcp|InterSystems Cache
+1984 |TCP/Unkn |Big Brother / Arweave
+1985|TCP/UDP|Cisco HSRP
+1998|tcp|Cisco XOT
+2000|tcp|Cisco SCCP
+2001-2009|Unkn|Hexss HTTP
+2010|Unkn|Artemis Simulator
+2019|Unkn|Caddy Admin API
+2033|Unkn|Civ IV Multiplayer
+2049|TCP/UDP|NFS
+2056|Unkn|Civ IV Multiplayer
+2080|tcp|Autodesk NLM
+2082|Unkn|cPanel Default
+2083 |TCP/Unkn |Radsec / cPanel TLS
+2086 |TCP/Unkn |GNUnet / WHM Default
+2087|Unkn|WHM Default TLS
+2095|tcp|cPanel Webmail
+2096|Unkn|cPanel TLS Webmail
+2100|Unkn|Warzone 2100
+2101|Unkn|NTRIP Protocol
+2102-2104|tcp|Zephyr Notification
+2123|tcp|GTP-C Control
+2142|tcp|TDMoIP
+2152|tcp|GTP-U User Data
+2159|tcp|GDB Debug
+2181 |TCP/Unkn |EForward / ZooKeeper
+2195-2197|Unkn|Apple Push API
+2210|tcp|NOAAPORT
+2211|tcp|EMWIN Weather
+2221|Unkn|ESET Updates
+2222 |TCP/Unkn |EtherNet/IP / DirectAdmin
+2222-2226|tcp|ESET Remote Admin
+2240|tcp|RECIPe Encryptor
+2261-2262|tcp|CoMotion Master/Backup
+2302-2305|Unkn|ArmA / Halo Multiplayer
+2351|Unkn|AIM Game LAN
+2368|Unkn|Ghost Blog
+2369-2370|Unkn|BMC Control-M
+2372|Unkn|K9 Web Protection
+2375-2377|tcp|Docker API / Swarm
+2379-2380 |TCP/Unkn |etcd / KGS Go
+2389|tcp|OpenView Session
+2399|tcp|FileMaker ODBC
+2401|tcp|CVS Server
+2404|tcp|IEC 60870-5-104
+2424|Unkn|OrientDB Binary
+2426|Unkn|VMware VCMP
+2427|tcp|MGCP Gateway
+2447|tcp|OpenView NNM
+2456|Unkn|Valheim Server
+2459|tcp|XRPL
+2480|Unkn|OrientDB HTTP
+2483-2484|tcp|Oracle DB / SSL
+2500-2501|Unkn|NetFS
+2535|tcp|MADCAP Multicast
+2541|tcp|LonTalk/IP
+2546-2548|tcp|EVault Data Protection
+2593|Unkn|Ultima Online
+2598|Unkn|Citrix ICA Session
+2599|Unkn|Ultima Online
+2628|tcp|DICT Protocol
+2638|tcp|SQL Anywhere DB
+2710|Unkn|XBT Tracker
+2727|tcp|MGCP Call Agent
+2759|Unkn|SuperTuxKart
+2761-2762|tcp|DICOM ISCL / TLS
+2775|tcp|SMPP Messaging
+2809|tcp|Corbaloc URL
+2811|tcp|GridFTP
+2827|Unkn|I2P BOB Bridge
+2944-2945|tcp|Megaco H.248
+2947|tcp|GPSD Daemon
+2948-2949|tcp|WAP Push MMS
+2967|tcp|Symantec Agent
+2989|tcp|Zarkov Agent
+3000|Unkn|Rails / Bun / Grafana
+3001|tcp|Honeywell Prowatch
+3004|Unkn|iSync
+3010|tcp|KWS Connector
+3020|tcp|CIFS Fileshare
+3050|tcp|Firebird / Interbase
+3052|tcp|APC PowerChute
+3074|tcp|Xbox LIVE
+3101|Unkn|BlackBerry BES
+3128|Unkn|Squid Proxy
+3225|tcp|Fibre Channel IP
+3233|tcp|WhiskerControl
+3260|tcp|iSCSI
+3268-3269|tcp|MS Global Catalog
+3283 |TCP/Unkn |Apple Remote Desktop
+3290|Unkn|VATSIM Voice
+3305|tcp|Odette FTP
+3306|TCP/UDP|MySQL Database
+3323|Unkn|DECE GEODI
+3332|Unkn|Thundercloud Data
+3333|Unkn|Eggdrop / OpenOCD
+3344|Unkn|Repetier-Server
+3351|Unkn|Pervasive PSQL
+3386|tcp|GTP' CDR Logging
+3389|tcp|MS RDP Terminal
+3396|tcp|Novell NDPS Printer
+3412|tcp|XmlBlaster
+3423-3424|tcp|Xware xTrm
+3435|tcp|Pacom Security
+3455|tcp|RSVP Reservation
+3478-3481|TCP/UDP|STUN / TURN / Teams
+3479-3480|Unkn|PlayStation Network
+3483|TCP/UDP|Slim Devices
+3493|tcp|Network UPS Tools
+3503|tcp|MPLS LSP-Echo
+3516|tcp|Smartcard Port
+3527|udp|MS Message Queuing
+3535|Unkn|SMTP Alternate
+3544|udp|Teredo Tunneling
+3551|tcp|Apcupsd Info
+3601|tcp|SAP Message Server
+3632|tcp|Distcc Compiler
+3645|tcp|Cyc AI
+3655|tcp|ActiveBatch Agent
+3659 |TCP/Unkn |Apple SASL / BF4
+3667|tcp|Info Exchange
+3671|tcp|KNXnet/IP
+3689|TCP/UDP|DAAP iTunes
+3690|tcp|Subversion SVN
+3702|tcp|WS-Discovery
+3721|Unkn|ES File Explorer
+3724 |TCP/Unkn |Blizzard Games / Club Penguin
+3725|tcp|Netia NA-ER
+3749|tcp|CimTrak
+3768|tcp|RBLcheckd Daemon
+3784|udp|BFD Routing
+3785|Unkn|Ventrilo VoIP
+3799|udp|RADIUS CoA
+3804|tcp|Harman HiQnet
+3825|Unkn|RedSeal Networks
+3826 |TCP/Unkn |WarMUX / RedSeal
+3830|tcp|Cerner Agent
+3835|Unkn|RedSeal Networks
+3856|Unkn|F10 ERP
+3868|tcp|Diameter Base
+3872|tcp|Oracle OEM Agent
+3880|tcp|IGRS Protocol
+3900|tcp|IBM UniData
+3911|TCP/UDP|Printer Status
+3960-3962|Unkn|Warframe
+3978-3979|Unkn|OpenTTD / Panorama
+3999|tcp|Norman Scanning
+4000|Unkn|Diablo II
+4001|Unkn|MS Ants / etcd / IPFS
+4018|tcp|Protocol Warnings
+4035|Unkn|IBM Rational
+4045|Unkn|Solaris Lockd
+4050|Unkn|Mud Master Chat
+4061|tcp|Ice Location
+4063-4064|tcp|Ice Router / OMERO
+4069|udp|Minger Email Verify
+4070|Unkn|Spotify / Alexa
+4089|tcp|OpenCORE Remote
+4090|tcp|Kerio
+4093|tcp|PxPlus Client
+4096|tcp|Ascom Bridge
+4105|tcp|ShofarNexus
+4111|tcp|Xgrid
+4116|tcp|Smartcard-TLS
+4123|TCP/UDP|Z-Wave Protocol
+4125|Unkn|MS Remote Web
+4172|tcp|Teradici PCoIP
+4190|tcp|ManageSieve
+4195|tcp|AWS Cloud Remoting
+4197|tcp|Harman HControl
+4198|Unkn|Couch Potato
+4200|Unkn|Angular App
+4201|Unkn|TinyMUD
+4213|Unkn|DuckDB UI
+4222|Unkn|NATS Server
+4226|Unkn|Aleph One
+4242|Unkn|Orthanc / Quassel
+4243|Unkn|Docker / CrashPlan
+4244|Unkn|Viber
+4303|tcp|SRCP Railroad
+4307|tcp|TrueConf Media
+4321|tcp|RWhois Protocol
+4420|tcp|NVMe over Fabrics
+4433|Unkn|Salto NCoder DTLS
+4444|Unkn|Oracle Intradoc / Metasploit / Xvfb
+4444-4445|Unkn|I2P Proxy
+4455|Unkn|OBS WebSocket
+4460|tcp|NTS Key Establish
+4486|tcp|ICMS Client
+4488|tcp|Apple Back to My Mac
+4500|TCP/UDP|IPSec NAT-T
+4502-4534|tcp|MS Silverlight
+4505-4506|Unkn|Salt Master
+4534|Unkn|Armagetron
+4560|Unkn|Log4j Socket
+4567|Unkn|Sinatra Web
+4569|udp|IAX2 Asterisk
+4604|tcp|Identity Reg
+4605|tcp|Secure Chat
+4610-4640|Unkn|QualiSystems
+4662 |TCP/Unkn |OrbitNet / eMule
+4664|Unkn|Google Desktop
+4672|Unkn|eMule Legacy
+4711|Unkn|eMule Web GUI
+4713|Unkn|PulseAudio
+4723-4724|Unkn|Appium Automation
+4728|tcp|CA DMP Multiplexer
+4730|tcp|Gearman Job Server
+4739|tcp|IPFIX Export
+4747|Unkn|Apprentice
+4753|tcp|SIMON Discovery
+4789|udp|VXLAN Tunnel
+4791|udp|RoCEv2
+4840-4843|tcp|OPC UA Protocol / TLS
+4847|tcp|Web Fresh
+4848|Unkn|GlassFish Admin
+4894|tcp|LysKOM Protocol
+4900|Unkn|HFSQL Mantra
+4944|Unkn|DrayTek DSL Status
+4949|tcp|Munin Monitoring
+4950|tcp|Cylon UC32
+5000|Unkn|UPnP / Flask / AirPlay
+5000-5500|Unkn|League of Legends
+5001|Unkn|Slingbox / Iperf / IPFS
+5002|Unkn|ASSA ARX Access
+5003|TCP/UDP|FileMaker
+5004-5005|tcp|RTP / RTCP Media
+5007|Unkn|Palo Alto User-ID
+5010-5011|tcp|IBM TelePath / MQ
+5022|Unkn|MS SQL Replication
+5025|tcp|SCPI Instruments
+5029|Unkn|SRB2 / Kart
+5031|Unkn|AVM CAPI-over-TCP
+5037|Unkn|Android ADB Server
+5044|tcp|Filebeat Lumberjack
+5048|tcp|Texai Message
+5050|Unkn|Yahoo Messenger
+5051|tcp|Symantec Intruder
+5060-5061|TCP/UDP|SIP VoIP / TLS
+5062|tcp|Localisation Access
+5064-5065|TCP/UDP|EPICS Channel Access
+5070|Unkn|BFCP Protocol
+5075-5076|TCP/UDP|EPICS PV Access
+5080|Unkn|NEC Phone iSIP
+5084-5085|tcp|LLRP Reader / TLS
+5090|Unkn|3CX Phone Tunnel
+5093|udp|Thales Sentinel LM
+5099|tcp|Thales Sentinel
+5104|Unkn|IBM NetCOOL HTTP
+5121|Unkn|Neverwinter Nights
+5150|tcp|ATMP Tunnel
+5151|TCP/UDP|ESRI SDE Instance
+5154|tcp|BZFlag Server
+5172|tcp|PC over IP Management
+5173|Unkn|Vite Dev Server
+5190|tcp|AOL Instant Messenger
+5198-5200|Unkn|EchoLink VoIP
+5201|Unkn|Iperf3 Bandwidth
+5222-5223 |TCP/Unkn |XMPP / APNs / SSL
+5228 |TCP/Unkn |HP Virtual / Google Play
+5231-5232 |TCP/Unkn |Cruse Scanner / SGI
+5235-5236|Unkn|Firebase Cloud
+5242-5243|Unkn|Viber Messenger
+5246-5247|udp|CAPWAP Control / Data
+5269|tcp|XMPP Server
+5280-5281 |TCP/Unkn |XMPP Web / SSL
+5298|tcp|XMPP Discovery
+5310|TCP/UDP|Outlaws Game
+5318|tcp|CMS Certificate
+5349|tcp|STUN/TURN over TLS
+5351|TCP/UDP|NAT-PMP / PCP
+5353|TCP/UDP|mDNS Multicast DNS
+5355|tcp|LLMNR Resolution
+5357-5358|Unkn|WSDAPI Services
+5394|Unkn|Kega Fusion Emulator
+5402|tcp|MFTP Multicast
+5405|tcp|NetSupport Manager
+5412|tcp|IBM Rational Synergy
+5413|tcp|Wonderware SuiteLink
+5417|tcp|SNS Agent
+5421|tcp|NetSupport Manager
+5432|TCP/UDP|PostgreSQL DB
+5433|Unkn|Bouwsoft Webserver
+5445|Unkn|Cisco Video Advantage
+5450|Unkn|OSIsoft PI Client
+5457-5458|Unkn|OSIsoft PI Framework
+5480|Unkn|VMware VAMI
+5481|Unkn|ClearSCADA Client
+5495|Unkn|IBM Cognos TM1
+5498-5499|Unkn|Hotline Tracker
+5500|Unkn|Hotline / VNC
+5501|Unkn|Hotline File Transfer
+5517|Unkn|Setiqueue SETI@Home
+5520|Unkn|Hytale Server
+5550|Unkn|HP Data Protector
+5554|Unkn|Fastboot Wireless
+5555|Unkn|WebCenter / Freeciv / adb
+5556|tcp|Freeciv / WebLogic
+5568|tcp|ACN SDT Network
+5601|Unkn|Kibana Dashboard
+5631-5632|TCP/UDP|Symantec pcAnywhere
+5656|Unkn|IBM Lotus Sametime
+5657|Unkn|PufferPanel SFTP
+5666-5667|Unkn|Nagios NRPE / NSCA
+5670|TCP/UDP|FileMQ / ZRE
+5671-5672|TCP/UDP|AMQP / TLS
+5678|TCP/UDP|n8n / MikroTik ND
+5683-5684|tcp|CoAP / CoAPs IoT
+5693|Unkn|Nagios NCPA Agent
+5701|Unkn|Hazelcast Cluster
+5718-5719|Unkn|MS DPM Data Channel
+5722|tcp|MS DFSR SYSVOL
+5723-5724|Unkn|MS SCOM Operations
+5741-5742|tcp|IDA Discover Port
+5800|Unkn|VNC over HTTP / ProjectWise
+5900 |TCP/Unkn |VNC Remote Framebuffer
+5905|Unkn|Intel Online Connect
+5931|tcp|AMMYY Admin
+5938|Unkn|TeamViewer RDP
+5984|tcp|CouchDB Database
+5985-5986|tcp|WinRM HTTP / HTTPS
+5988-5989|tcp|CIM-XML DMTF
+6000-6063|tcp|X11 Window System
+6005|Unkn|BMC Control-M / Camfrog
+6009|Unkn|JD Edwards JDENet
+6024-6032|Unkn|Tigermeeting Client/API
+6050-6051|Unkn|Arcserve Backup
+6081|udp|Geneve Encapsulation
+6086|tcp|PDTP File Server
+6100|Unkn|Vizrt / Ventrilo
+6101|Unkn|Backup Exec Agent
+6110-6111|tcp|HP Softbench
+6112-6113 |TCP/Unkn |dtspcd / Battle.net
+6121-6122|Unkn|Lacewing Network
+6136|Unkn|ObjectDB Server
+6159|tcp|ARINC 840 EFB
+6160-6170|Unkn|Veeam Services
+6200|Unkn|WebCenter Content
+6201 |TCP/Unkn |Thermo-Calc / WebCenter
+6225-6255|Unkn|WebCenter Portable
+6257|Unkn|WinMX P2P
+6260|Unkn|Planet M.U.L.E.
+6262|Unkn|Sybase Advantage DB
+6343|udp|sFlow Traffic Monitor
+6346-6347|tcp|Gnutella P2P
+6350|tcp|App Discovery
+6379|tcp|Redis Data Store
+6389|Unkn|EMC CLARiiON
+6432|tcp|PgBouncer Pooler
+6436-6437|Unkn|Leap Motion WS
+6443|Unkn|Kubernetes API
+6444-6445|tcp|Sun Grid Engine
+6454|udp|Art-Net Protocol
+6463-6472|Unkn|Discord RPC
+6464|tcp|IEEE 11073 Medical
+6513-6515|tcp|NETCONF TLS / Syslog
+6516|Unkn|Windows Admin Center
+6543|Unkn|Pylons Pyramid
+6556|Unkn|Check MK Agent
+6560-6561|Unkn|Speech-Dispatcher
+6566|tcp|SANE Scanner
+6567|Unkn|Mindustry Server
+6571|Unkn|Windows Live FolderShare
+6600 |TCP/Unkn |Hyper-V Live / MPD
+6601|tcp|MS Forefront TMG
+6602|tcp|MS WSS Comm
+6610|tcp|Bencher API
+6619|tcp|Odette FTPS
+6622|tcp|Multicast FTP
+6626|tcp|Semaphore Messenger
+6653|TCP/UDP|OpenFlow Protocol
+6660-6664|Unkn|IRC Chat
+6665-6669 |TCP/Unkn |IRC / IRC SSL
+6679 |TCP/Unkn |OSAUT / IRC SSL
+6690|Unkn|Synology Cloud
+6697|tcp|IRC SSL
+6699|Unkn|WinMX P2P
+6715|Unkn|AberMUD Server
+6771|udp|BitTorrent LPD
+6783-6785|Unkn|Splashtop Broadcast
+6789|Unkn|Ubiquiti Mobile Test
+6801|tcp|ACNET Control
+6881-6887|Unkn|BitTorrent Range
+6888 |TCP/Unkn |MUSE / BitTorrent
+6889-6900|Unkn|BitTorrent Range
+6891-6900|Unkn|Live Messenger Files
+6901|Unkn|Live Messenger Voice
+6902-6968|Unkn|BitTorrent Range
+6924|tcp|Split-Ping Latency
+6935|tcp|EthoScan Service
+6936|tcp|XenSource Management
+6969 |TCP/Unkn |Acmsoda / BT Tracker
+6970-6999|Unkn|QuickTime / BT Range
+6980|udp|VBAN Audio
+7000 |TCP/Unkn |Vuze / Avira / IRC SSL
+7001-7002|Unkn|WebLogic Server
+7005-7006|Unkn|BMC Control-M Agent
+7010|Unkn|Cisco AON / MAGICS
+7022|Unkn|MS SQL Replication
+7023|udp|T2-NMCS SatCom
+7025|Unkn|Zimbra LMTP
+7047|Unkn|Zimbra Conversion
+7070|Unkn|RTSP QuickTime
+7077|tcp|Dev-Network Auth
+7133|Unkn|Enemy Territory
+7144-7145|Unkn|PeerCast
+7171|Unkn|Tibia Game
+7262|tcp|CNAP Calypso
+7272|tcp|WatchMe Monitor
+7306-7307|Unkn|Zimbra MySQL
+7312|udp|Sibelius License
+7396|Unkn|Folding@home Web
+7400-7402|tcp|RTPS DDS Discovery
+7471|Unkn|STT Tunneling
+7473|tcp|Rise Vieneo
+7474|tcp|Neo4J Webadmin
+7478|tcp|Open iT Server
+7542|tcp|Saratoga File Transfer
+7547|tcp|CPE WAN CWMP
+7575|udp|Populous Server
+7624|tcp|Instrument Neutral
+7631|tcp|ERLPhase
+7634|Unkn|hddtemp Hard Drive
+7652-7654|Unkn|I2P Anonymizing
+7655|udp|I2P SAM Bridge
+7656-7660|Unkn|I2P Anonymizing
+7659|Unkn|Polypheny UI
+7670|Unkn|BrettspielWelt
+7680|Unkn|Windows Delivery Opt
+7687|tcp|Bolt DB Connection
+7707-7708|udp|Killing Floor
+7717|udp|Killing Floor
+7745|Unkn|HomeBox
+7777|Unkn|Terraria / SA-MP / SCP
+7777-7788 |TCP/Unkn |Steam Games / Unreal
+7831|Unkn|Smartlaunch Cafe
+7880|tcp|PowerSchool Gradebook
+7890|Unkn|iControl Cafe
+7915|Unkn|YSFlight Server
+7935|Unkn|Adobe Flash Debug
+7946|Unkn|Docker Swarm Comms
+7979|udp|SilverBluff Studios
+7990|Unkn|Atlassian Bitbucket
+8000|Unkn|Deno / Shoutcast / Django
+8005|Unkn|Tomcat Shutdown / SCCM
+8006|Unkn|Proxmox / AppAssure
+8007 |TCP/Unkn |Proxmox Backup / AppAssure
+8008|Unkn|HTTP Alt / iCal / Matrix
+8009|Unkn|Apache JServ AJP
+8010|Unkn|Buildbot Web
+8042|Unkn|Orthanc REST API
+8061|tcp|Nikatron Device
+8069-8070|Unkn|OpenERP XML/NET-RPC
+8074|tcp|Gadu-Gadu
+8075|Unkn|Killing Floor Web
+8080 |TCP/Unkn |HTTP Alt / Tomcat / JIRA
+8081|tcp|Sun Proxy Admin
+8088|Unkn|Asterisk / YARN UI
+8089|Unkn|Splunk / Fritz!Box
+8090|Unkn|Confluence / Matrix
+8091-8092|Unkn|CouchBase Admin/API
+8093|Unkn|GitLab Runner
+8096|Unkn|Emby / Jellyfin HTTP
+8100|Unkn|Salto / BlueMap
+8102|Unkn|Salto LocalIO
+8111|Unkn|JOSM Remote Control
+8112|Unkn|PAC Pacifica Coin
+8116|udp|Check Point CCP
+8118|tcp|Privoxy Proxy
+8123|Unkn|Polipo / Home Assistant
+8125|Unkn|StatsD Server
+8139|Unkn|Puppet Client Agent
+8140|tcp|Puppet Master
+8172|Unkn|MS IIS Remote Admin
+8181-8186|Unkn|FRITZ!Box Services
+8182|Unkn|NexusM Media Server
+8184|Unkn|NCSA Brown Dog
+8188|Unkn|ComfyUI Interface
+8194-8195|tcp|Bloomberg Terminal
+8200|Unkn|GoToMyPC / MiniDLNA
+8222|Unkn|VMware VI Web HTTP
+8236|Unkn|jBASE Remote Server
+8243|tcp|Apache Synapse HTTPS
+8245|Unkn|Dynamic DNS
+8280|tcp|Apache Synapse HTTP
+8281|Unkn|Gatecraft Plugin
+8291|Unkn|WinBox MikroTik GUI
+8303|udp|Teeworlds Server
+8322|tcp|Garmin Marine
+8332-8333|Unkn|Bitcoin / VMware HTTPS
+8334|Unkn|Filestash Server
+8335|Unkn|DBCalm Open
+8337|Unkn|VisualSVN DFS
+8384|Unkn|Syncthing Web GUI
+8388|Unkn|Shadowsocks Proxy
+8400-8403|tcp|Commvault Services
+8443|Unkn|Plesk / Tomcat SSL / MineOs
+8444|Unkn|Bitmessage / Chia
+8448|tcp|Matrix Federation TLS
+8484|Unkn|MapleStory Login
+8500|Unkn|Adobe ColdFusion
+8501|Unkn|Streamlit Python
+8530-8531|Unkn|WSUS HTTP / HTTPS
+8555|Unkn|Symantec DLP / Chia
+8580|Unkn|Freegate Proxy
+8601|Unkn|Wavestore VMS
+8611-8614|tcp|Canon BubbleJet
+8629|Unkn|Tibero Database
+8642|Unkn|Lotus Notes Traveler
+8691|Unkn|Ultra Fractal
+8728-8729|Unkn|MikroTik RouterOS API
+8765|Unkn|GUN Relay Mirror
+8767|udp|TeamSpeak 2 Voice
+8787|Unkn|Cloudflare Workers
+8834|Unkn|Nessus Web Server
+8840|Unkn|Opera Unite
+8880 |TCP/Unkn |CDDB / WebSphere SOAP
+8883|tcp|Secure MQTT TLS
+8887-8889|Unkn|HyperVM / Freenet / MAMP
+8920|Unkn|Jellyfin HTTPS
+8983|Unkn|Apache Solr
+8997-8999|Unkn|I2P Monotone Proxy
+9000|Unkn|SonarQube / ClickHouse
+9001 |TCP/Unkn |ETL Manager / Tor ORPort
+9002|Unkn|Newforma Server
+9003|Unkn|Xdebug Client
+9006|Unkn|Tomcat Standalone
+9008|Unkn|Zerto VRA
+9030|Unkn|Tor DirPort
+9042|Unkn|Apache Cassandra
+9043|Unkn|WebSphere Console
+9050-9051|Unkn|Tor SOCKS-5 Proxy
+9060|Unkn|WebSphere Console
+9080 |TCP/Unkn |Groove / WebSphere HTTP
+9081|Unkn|Zerto ZVM Comms
+9090|Unkn|Cockpit / Prometheus
+9091|Unkn|Openfire / Transmission
+9092|Unkn|H2 DB / Apache Kafka
+9095|Unkn|Networker UI
+9100|tcp|PDL Print Stream
+9101-9103|tcp|Bacula Services
+9116|Unkn|SNMP-Exporter
+9119|tcp|MXit Messenger
+9150|Unkn|Tor Browser
+9191|Unkn|Sierra Wireless
+9199|Unkn|Avtex qStats
+9200|Unkn|Elasticsearch
+9217|Unkn|iPass Platform
+9229|Unkn|NodeJS Debugging
+9293-9297|Unkn|PlayStation RemotePlay
+9300|Unkn|IBM Cognos BI
+9303|udp|D-Link Shareport
+9306|tcp|Sphinx Native API
+9309|Unkn|PS Vita WiFi Transfer
+9312|tcp|Sphinx SphinxQL
+9332-9333|Unkn|Litecoin JSON/Daemon
+9339|Unkn|Supercell Games
+9389|tcp|MS AD DS Web Services
+9392|Unkn|OpenVAS Greenbone
+9418|tcp|Git Pack Transfer
+9419-9425|Unkn|MooseFS Distributed
+9443|Unkn|VMware vCenter / NCSA
+9535|tcp|LANDesk Remote
+9536|tcp|IP Fabrics Buffer
+9600|Unkn|Omron FINS PLC
+9669|Unkn|VGG VISE Engine
+9675-9676|Unkn|Spiceworks Desktop
+9695|tcp|Content Centric Net
+9735|Unkn|Bitcoin Lightning
+9761|Unkn|Roboteq Motor
+9785|Unkn|Viber Messenger
+9800 |TCP/Unkn |WebDAV / WebCT
+9875|Unkn|Club Penguin
+9876-9877|udp|V Rising Server
+9898|Unkn|Tripwire FIM
+9899|udp|SCTP Tunneling
+9901|Unkn|Banana for Solr
+9911|Unkn|Curecoin
+9981-9982|Unkn|Tvheadend HTTP/HTSP
+9987|Unkn|TeamSpeak 3 Voice
+9993|udp|ZeroTier Default
+9997|Unkn|Splunk Forwarder
+9999|Unkn|Urchin / Dash Crypto
+10000|tcp|NDMP Backup / Webmin
+10000-20000|udp|VoIP / Google Voice ATA
+10001|udp|Ubiquiti Discovery
+10009|Unkn|Crossfire FPS
+10011|Unkn|TeamSpeak ServerQuery
+10022|Unkn|TeamSpeak SSH Query
+10024-10025|Unkn|Zimbra SMTP/Amavis
+10042|Unkn|Mathoid Server
+10050-10051|tcp|Zabbix Agent / Trapper
+10101|Unkn|ARX Compressed FTP
+10110|TCP/UDP|NMEA 0183 Nav Data
+10172|Unkn|Intuit Quickbooks
+10200|Unkn|FRISK Virus Scan / TTS
+10201-10204|Unkn|FRISK f-protd Scan
+10212|tcp|GE CIMPLICITY WebView
+10308|Unkn|DCS World Server
+10346|Unkn|TEKWorx interfaceIT
+10468|udp|Flyer Discovery
+10480|Unkn|SWAT 4 Server
+10505|udp|BlueStacks Broadcast
+10514|Unkn|TLS Rsyslog
+10578|Unkn|Skyrim Together Mod
+10800|Unkn|Touhou Games
+10801|udp|Peaks of Yore Mod
+10823|udp|Farming Simulator
+10891|Unkn|Jungle Disk Monitor
+10933|tcp|Octopus Deploy Agent
+11000|Unkn|Utah CS3500
+11100|Unkn|Risk of Rain Server
+11111|Unkn|RiCcI Linux Config
+11112|tcp|DICOM Medical
+11211|Unkn|Memcached Cache
+11214-11215|Unkn|Memcached SSL Proxy
+11235|tcp|XCOMPUTE Messaging
+11311|Unkn|ROS Master
+11371|tcp|OpenPGP Key Server
+11434|Unkn|Ollama Local LLM
+11753|Unkn|OpenRCT2 Multiplayer
+12000|Unkn|CubeForm Sandbox
+12012-12013|Unkn|Audition Online
+12035|udp|Second Life Server
+12043-12046|Unkn|Second Life LSL HTTP
+12201|Unkn|Graylog GELF
+12222-12223|udp|LWAPP Data / Control
+12307-12308|udp|Makerbot JSON-RPC
+12345|Unkn|Cube World / NetBus
+12443|Unkn|IBM HMC Web HTTPS
+12489|Unkn|NSClient++ Nagios
+12975|Unkn|LogMeIn Hamachi VPN
+13000-13050|udp|Second Life In-bound
+13008|Unkn|Crossfire FPS
+13075|tcp|BMC Control-M Corba
+13400|tcp|DoIP Automotive
+13720-13786|tcp|Symantec NetBackup
+14550|udp|MAVLink Ground Station
+14567|udp|Battlefield 1942
+14652|Unkn|Repgen DoxBox
+14800|Unkn|Age of Wonders III
+15000|Unkn|psyBNC / Wesnoth / Teltonika
+15009-15010|Unkn|Teltonika RMS
+15441|Unkn|ZeroNet Fileserver
+15567|udp|Battlefield Vietnam
+15345|tcp|XPilot Contact
+15672|Unkn|RabbitMQ Management
+16000|Unkn|WebCenter Imaging
+16080|Unkn|macOS Server Web Cache
+16200-16250|Unkn|WebCenter Content
+16261|Unkn|Project Zomboid
+16300|Unkn|WebCenter Records
+16379|Unkn|Redis Cluster Bus
+16384|udp|Cisco RTP Min
+16384-16472|udp|Apple RTP / FaceTime
+16400|Unkn|WebCenter Capture
+16567|udp|Battlefield 2
+17000|udp|M17 Digital RF
+17011|Unkn|Worms Multiplayer
+17224-17225|tcp|TRDP Train Data
+17333|Unkn|CS Server Binary
+17472|Unkn|Tanium Comms Port
+17474-17476|Unkn|DMXControl 3 Network
+17500|tcp|Dropbox LAN Sync
+18080-18081|Unkn|Monero P2P / RPC
+18091-18092|Unkn|Memcached CAPI SSL
+18104|tcp|RAD PDF Service
+18200-18206|Unkn|Audition Thailand
+18300-18306|Unkn|Audition SEA
+18333|Unkn|Bitcoin Testnet
+18400-18401|Unkn|Audition Brazil
+18505-18506|Unkn|Audition Nexon
+18605-18606|Unkn|X-BEAT Game
+18676|Unkn|YouView Client
+18769|tcp|iQue Protocol
+18789|Unkn|OpenClaw Gateway
+19000-19001|Unkn|Audition / JACK Audio
+19132-19133|udp|Minecraft Bedrock
+19150|Unkn|Gkrellm Server
+19226|Unkn|Panda AdminSecure
+19294-19302|udp|Google Talk Voice/Video
+19531-19532|Unkn|Systemd Journal Remote
+19788|udp|IEEE 802.15.4 Mesh
+19771|TCP/UDP|Softros LAN Messenger
+19812-19814|tcp|4D Database SQL/Client
+19818|TCP/UDP|Vereign Mesh Network
+19880|tcp|Softros File Transfer
+19999-20000|TCP/UDP|DNP3 / OpenWebNet / Usermin
+20560|Unkn|Killing Floor
+20580-20581|Unkn|Walljam Comms
+20595|udp|0 A.D. Empires
+20808|udp|Ableton Link
+21025|Unkn|Starbound Server
+21064|Unkn|Ingres DBMS
+22000|Unkn|Syncthing Default
+22067-22070|Unkn|Syncthing Relay
+22136|Unkn|FLIR Camera Protocol
+22222|Unkn|WeatherLink IP
+22347|tcp|WibuKey Copy Protection
+22350-22351|tcp|CodeMeter Protection
+23073|Unkn|Soldat Server
+23399|Unkn|Skype Protocol
+23513|Unkn|Duke Nukem 3D
+24441|Unkn|Pyzor Spam Network
+24444|Unkn|NetBeans IDE
+24454|udp|Minecraft Voice Chat
+24465|tcp|Tonido Directory
+24554|tcp|BINKP Fidonet Mail
+24576|udp|Motorola MINT
+24800|Unkn|Synergy Keyboard
+24842|Unkn|StepMania Online
+25565|Unkn|Minecraft Java Server
+25575|Unkn|Minecraft Java RCON
+25585|Unkn|Minecraft Management
+25734-25735|Unkn|SolidWorks License
+25826|udp|Collectd Monitoring
+26000 |TCP/Unkn |Quake Server / EVE Online
+26822|udp|MSI MysticLight
+26900-26901|Unkn|EVE Online
+26909-26911|Unkn|Action Tanks Online
+27000|Unkn|PowerBuilder SySAM
+27000-27006|udp|QuakeWorld Master
+27000-27009|tcp|FlexNet Publisher
+27000-27036|Unkn|Steam Client / Streaming
+27037-27969|Unkn|Quake / Source / Steam
+28000|tcp|Siemens License Server
+28001|Unkn|Starsiege: Tribes
+28015-28016|udp|Rust Game / RCON
+28200|tcp|VoxelStorm Server
+28260|Unkn|Panorama HA-1 Backup
+28443|Unkn|Panorama Updates
+28769-28771|Unkn|Panorama HA / AssaultCube
+28785-28786|Unkn|Cube 2 Sauerbraten
+28852|Unkn|Killing Floor
+28910|Unkn|Nintendo Wi-Fi
+28960|Unkn|Call of Duty Server
+29000|tcp|Siemens License Server
+29070|Unkn|Jedi Academy
+29900-29920|Unkn|Nintendo Wi-Fi
+30000|udp|XLink Kai / Luanti / Foundry
+30003-30004|TCP/UDP|Amicon FPSU-IP
+30033|Unkn|TeamSpeak File Transfer
+30120|Unkn|FiveM GTA V
+30564|Unkn|Multiplicity Share
+30814|Unkn|BeamMP BeamNG mod
+31337|Unkn|Back Orifice / ncat
+31416|Unkn|BOINC RPC
+31438|Unkn|Rocket U2
+31457|tcp|TetriNET
+32137|Unkn|Immunet Protect
+32400|tcp|Plex Media Server
+32749|Unkn|Gridcoin
+32764|Unkn|Router Backdoor
+32887|udp|Ace of Spades FPS
+32976|Unkn|LogMeIn Hamachi
+33434|tcp|Traceroute
+33848|udp|Jenkins CI
+34000|Unkn|Infestation Server
+34197|Unkn|Factorio Server
+35357|tcp|OpenStack Keystone
+36330|Unkn|Folding@home Control
+37008|udp|TZSP Intrusion Det
+38412|Unkn|5G NGAP Core
+40000|tcp|SafetyNET p Real-Time
+41121|tcp|Tentacle Server
+41230|udp|Z-Wave DTLS
+41794-41797|tcp|Crestron Control/TLS
+42081-42090|tcp|Zippin Store
+42420|Unkn|Vintage Story Server
+42590-42595|tcp|Glue MakePro X
+42999|tcp|Curiosity
+43110|Unkn|ZeroNet Web UI
+43594-43595|Unkn|RuneScape Server
+44123|Unkn|Z-Wave Secure Tunnel
+44405|Unkn|Mu Online Server
+44818|tcp|EtherNet/IP Messaging
+47808-47823|tcp|BACnet Automation
+48556|tcp|Drive.web Automation
+48656-48657|Unkn|Brainy LAB Server
+49151 |Res |IANA Reserved
+49152-65535|Unkn|Dynamic / Ephemeral
+49160|Unkn|Palo Alto Panorama
+50160-50161|Unkn|S-CONNECT Protocol
+51413|Unkn|Transmission Torrent
+51515|Unkn|Kopia Backup Server
+51820|udp|WireGuard VPN
+52380-52381|Unkn|Sony VISCA Network
+53317|Unkn|LocalSend Share
+59100|Unkn|AudioRelay
+60000-61000|udp|Mosh Remote Terminal
+61616|Unkn|ActiveMQ Classic
+61616-61631 |Compr |6LoWPAN Header
+62078|Unkn|Apple Lockdownd
+64738|Unkn|Mumble VoIP
+2283|tcp|Immich Web API
+6767|tcp|Bazarr
+7878|tcp|Radarr
+8191|tcp|FlareSolverr
+8989|tcp|Sonarr
+9696|tcp|Prowlarr
+44321|tcp|PCP PMCD
+44322|tcp|PCP PMProxy
+44323|tcp|PCP PMWebD
+4330|tcp|NetAlertX Web
+8071|tcp|Custom Web Service
+8077|tcp|Web App / UI
+8383|tcp|NetAlertX App
+8480|tcp|Custom Service
+9118|tcp|Prometheus Exporter
+39041|tcp|NFS Statd RPC
+2869|tcp|UPnP Event Endpoint / ICSLAP
+7576|tcp|UpSnap Wake-on-LAN UI
+8071|tcp|UpSnap Web Service
+9696|tcp|Prowlarr Indexer Manager
+24563|tcp|Valheim / Steam Game Port
+38759|tcp|NFS Lock Manager (nlockmgr)
+39323|tcp|NFS Mount Daemon (mountd)
+44321|tcp|Performance Co-Pilot (pmcd)
+44322|tcp|Performance Co-Pilot Proxy (pmproxy)
+44323|tcp|Performance Co-Pilot Web (pmwebd)
+49672|tcp|Windows Dynamic RPC Endpoint

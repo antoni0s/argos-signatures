@@ -1,0 +1,296 @@
+# ==============================================================================
+# Database: IEEE OUI Hardware Vendor & Device Type Mapping
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   OUI (XX:XX:XX) | Vendor Name | Default OS | Device Type | Score (1-99)
+#
+# Rules for Adding Entries:
+#   1. OUI must be in uppercase 6-character hex format with colons (XX:XX:XX).
+#   2. Matched via exact prefix lookup (^OUI|). Order does not affect matching.
+#   3. Randomized MAC addresses automatically bypass OUI evaluation.
+#
+# Example:
+#   1C:83:41|Hefei Bitland|Linux|server|50
+#   E8:FB:1C|AzureWave Technology|Windows|pc|60
+# ==============================================================================
+
+# --- Apple Ecosystem (Universal & Specific OUIs) ---
+00:03:93|Apple|Apple Universal Device|generic|65
+00:05:02|Apple|Apple Universal Device|generic|65
+00:0A:27|Apple|Apple Universal Device|generic|70
+00:0A:95|Apple|macOS PC|mac-pc|75
+00:11:24|Apple|macOS PC|mac-pc|75
+00:14:51|Apple|macOS PC|mac-pc|75
+00:17:F2|Apple|iPhone / iPad|smartphone|75
+00:19:E3|Apple|iPhone / iPad|smartphone|75
+00:1B:63|Apple|macOS PC|mac-pc|75
+00:1E:C2|Apple|iPhone / iPad|smartphone|75
+00:21:E9|Apple|macOS PC|mac-pc|75
+00:22:41|Apple|iPhone / iPad|smartphone|75
+00:23:12|Apple|iPhone / iPad|smartphone|75
+00:23:32|Apple|macOS PC|mac-pc|75
+00:25:00|Apple|iPhone / iPad|smartphone|75
+00:26:08|Apple|iPhone / iPad|smartphone|75
+3C:22:FB|Apple|iPhone / iPad|smartphone|75
+40:6C:8F|Apple|iPhone / iPad|smartphone|75
+44:2A:60|Apple|iPhone / iPad|smartphone|75
+54:26:96|Apple|iPhone / iPad|smartphone|75
+78:31:C1|Apple|iPhone / iPad|smartphone|75
+80:E6:50|Apple|iPhone / iPad|smartphone|75
+88:63:DF|Apple|iPhone / iPad|smartphone|75
+8C:85:90|Apple|iPhone / iPad|smartphone|75
+98:5A:EB|Apple|iPhone / iPad|smartphone|75
+A4:83:E7|Apple|iPhone / iPad|smartphone|75
+AC:BC:32|Apple|iPhone / iPad|smartphone|75
+B0:34:95|Apple|iPhone / iPad|smartphone|75
+B8:17:C2|Apple|iPhone / iPad|smartphone|75
+BC:54:36|Apple|iPhone / iPad|smartphone|75
+C0:84:7A|Apple|iPhone / iPad|smartphone|75
+C8:69:CD|Apple|iPhone / iPad|smartphone|75
+D0:03:4B|Apple|iPhone / iPad|smartphone|75
+D8:30:62|Apple|iPhone / iPad|smartphone|75
+DC:2B:2A|Apple|iPhone / iPad|smartphone|75
+E0:AC:CB|Apple|iPhone / iPad|smartphone|75
+F0:18:98|Apple|iPhone / iPad|smartphone|75
+F8:FF:C2|Apple|iPhone / iPad|smartphone|75
+
+# --- Samsung Mobile & Smart Displays ---
+00:12:47|Samsung|Samsung Galaxy|smartphone|65
+00:15:99|Samsung|Samsung Galaxy|smartphone|65
+00:16:32|Samsung|Samsung Galaxy|smartphone|65
+00:1D:25|Samsung|Samsung Galaxy|smartphone|70
+00:1E:E1|Samsung|Samsung Galaxy|smartphone|70
+00:21:19|Samsung|Samsung Galaxy|smartphone|70
+00:24:54|Samsung|Samsung Galaxy|smartphone|70
+00:26:37|Samsung|Samsung Galaxy|smartphone|70
+08:08:C2|Samsung|Samsung Galaxy|smartphone|70
+50:01:BB|Samsung|Samsung Galaxy|smartphone|70
+78:47:1D|Samsung|Samsung Galaxy|smartphone|70
+8C:77:12|Samsung|Samsung Galaxy|smartphone|70
+B4:EF:39|Samsung|Samsung Galaxy|smartphone|70
+CC:07:AB|Samsung|Samsung Galaxy|smartphone|70
+E4:7C:F9|Samsung|Samsung Galaxy|smartphone|70
+C0:97:27|Samsung|Samsung (Tizen)|smart-tv|88
+BC:14:85|Samsung|Samsung (Tizen)|smart-tv|88
+48:44:F7|Samsung|Samsung (Tizen)|smart-tv|88
+
+# --- Google / Nest / Pixel ---
+54:60:09|Google|Google Chromecast|smart-tv|85
+A4:77:33|Google|Google Chromecast|smart-tv|85
+F4:F5:DB|Google|Google Nest Smart Speaker|smart-speaker|85
+3C:5A:B4|Google|Google Pixel|smartphone|75
+D8:6C:63|Google|Google Pixel|smartphone|75
+
+# --- Amazon Technologies (Fire TV & Echo) ---
+00:FC:8B|Amazon Technologies|Amazon Fire TV / Echo|smart-tv|75
+0C:47:C9|Amazon Technologies|Amazon Fire TV / Echo|smart-tv|75
+10:CE:A9|Amazon Technologies|Amazon Fire TV|smart-tv|80
+18:74:2E|Amazon Technologies|Amazon Fire TV|smart-tv|80
+34:D2:70|Amazon Technologies|Amazon Fire TV|smart-tv|80
+40:B4:F0|Amazon Technologies|Amazon Fire TV|smart-tv|80
+44:65:0D|Amazon Technologies|Amazon Fire TV|smart-tv|80
+68:54:FD|Amazon Technologies|Amazon Fire TV|smart-tv|80
+74:75:48|Amazon Technologies|Amazon Fire TV|smart-tv|80
+A0:02:DC|Amazon Technologies|Amazon Fire TV|smart-tv|80
+AC:63:BE|Amazon Technologies|Amazon Fire TV|smart-tv|80
+B4:7C:9C|Amazon Technologies|Amazon Echo Smart Speaker|smart-speaker|80
+FC:65:DE|Amazon Technologies|Amazon Fire TV|smart-tv|80
+
+# --- Microsoft / Xbox ---
+00:50:F2|Microsoft|Xbox|console|85
+7C:1E:52|Microsoft|Xbox|console|85
+98:5F:D3|Microsoft|Xbox|console|85
+B4:AE:2B|Microsoft|Xbox|console|85
+C8:3F:26|Microsoft|Xbox|console|85
+28:18:78|Microsoft|Microsoft Surface|pc|65
+
+# --- Sony / PlayStation ---
+00:04:1F|Sony|Sony Entertainment Device|smart-tv|70
+00:13:15|Sony|Sony Entertainment Device|smart-tv|70
+00:1A:80|Sony|PlayStation|console|85
+00:1F:A7|Sony|PlayStation|console|85
+00:24:8D|Sony|PlayStation|console|85
+00:EB:2D|Sony|PlayStation|console|85
+28:0D:FC|Sony|PlayStation|console|85
+AC:9B:0A|Sony|PlayStation|console|85
+FC:0F:E6|Sony|PlayStation|console|85
+
+# --- Nintendo ---
+00:09:BF|Nintendo|Nintendo|console|85
+00:16:56|Nintendo|Nintendo|console|85
+00:1E:35|Nintendo|Nintendo|console|85
+00:1F:32|Nintendo|Nintendo|console|85
+00:22:AA|Nintendo|Nintendo|console|85
+00:24:1E|Nintendo|Nintendo|console|85
+00:26:59|Nintendo|Nintendo|console|85
+34:AF:2C|Nintendo|Nintendo|console|85
+40:F4:07|Nintendo|Nintendo|console|90
+58:BD:A3|Nintendo|Nintendo|console|85
+7C:BB:8A|Nintendo|Nintendo|console|90
+8C:56:DC|Nintendo|Nintendo|console|85
+98:41:5C|Nintendo|Nintendo|console|85
+E8:4E:06|Nintendo|Nintendo|console|90
+
+# --- Valve Corporation (Steam Deck) ---
+14:D4:24|Valve|Steam Deck|console|96
+D8:43:AE|Valve|Steam Deck|console|96
+7C:2A:DB|Valve|Steam Deck|console|96
+F8:5E:0B|Valve|Steam Deck|console|90
+
+# --- Single Board Computers (Raspberry Pi) ---
+B8:27:EB|Raspberry|Raspberry Pi|server|88
+DC:A6:32|Raspberry|Raspberry Pi|server|88
+E4:5F:01|Raspberry|Raspberry Pi|server|88
+D8:3A:DD|Raspberry|Raspberry Pi|server|88
+28:CD:C1|Raspberry|Raspberry Pi|server|88
+
+# --- Storage Servers & NAS Appliances ---
+00:11:32|Synology Inc.|Synology DSM NAS|server|90
+70:2C:1F|Synology Inc.|Synology DSM NAS|server|90
+00:08:9B|QNAP Systems|QNAP Systems (QTS)|nas|90
+24:5E:BE|QNAP Systems|QNAP Systems (QTS)|nas|90
+
+# --- Smart Home & IoT Hardware ---
+24:4C:AB|Espressif|ESP8266 / ESP32 Node|iot|80
+84:F3:EB|Espressif|ESP8266 / ESP32 Node|iot|80
+EC:FA:BC|Espressif|ESP8266 / ESP32 Node|iot|80
+C4:4F:33|Espressif|ESP8266 / ESP32 Node|iot|80
+50:02:91|Espressif|ESP8266 / ESP32 Node|iot|80
+60:01:94|Espressif|ESP8266 / ESP32 Node|iot|80
+48:55:19|Espressif|ESP8266 / ESP32 Node|iot|80
+D8:BF:C0|Tuya Smart|Tuya Smart IoT Node|iot|80
+10:D5:61|Tuya Smart|Tuya Smart IoT Node|iot|80
+D4:D2:D6|Tuya Smart|Tuya Smart IoT Node|iot|80
+00:17:88|Philips Lighting|Philips Hue Smart Bridge|iot|92
+EC:1B:BD|Allterco / Shelly|Shelly Smart Relay|iot|92
+
+# --- Smart TVs (LG & Roku) ---
+CC:6E:A4|Roku Inc.|Roku Streaming Player|smart-tv|90
+00:0D:4B|Roku Inc.|Roku TV Hardware|smart-tv|90
+A8:23:FE|LG Electronics|LG Smart TV (webOS)|smart-tv|90
+58:FC:DB|LG Electronics|LG Smart TV (webOS)|smart-tv|90
+
+# --- Network Infrastructure & Wireless APs ---
+00:27:22|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+04:18:D6|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+18:E8:29|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+24:A4:3C|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+44:D9:E7|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+68:72:51|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+74:AC:B9|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+78:8A:20|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+80:2A:A8|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+B4:FB:E4|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+DC:9F:DB|Ubiquiti Networks|Ubiquiti UniFi Device|network-ap|85
+00:31:92|TP-Link Technologies|TP-Link Router Gateway|router|75
+14:CC:20|TP-Link Technologies|TP-Link Router Gateway|router|75
+30:DE:4B|TP-Link Technologies|TP-Link Router Gateway|router|75
+50:C7:BF|TP-Link Technologies|TP-Link Router Gateway|router|75
+54:A7:03|TP-Link Technologies|TP-Link Router Gateway|router|75
+60:32:B1|TP-Link Technologies|TP-Link Router Gateway|router|75
+84:D8:1B|TP-Link Technologies|TP-Link Router Gateway|router|75
+B0:4E:26|TP-Link Technologies|TP-Link Router Gateway|router|75
+C0:06:C3|TP-Link Technologies|TP-Link Router Gateway|router|75
+EC:17:2F|TP-Link Technologies|TP-Link Router Gateway|router|75
+00:14:6C|NETGEAR|NETGEAR Router Gateway|router|75
+00:1B:2F|NETGEAR|NETGEAR Router Gateway|router|75
+00:26:F2|NETGEAR|NETGEAR Router Gateway|router|75
+20:4E:7F|NETGEAR|NETGEAR Router Gateway|router|75
+28:80:88|NETGEAR|NETGEAR Router Gateway|router|75
+84:1B:5E|NETGEAR|NETGEAR Router Gateway|router|75
+9C:3D:CF|NETGEAR|NETGEAR Router Gateway|router|75
+A4:2B:8C|NETGEAR|NETGEAR Router Gateway|router|75
+
+# --- PC & Laptop OEM Hardware ---
+00:09:6B|Lenovo|Lenovo ThinkPad / PC|pc|55
+00:24:7E|Lenovo|Lenovo ThinkPad / PC|pc|55
+50:7B:9D|Lenovo|Lenovo ThinkPad / PC|pc|55
+54:E1:AD|Lenovo|Lenovo ThinkPad / PC|pc|55
+00:14:22|Dell Inc.|Dell Latitude / PC|pc|55
+00:1E:4F|Dell Inc.|Dell Latitude / PC|pc|55
+00:21:9B|Dell Inc.|Dell Latitude / PC|pc|55
+14:FE:B5|Dell Inc.|Dell Latitude / PC|pc|55
+18:03:73|Dell Inc.|Dell Latitude / PC|pc|55
+24:6E:96|Dell Inc.|Dell Latitude / PC|pc|55
+34:17:EB|Dell Inc.|Dell Latitude / PC|pc|55
+B0:83:FE|Dell Inc.|Dell Latitude / PC|pc|55
+00:1E:0B|HP Inc.|HP Workstation / PC|pc|55
+00:25:B3|HP Inc.|HP Workstation / PC|pc|55
+3C:4A:92|HP Inc.|HP Workstation / PC|pc|55
+64:51:06|HP Inc.|HP Workstation / PC|pc|55
+80:C1:6E|HP Inc.|HP Workstation / PC|pc|55
+A4:5D:36|HP Inc.|HP Workstation / PC|pc|55
+EC:B1:D7|HP Inc.|HP Workstation / PC|pc|55
+00:0C:6E|ASUSTek Computer|ASUS Workstation / PC|pc|55
+00:1B:FC|ASUSTek Computer|ASUS Workstation / PC|pc|55
+00:22:15|ASUSTek Computer|ASUS Workstation / PC|pc|55
+2C:56:DC|ASUSTek Computer|ASUS Workstation / PC|pc|55
+30:85:A9|ASUSTek Computer|ASUS Workstation / PC|pc|55
+38:D5:47|ASUSTek Computer|ASUS Workstation / PC|pc|55
+AC:9E:17|ASUSTek Computer|ASUS Workstation / PC|pc|55
+F8:32:E4|ASUSTek Computer|ASUS Workstation / PC|pc|55
+E8:FB:1C|AzureWave Technology|AzureWave PC Module|pc|60
+1C:83:41|Bitland Information|Bitland OEM Client|pc|50
+
+# --- Android Mobile Brands ---
+28:6C:07|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+34:80:B3|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+50:64:2B|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+64:09:80|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+64:B4:73|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+74:23:44|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+78:11:DC|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+8C:BE:BE|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+98:FA:E3|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+DC:44:6D|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+EC:D0:9F|Xiaomi Communications|Xiaomi Smartphone|smartphone|75
+00:18:82|Huawei Technologies|Huawei Smartphone|smartphone|70
+00:1E:10|Huawei Technologies|Huawei Smartphone|smartphone|70
+00:25:68|Huawei Technologies|Huawei Smartphone|smartphone|70
+00:46:4B|Huawei Technologies|Huawei Smartphone|smartphone|70
+20:F3:A3|Huawei Technologies|Huawei Smartphone|smartphone|70
+48:46:FB|Huawei Technologies|Huawei Smartphone|smartphone|70
+70:72:3C|Huawei Technologies|Huawei Smartphone|smartphone|70
+9C:28:EF|Huawei Technologies|Huawei Smartphone|smartphone|70
+
+# --- Network Controllers & Wi-Fi Chipsets ---
+00:1B:21|Intel Corporate|Intel Network Controller|pc|50
+00:1C:BF|Intel Corporate|Intel Network Controller|pc|50
+00:1E:64|Intel Corporate|Intel Network Controller|pc|50
+00:21:5C|Intel Corporate|Intel Network Controller|pc|50
+00:24:D6|Intel Corporate|Intel Network Controller|pc|50
+3C:F0:11|Intel Corporate|Intel Wi-Fi Adapter|pc|50
+48:51:B7|Intel Corporate|Intel Wi-Fi Adapter|pc|50
+54:8D:5A|Intel Corporate|Intel Wi-Fi Adapter|pc|50
+80:86:5B|Intel Corporate|Intel Network Controller|pc|50
+8C:8D:28|Intel Corporate|Intel Network Controller|pc|50
+00:03:7F|Atheros / Qualcomm|Qualcomm Ethernet Client|pc|40
+00:1A:A1|Qualcomm Atheros|Qualcomm Wi-Fi Adapter|generic|35
+00:24:D7|Qualcomm Atheros|Qualcomm Wi-Fi Adapter|generic|35
+04:E5:98|Qualcomm|Qualcomm Wi-Fi Adapter|generic|35
+20:0D:B0|Qualcomm|Qualcomm Wi-Fi Adapter|generic|35
+64:66:B3|Qualcomm|Qualcomm Wi-Fi Adapter|generic|35
+D4:12:43|Ampak Technology|Ampak Wireless Module|iot|35
+00:E0:4C|Realtek Semiconductor|Realtek NIC Adapter|generic|35
+10:BF:48|Realtek|Realtek NIC Adapter|generic|35
+00:0C:43|MediaTek / Ralink|MediaTek Wireless Module|generic|35
+00:13:12|Ralink Technology|Ralink Wi-Fi Adapter|generic|35
+00:17:7C|Ralink Technology|Ralink Wi-Fi Adapter|generic|35
+00:0C:E7|MediaTek|MediaTek Wi-Fi Adapter|generic|35
+
+# --- Network Printers ---
+00:00:85|Canon Inc.|Canon Network Printer|printer|90
+00:80:77|Brother Industries|Brother Network Printer|printer|90
+00:26:AB|Seiko Epson|Epson Network Printer|printer|90
+3C:D9:2B|HP Inc.|HP Network Printer|printer|90
+
+# --- Virtual Machines & Hypervisors ---
+00:50:56|VMware|VMware Virtual Machine|vm-server|95
+00:0C:29|VMware|VMware Virtual Machine|vm-server|95
+00:05:69|VMware|VMware Virtual Machine|vm-server|95
+08:00:27|Oracle|VirtualBox Virtual Machine|vm-server|95
+52:54:00|QEMU / KVM|QEMU Virtual Machine|vm-server|95
+C8:8A:9A|Intel Corporate|Unknown|generic|35
+D6:9C:58|*NO COMPANY*|Unknown|generic|35
+92:57:33|*NO COMPANY*|Unknown|generic|35
+B2:FD:99|*NO COMPANY*|Unknown|generic|35

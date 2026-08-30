@@ -1,0 +1,224 @@
+# ==============================================================================
+# Database: Open TCP Port OS Fingerprinting & Service Detection
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   Port | Max TTL | OS / Service Label | Score (1-99) | Device Type | Vendor
+#
+# Rules for Adding Entries:
+#   1. Strict Sorting: Port (ASC) -> TTL (ASC: 64 -> 128 -> 255).
+#   2. TTL Hierarchy: Put Linux/BSD (TTL <= 64) BEFORE Windows (TTL <= 128) 
+#      and Router/Appliance (TTL <= 255). The parser breaks on the 1st match!
+#   3. Device Type tokens: pc, server, smartphone, console, smart-tv, 
+#      smart-speaker, printer, iot, router, generic.
+#
+# Example:
+#   80|64|Linux Web Server (HTTP)|70|server|Linux
+#   80|128|Windows Server (IIS HTTP)|70|server|Microsoft
+# ==============================================================================
+21|64|Linux FTP Server|85|server|Linux
+21|128|Windows IIS FTP Server|85|server|Microsoft
+21|255|Network Storage / Appliance (FTP)|80|nas|Network OS
+22|64|Linux Host (SSH Server)|80|server|Linux
+22|128|Windows Host (OpenSSH Service)|88|pc|Microsoft
+22|255|Network Device / Switch (SSH)|88|router|Network OS
+23|64|Linux Host (Telnet)|78|server|Linux
+23|255|Network Router / Switch (Telnet)|80|router|Network OS
+53|64|DNS Resolver Server|90|server|Linux
+53|255|Network Gateway DNS|88|router|Network OS
+80|64|Linux Web Server (HTTP)|70|server|Linux
+80|128|Windows Server (IIS HTTP)|70|server|Microsoft
+80|255|Network Router Gateway (HTTP)|75|router|Network OS
+111|64|Linux RPC Server (ONC-RPC)|92|server|Linux
+111|255|Unix / Storage RPC Server|88|nas|Unix
+135|128|Windows (RPC)|92|pc|Microsoft
+135|128|Windows|95|pc|Microsoft
+135|255|Windows Server|92|server|Microsoft
+139|64|Linux NetBIOS File Server|88|nas|Linux
+139|128|Windows (NetBIOS)|92|pc|Microsoft
+139|128|Windows NetBIOS Session|90|pc|Microsoft
+139|255|Network Storage / Gateway|85|nas|Generic Storage
+443|64|Linux Web Server (HTTPS)|70|server|Linux
+443|128|Windows Server (IIS HTTPS)|70|server|Microsoft
+443|255|Network Router Gateway (HTTPS)|75|router|Network OS
+445|64|Linux Samba / NAS Server|92|nas|Linux
+445|128|Windows (SMB)|95|pc|Microsoft
+445|128|Windows SMB File Server|94|pc|Microsoft
+445|255|Enterprise Storage / Server|90|nas|Generic Storage
+515|64|Network Printer (LPD/Linux)|90|printer|Linux
+515|255|Network Printer (LPD Appliance)|90|printer|Network OS
+548|64|Apple File Server (AFP)|92|nas|Apple
+548|255|Storage Appliance (AFP)|90|nas|Generic Storage
+554|64|IP Security Camera (RTSP)|94|camera|Linux
+554|255|IP Security Camera (RTSP)|92|camera|Network OS
+631|64|Network Printer (IPP/CUPS)|94|printer|Linux
+631|255|Network Printer (IPP Appliance)|94|printer|Network OS
+853|64|DNS-over-TLS Resolver|90|server|Linux
+902|128|VMware Workstation Host|92|pc|VMware
+902|255|VMware ESXi Hypervisor|95|hypervisor-server|VMware
+1400|64|Sonos Smart Speaker|95|smart-speaker|Sonos
+1433|128|Microsoft SQL Server|95|server|Microsoft
+1433|255|Microsoft SQL Server|92|server|Microsoft
+1880|64|Node-RED Server|93|automation-server|Node-RED
+1883|64|MQTT Message Broker|94|automation-server|Linux
+2019|64|Caddy Web Server|92|server|Caddy
+2049|64|NFS Storage Server|94|nas|Linux
+2049|255|Storage Appliance (NFS)|92|nas|Generic Storage
+2283|64|Immich Photo Server|96|photo-server|Immich
+2375|64|Docker Daemon Host|95|container-server|Docker
+2375|128|Docker Desktop Host (Windows)|92|pc|Docker
+2376|64|Docker Daemon Host (TLS)|95|container-server|Docker
+2376|128|Docker Desktop Host (TLS)|92|pc|Docker
+2377|64|Docker Swarm Node|94|container-server|Docker
+2869|128|Windows UPnP Event Endpoint|90|pc|Microsoft
+3000|64|Grafana Dashboard Server|92|monitoring-server|Grafana
+3074|128|Xbox Gaming Console|95|console|Microsoft
+3283|64|Apple Mac PC (Remote Desktop)|94|mac-pc|Apple
+3306|64|MySQL / MariaDB Server (Linux)|90|db-server|Linux
+3306|128|MySQL / MariaDB Server (Windows)|88|server|Microsoft
+3389|64|Linux Host (xrdp Remote Desktop)|90|pc|Linux
+3389|128|Windows Remote Desktop (RDP)|96|pc|Microsoft
+3389|255|Windows Server (RDP)|95|server|Microsoft
+3478|128|PlayStation Gaming Console|92|console|Sony
+3479|128|PlayStation Gaming Console|92|console|Sony
+3658|128|PlayStation Remote Play Host|92|console|Sony
+4330|64|NetAlertX Server|95|server|NetAlertX
+5000|64|Synology NAS (DSM)|95|nas|Synology
+5000|128|Windows UPnP / Web Service|75|pc|Microsoft
+5000|255|Network Device Web (HTTP)|75|router|Network OS
+5001|64|Synology NAS (DSM HTTPS)|95|nas|Synology
+5001|128|Windows Web Service (HTTPS)|75|pc|Microsoft
+5001|255|Network Device Web (HTTPS)|75|router|Network OS
+5060|64|Linux SIP / Asterisk PBX|90|server|Linux
+5060|128|Windows SIP Client|82|pc|Microsoft
+5060|255|Hardware VoIP Phone / ATA|88|voip-phone|Generic VoIP
+5061|64|Android SIP / VoWiFi Endpoint|88|smartphone|Google
+5061|128|Windows VoIP / SIP Endpoint|85|pc|Microsoft
+5061|255|Hardware VoIP Phone / PBX|90|voip-phone|Generic VoIP
+5355|64|LLMNR Name Resolution Service|50|server|Generic
+5355|128|LLMNR Name Resolution Service|75|pc|Microsoft
+5357|64|WSD Web Services Discovery|50|server|Generic
+5357|128|Windows Web Services on Devices (WSDAPI)|96|pc|Microsoft
+5432|64|PostgreSQL Server (Linux)|90|db-server|Linux
+5432|128|PostgreSQL Server (Windows)|88|server|Microsoft
+5555|64|Android ADB Debug Daemon|98|smartphone|Google
+5601|64|Kibana Dashboard Server|92|monitoring-server|Elastic
+5678|64|n8n Automation Server|92|automation-server|n8n
+5900|64|Linux Host (VNC Server)|88|pc|Linux
+5900|128|Windows Host (VNC Server)|88|pc|Microsoft
+5900|255|Hardware KVM / Appliance (VNC)|88|server|Generic
+5985|128|Windows Remote Management (WinRM HTTP)|94|pc|Microsoft
+5985|255|Windows Server (WinRM HTTP)|94|server|Microsoft
+5986|128|Windows Remote Management (WinRM HTTPS)|95|pc|Microsoft
+5986|255|Windows Server (WinRM HTTPS)|95|server|Microsoft
+6379|64|Redis Data Store|90|db-server|Linux
+6443|64|Kubernetes Control Plane|95|k8s-server|Kubernetes
+6556|64|Checkmk Monitoring Agent (Linux)|94|server|Checkmk
+6556|128|Checkmk Monitoring Agent (Windows)|94|pc|Checkmk
+6767|64|Bazarr Subtitles Manager (Linux)|94|server|Bazarr
+6767|128|Bazarr Subtitles Manager (Windows)|94|pc|Bazarr
+7000|64|Apple AirPlay Receiver|94|smart-tv|Apple
+7100|64|Apple AirPlay Receiver|92|smart-tv|Apple
+7275|64|Android SUPL Location Service|90|smartphone|Google
+7576|64|UpSnap WoL Server|94|server|UpSnap
+7676|64|Samsung Smart TV (AllShare)|94|smart-tv|Samsung
+7678|64|Samsung Smart TV (Remote)|94|smart-tv|Samsung
+7878|64|Radarr Media Manager (Linux)|94|server|Radarr
+7878|128|Radarr Media Manager (Windows)|94|pc|Radarr
+8000|64|Python Application Server (Linux)|85|app-server|Python
+8000|128|Python Application Server (Windows)|85|pc|Python
+8000|255|Hikvision IP Camera / DVR|90|camera|Hikvision
+8001|64|Samsung Smart TV (Tizen)|95|smart-tv|Samsung
+8002|64|Samsung Smart TV (Tizen WS)|95|smart-tv|Samsung
+8006|64|Proxmox VE Hypervisor|96|hypervisor-server|Proxmox
+8007|64|Proxmox Backup Server|95|backup-server|Proxmox
+8008|64|Google Chromecast / TV|95|smart-tv|Google
+8009|64|Google Chromecast / TV|95|smart-tv|Google
+8022|64|Android Termux SSH Server|95|smartphone|Google
+8060|64|Roku Streaming Player|95|smart-tv|Roku
+8071|64|UpSnap Server|90|server|UpSnap
+8080|64|Linux Web Server (HTTP Alt)|70|server|Linux
+8080|128|Windows Web Server (HTTP Alt)|70|pc|Microsoft
+8080|255|Network Device Web Admin (HTTP)|72|router|Network OS
+8085|64|qBittorrent Server (Linux / NAS)|92|torrent-server|qBittorrent
+8085|128|qBittorrent Server (Windows)|92|pc|qBittorrent
+8086|64|InfluxDB TimeSeries Server|90|db-server|InfluxData
+8096|64|Jellyfin Media Server (Linux / NAS)|95|media-server|Jellyfin
+8096|128|Jellyfin Media Server (Windows)|95|pc|Jellyfin
+8097|64|Emby Media Server (Linux / NAS)|92|media-server|Emby
+8097|128|Emby Media Server (Windows)|92|pc|Emby
+8123|64|Home Assistant Server|96|automation-server|Home Assistant
+8123|128|Home Assistant Host (Windows)|90|automation-server|Home Assistant
+8188|64|ComfyUI AI Server (Linux)|94|ai-server|ComfyUI
+8188|128|ComfyUI AI Server (Windows)|94|pc|ComfyUI
+8191|64|FlareSolverr Proxy|90|server|Linux
+8200|64|MiniDLNA Media Server|94|media-server|Linux
+8291|64|MikroTik RouterOS (WinBox)|96|router|MikroTik
+8383|64|NetAlertX Server|92|server|NetAlertX
+8384|64|Syncthing Web UI (Linux)|95|sync-server|Syncthing
+8384|128|Syncthing Web UI (Windows)|95|pc|Syncthing
+8443|64|Linux Web Server (HTTPS Alt)|70|server|Linux
+8443|128|Windows Web Server (HTTPS Alt)|70|pc|Microsoft
+8443|255|Network Device Web Admin (HTTPS)|72|router|Network OS
+8501|64|Streamlit Application Server (Linux)|90|app-server|Python
+8501|128|Streamlit Application Server (Windows)|90|pc|Python
+8554|64|MediaMTX RTSP Server|92|camera|Linux
+8686|64|Lidarr Music Manager (Linux)|94|server|Lidarr
+8686|128|Lidarr Music Manager (Windows)|94|pc|Lidarr
+8728|64|MikroTik RouterOS API|94|router|MikroTik
+8729|64|MikroTik RouterOS API (TLS)|94|router|MikroTik
+8883|64|MQTT Message Broker (TLS)|94|automation-server|Linux
+8920|64|Jellyfin Media Server (HTTPS)|94|media-server|Jellyfin
+8920|128|Jellyfin Media Server (HTTPS)|94|pc|Jellyfin
+8989|64|Sonarr Media Manager (Linux)|94|server|Sonarr
+8989|128|Sonarr Media Manager (Windows)|94|pc|Sonarr
+9000|64|Portainer Server (HTTP)|88|container-server|Portainer
+9000|128|Portainer on Windows (HTTP)|88|pc|Portainer
+9090|64|Prometheus Server|92|monitoring-server|Prometheus
+9091|64|Transmission Torrent Server|92|torrent-server|Transmission
+9100|64|Network Printer (RAW/CUPS)|94|printer|Linux
+9100|255|Network Printer (RAW Appliance)|94|printer|Network OS
+9197|64|Samsung Smart TV (SmartView)|94|smart-tv|Samsung
+9200|64|Elasticsearch Server|92|db-server|Elastic
+9308|128|Xbox Gaming Console|90|console|Microsoft
+9443|64|Portainer Server (HTTPS)|92|container-server|Portainer
+9443|128|Portainer on Windows (HTTPS)|90|pc|Portainer
+9696|64|Prowlarr Indexer Manager (Linux)|94|server|Prowlarr
+9696|128|Prowlarr Indexer Manager (Windows)|94|pc|Prowlarr
+9876|64|V-Rising Game Server (Linux)|90|server|Stunlock
+9876|128|V-Rising Game Server (Windows)|90|pc|Stunlock
+9877|64|V-Rising Game Server (Linux)|90|server|Stunlock
+9877|128|V-Rising Game Server (Windows)|90|pc|Stunlock
+10050|64|Zabbix Monitoring Agent (Linux)|92|server|Zabbix
+10050|128|Zabbix Monitoring Agent (Windows)|92|pc|Zabbix
+10051|64|Zabbix Trapper Server|92|monitoring-server|Zabbix
+10243|128|Windows Media Player Sharing|92|pc|Microsoft
+11434|64|Ollama AI Server (Linux / macOS)|96|ai-server|Ollama
+11434|128|Ollama AI Server (Windows)|96|pc|Ollama
+17500|64|Dropbox Sync Host (Linux / macOS)|90|pc|Dropbox
+17500|128|Dropbox Sync Host (Windows)|90|pc|Dropbox
+22000|64|Syncthing Node (Linux / Android)|92|sync-server|Syncthing
+22000|128|Syncthing Node (Windows)|92|pc|Syncthing
+24563|128|Epic Games Gaming PC|90|pc|Epic Games
+27017|64|MongoDB Server (Linux)|90|db-server|Linux
+27017|128|MongoDB Server (Windows)|88|server|Microsoft
+32400|64|Plex Media Server (Linux / NAS)|95|media-server|Plex
+32400|128|Plex Media Server (Windows)|95|pc|Plex
+34567|64|XMeye IP Camera / NVR|92|camera|Various
+34567|255|XMeye Enterprise NVR|92|camera|Various
+36666|64|Kodi Media Center|94|smart-tv|Kodi
+37777|64|Dahua IP Camera / NVR|95|camera|Dahua
+37777|255|Dahua Enterprise NVR|95|camera|Dahua
+44321|64|PCP Monitoring Server (PMCD)|92|server|Linux
+44322|64|PCP Monitoring Proxy (PMProxy)|92|server|Linux
+47984|64|Sunshine Gaming Host (Linux)|95|console|Sunshine
+47984|128|Sunshine Gaming PC (Windows)|95|pc|Sunshine
+47989|64|Sunshine Gaming Host (HTTPS/Linux)|95|console|Sunshine
+47989|128|Sunshine Gaming PC (HTTPS/Win)|95|pc|Sunshine
+47990|64|Sunshine Web Control (Linux)|95|console|Sunshine
+47990|128|Sunshine Web Control (Windows)|95|pc|Sunshine
+48010|64|Sunshine Game Control (Linux)|95|console|Sunshine
+48010|128|Sunshine Game Control (Windows)|95|pc|Sunshine
+51413|64|Transmission Torrent Server|88|torrent-server|Transmission
+53317|64|LocalSend Client (Linux / Android)|95|pc|LocalSend
+53317|128|LocalSend Client (Windows)|95|pc|LocalSend
+62078|64|Apple iPhone / iPad (Lockdown)|96|smartphone|Apple

@@ -1,0 +1,51 @@
+# ==============================================================================
+# Database: L4 p0f v3 TCP SYN-ACK Server Response Fingerprints
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   Max TTL (64/128/255) | Options Layout | WScale | Win | OS Name | Score (1-99) | Device Type | Vendor
+#
+# Rules for Adding Entries:
+#   1. BSD and macOS (TTL 64 with specific WScale/Win) MUST be placed BEFORE 
+#      generic Linux wildcards (*|*).
+#   2. Use exact Window sizes (e.g. 65535, 16384, 8192) whenever known.
+#
+# Example:
+#   64|^mss,nop,ws,sok,ts|6|65535|FreeBSD Server|96|server|FreeBSD
+#   64|^mss,sok,ts,nop,ws|*|*|Linux Server (Modern Kernel)|95|server|Linux
+# ==============================================================================
+
+# ==============================================================================
+# Windows Servers (TTL 128)
+# ==============================================================================
+128|^mss,nop,ws,sok,ts|8|8192|Windows Server (Modern)|95|server|Microsoft
+128|^mss,nop,nop,sok|*|8192|Windows Server (Modern)|90|server|Microsoft
+128|^mss,nop,ws,nop,nop,sok|*|65535|Windows Server (Legacy/2003)|90|server|Microsoft
+128|^mss,nop,nop,sok|*|16384|Windows Server (Legacy)|90|server|Microsoft
+128|^mss,nop,ws|*|*|Windows Server (Generic)|80|server|Microsoft
+
+
+# ==============================================================================
+# BSD & Darwin / macOS Servers (TTL 64 - Specific WS/Win)
+# ==============================================================================
+64|^mss,nop,ws,sok,ts|6|65535|FreeBSD Server|96|server|FreeBSD
+64|^mss,nop,ws|3|65535|FreeBSD Server|90|server|FreeBSD
+64|^mss,nop,ws|3|16384|OpenBSD Server|96|server|OpenBSD
+64|^mss,nop,nop,sok|0|16384|OpenBSD Server|92|server|OpenBSD
+64|^mss,nop,ws|0|65535|Apple macOS Server|90|server|Apple
+64|^mss,sok,eol|0|65535|Apple macOS Server|88|server|Apple
+
+
+# ==============================================================================
+# Linux Servers (TTL 64 - Modern & Legacy Stacks)
+# ==============================================================================
+64|^mss,sok,ts,nop,ws|*|*|Linux Server (Modern Kernel)|95|server|Linux
+64|^mss,nop,nop,ts,nop,ws|*|*|Linux Server (Modern Kernel)|90|server|Linux
+64|^mss,sok,ts|0|*|Linux Server (No WScale)|85|server|Linux
+64|^mss,nop,ws|*|*|Linux Server (Proxy/Host)|80|server|Linux
+
+
+# ==============================================================================
+# Enterprise UNIX & Network Appliances (TTL 255)
+# ==============================================================================
+255|^mss,nop,ws|0|*|Solaris / SunOS Server|85|server|Oracle
+255|^nop,nop,ts,mss|0|*|Solaris / SunOS Server|85|server|Oracle

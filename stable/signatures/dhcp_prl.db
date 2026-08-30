@@ -1,0 +1,143 @@
+# ==============================================================================
+# Database: DHCP Option 55 (Parameter Request List - PRL)
+# ------------------------------------------------------------------------------
+# Field Schema:
+#   Option 55 Sequence | OS Name | Confidence Score (1-99) | Device Type | Vendor
+#
+# Rules for Adding Entries:
+#   1. Specificity Order: Long parameter chains (10+ tokens) MUST be at the top.
+#   2. Short generic sequences (e.g. 1,3,6,15,28 or 1,3,6,15) MUST stay at the 
+#      very bottom, otherwise they shadow longer device-specific fingerprints.
+#
+# Example:
+#   1,3,6,15,31,33,43,44,46,47,119,121,249,252|Windows (10 / 11)|94|pc|Microsoft
+#   1,3,6,15,28|Embedded Linux / lwIP device|58|iot|Unknown
+# ==============================================================================
+
+# ==============================================================================
+# Windows NT Kernel Family
+# ==============================================================================
+1,15,3,6,44,46,47,31,33,121,249,43,0,192,176,112|Windows (7 / Server 2008 R2)|94|pc|Microsoft
+1,15,3,6,44,46,47,31,33,121,249,43,0,176,112|Windows (7 / Server 2008 R2)|94|pc|Microsoft
+1,15,3,6,44,46,47,31,33,121,249,43,0,112,98|Windows (7 / Server 2008 R2)|94|pc|Microsoft
+1,15,3,6,44,46,47,31,33,121,249,43,0,80|Windows (7 / Server 2008 R2)|94|pc|Microsoft
+1,15,3,6,44,46,47,31,33,121,249,43,252,12|Windows (7 / Server 2008 R2)|96|pc|Microsoft
+1,15,3,6,44,46,47,31,33,121,249,43,252|Windows (7 / Server 2008 R2)|96|pc|Microsoft
+1,15,3,6,44,46,47,31,33,121,249,252,43|Windows (8 / Server 2012)|95|pc|Microsoft
+1,15,3,6,44,46,47,31,33,121,249,43|Windows (7 / Server 2008 R2)|95|pc|Microsoft
+1,3,6,15,31,33,43,44,46,47,119,121,249,252|Windows (10 / 11 / Server 2016+)|94|pc|Microsoft
+1,3,6,15,31,33,43,44,46,47,119,121,249|Windows (8.1 / 10 variant)|92|pc|Microsoft
+1,3,6,15,31,33,43,44,46,47,119,121|Windows (10 short form)|90|pc|Microsoft
+1,3,6,15,31,33,43,44,46,47|Windows (8 / 8.1 short form)|88|pc|Microsoft
+
+# ==============================================================================
+# Apple Darwin - macOS
+# ==============================================================================
+1,3,6,15,119,112,113,78,79,95,252|Apple macOS PC|94|mac-pc|Apple
+1,3,6,15,119,95,252,44,46,47,101|Apple macOS PC|92|mac-pc|Apple
+1,3,6,15,119,95,252,44,46,101|Apple macOS PC|92|mac-pc|Apple
+1,3,6,15,119,95,252,44,46,47|Apple macOS PC|92|mac-pc|Apple
+1,3,6,15,112,113,78,79,95,252|Apple macOS PC|96|mac-pc|Apple
+1,3,6,15,112,113,78,79,95,44,47|Apple macOS PC|94|mac-pc|Apple
+1,3,6,15,112,113,78,79,95|Apple macOS PC|96|mac-pc|Apple
+3,6,15,112,113,78,79,95,252|Apple macOS PC|95|mac-pc|Apple
+3,6,15,112,113,78,79,95,44,47|Apple macOS PC|94|mac-pc|Apple
+3,6,15,112,113,78,79,95|Apple macOS PC|94|mac-pc|Apple
+1,3,12,6,15,112,113,78,79|Apple macOS PC|86|mac-pc|Apple
+43,60|Apple Device|78|generic|Apple
+60,43|Apple Device|78|generic|Apple
+
+# ==============================================================================
+# Apple iOS / iPadOS
+# ==============================================================================
+1,3,6,15,119,78,79,95,252,44,46|Apple iPhone / iPad (iOS)|92|smartphone|Apple
+1,3,6,15,119,78,79,95,252|Apple iPhone / iPad (iOS)|97|smartphone|Apple
+1,3,6,15,119,252,46,208,92|Apple iPhone / iPad (iOS)|96|smartphone|Apple
+1,3,6,15,119,252,67,52,13|Apple iPhone / iPad (iOS)|94|smartphone|Apple
+1,3,6,15,119,95,252|Apple iPhone / iPad (iOS)|92|smartphone|Apple
+1,3,6,15,119,252,43|Apple Device|84|generic|Apple
+1,3,6,15,119,252|Apple iPhone / iPad (iOS)|96|smartphone|Apple
+
+# ==============================================================================
+# Android Ecosystem & ChromeOS
+# ==============================================================================
+1,3,6,15,26,28,51,58,59,119,121|Android|94|smartphone|Android
+1,3,6,15,26,28,51,58,59,121,249|Android / ChromeOS (Google dhcpcd)|78|smartphone|Google
+1,3,6,15,26,28,51,58,59,43,44|Android|88|smartphone|Android
+1,3,6,15,26,28,51,58,59,43,12|Android|88|smartphone|Android
+1,3,6,15,26,28,51,58,59,43|Android|92|smartphone|Android
+1,3,6,15,26,28,51,58,59,12|Android|92|smartphone|Android
+1,3,6,15,26,28,51,58,59|Android / ChromeOS (Google dhcpcd)|75|smartphone|Google
+1,3,6,15,26,33,121,249,43|Google ChromeOS PC|92|chrome-pc|Google
+
+# ==============================================================================
+# Gaming Consoles & Handhelds
+# ==============================================================================
+1,2,6,12,15,26,28,121,3,33,40,41,42,119,249,252,17|Linux Handheld Console|75|console|Linux
+1,3,6,12,15,28,33,40,41,42|Sony PlayStation Console|82|console|Sony
+1,3,6,15,12,28,40,41,42|Sony PlayStation Console|80|console|Sony
+1,3,6,15,28,33|Nintendo Switch Console|80|console|Nintendo
+
+# ==============================================================================
+# Linux Distributions & Servers (Long Chains)
+# ==============================================================================
+1,3,6,12,15,26,28,42,119,121|Linux Host|88|server|Linux
+1,3,6,12,15,26,28,33,42,121|Linux Host|82|server|Linux
+1,3,6,15,26,28,42,119,121|Linux Host|84|server|Linux
+1,3,6,15,28,51,58,59,119,121|Linux (dhcpcd)|88|pc|Linux
+1,3,6,15,28,51,58,59,121|Linux Host|80|server|Linux
+1,3,6,15,28,51,58,59,43|Linux Host|82|server|Linux
+
+# ==============================================================================
+# Smart TVs & Media Devices
+# ==============================================================================
+3,1,252,42,6,12|Samsung Smart TV (Tizen)|85|smart-tv|Samsung
+1,3,26,252,42,15,6,12|CoreELEC / Kodi Media Center|90|smart-tv|Linux
+1,3,6,15,44,33,150,66,67|IPTV Set-Top Box|72|smart-tv|Unknown
+1,3,6,15,28,33,43,119,121|Smart TV / Media Device|70|smart-tv|Unknown
+1,3,6,15,28,33,43,51,58,59|Smart TV / Media Device|70|smart-tv|Unknown
+1,3,6,15,28,43,66,67,119|Streaming Device / Set-Top Box|68|smart-tv|Unknown
+
+# ==============================================================================
+# Smart Audio & Speakers
+# ==============================================================================
+1,3,6,15,44,46,47,119,252|Smart Audio / Voice Assistant|70|smart-speaker|Unknown
+1,3,6,15,28,43,119|Smart Speaker|68|smart-speaker|Unknown
+1,3,6,15,28,33,43|Smart Speaker|66|smart-speaker|Unknown
+
+# ==============================================================================
+# Network Printers & VoIP
+# ==============================================================================
+1,3,6,15,28,43,51,58,59,66,67|Network Printer|76|printer|Unknown
+1,3,6,15,28,43,66,67|Network Printer|72|printer|Unknown
+1,3,6,15,43,66,67|Network Printer|74|printer|Unknown
+1,3,6,15,44,46,47,66,67|VoIP Phone Device|78|iot|Unknown
+1,3,6,15,44,66,67|VoIP Phone Device|74|iot|Unknown
+1,3,6,15,66,67|VoIP Phone Device|72|iot|Unknown
+
+# ==============================================================================
+# Embedded Linux / BusyBox / IoT Nodes
+# ==============================================================================
+1,3,6,15,28,51,58,59,66,67|Embedded IoT Appliance|74|iot|Unknown
+1,3,6,12,15,28,51,58,59|Embedded Linux Node|80|iot|Linux
+1,3,6,12,15,28,42|Embedded Linux / BusyBox firmware|70|iot|Linux
+1,3,6,15,28,42|Embedded Linux / Router firmware|68|iot|Linux
+1,3,6,12,15,28|BusyBox IoT Node (udhcpc)|84|iot|Linux
+1,3,6,15,42|Network Appliance|66|router|Network OS
+1,3,6,15,28,42,119|Unix / BSD Host|68|server|Unix
+1,3,6,15,28,51,58,59|Generic *nix host (dhclient/dhcpcd)|50|generic|Unknown
+
+# ==============================================================================
+# Human-Readable Token Fallbacks
+# ==============================================================================
+subnet-mask,default-gateway,domain-name-server,domain-name,router-discovery,static-route|Windows PC|86|pc|Microsoft
+subnet-mask,classless-static-route,default-gateway,domain-name-server,domain-name,domain-search,wpad|Apple iOS / macOS Device|86|generic|Apple
+subnet-mask,default-gateway,domain-name-server,domain-name,interface-mtu,broadcast-address|Android|82|smartphone|Android
+
+# ==============================================================================
+# Short Generic Fallbacks (ΑΥΣΤΗΡΑ ΣΤΟ ΤΕΛΟΣ)
+# ==============================================================================
+1,3,6,15,28|Embedded Linux / lwIP device|58|iot|Unknown
+1,3,6,15|Generic DHCP Client|45|generic|Unknown
+1,3,6|Generic DHCP Client|40|generic|Unknown
+3,6,15|Generic DHCP Client|38|generic|Unknown
