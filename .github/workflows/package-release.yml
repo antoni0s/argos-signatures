@@ -32,15 +32,23 @@ jobs:
           )
 
           if [ -z "$VERSION" ] || [ "$VERSION" = "bootstrap" ]; then
-            echo "ERROR: stable database_version must be set before packaging"
-            exit 1
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Stable signatures are still bootstrap; bundle packaging skipped."
+            exit 0
           fi
 
+          echo "ready=true" >> "$GITHUB_OUTPUT"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "Packaging Argos signatures $VERSION"
 
+      - name: Reject release tags while stable is bootstrap
+        if: startsWith(github.ref, 'refs/tags/v') && steps.version.outputs.ready != 'true'
+        run: |
+          echo 'ERROR: cannot publish a signature release while stable database_version is bootstrap'
+          exit 1
+
       - name: Verify release tag matches database version
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') && steps.version.outputs.ready == 'true'
         env:
           TAG: ${{ github.ref_name }}
           VERSION: ${{ steps.version.outputs.version }}
@@ -52,6 +60,7 @@ jobs:
           fi
 
       - name: Build deterministic tar.gz bundle
+        if: steps.version.outputs.ready == 'true'
         env:
           VERSION: ${{ steps.version.outputs.version }}
         shell: bash
@@ -74,6 +83,7 @@ jobs:
           sha256sum "argos-signatures-$VERSION.tar.gz" > SHA256SUMS
 
       - name: Verify bundle contents
+        if: steps.version.outputs.ready == 'true'
         env:
           VERSION: ${{ steps.version.outputs.version }}
         shell: bash
@@ -88,6 +98,7 @@ jobs:
           ls -lh "dist/argos-signatures-$VERSION.tar.gz"
 
       - name: Upload workflow artifact
+        if: steps.version.outputs.ready == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: argos-signatures-${{ steps.version.outputs.version }}
@@ -97,7 +108,7 @@ jobs:
           if-no-files-found: error
 
       - name: Publish GitHub release assets
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') && steps.version.outputs.ready == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
