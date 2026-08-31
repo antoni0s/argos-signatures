@@ -327,3 +327,5 @@ gptbot|Unknown|96|generic|OpenAI|GPTBot
 claudebot|Unknown|96|generic|Anthropic|ClaudeBot
 anthropic-ai|Unknown|96|generic|Anthropic|Anthropic AI
 ccbot|Unknown|95|generic|Common Crawl|CCBot
+# UPDATE SMOKE TEST 2026.08.31.1
+argos-test-browser/[0-9]|Argos Test Browser|99|pc|Argos|Test Browser
