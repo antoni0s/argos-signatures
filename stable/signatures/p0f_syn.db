@@ -45,8 +45,8 @@
 128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Windows (Legacy)|80|pc|Microsoft
 128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ee][OoLl]*|*|*|Windows|78|pc|Microsoft
 
-# 4. TTL 128 Fallback
-128|*|*|*|Windows|60|pc|Microsoft
+# 4. TTL 128 Fallback - context only; TTL tier alone does not prove Windows.
+128|*|*|*|Generic TTL128 TCP Stack|40|generic|Unknown
 
 
 # ==============================================================================
@@ -137,7 +137,8 @@
 64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|*|Linux|80|server|Linux
 64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|*|Linux|80|server|Linux
 64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|*|*|Linux / Unix Host|78|server|Linux
-64|*|*|*|Linux Host|50|generic|Linux
+# TTL-only fallback is context only; TTL tier alone does not prove Linux.
+64|*|*|*|Generic TTL64 TCP Stack|35|generic|Unknown
 
 
 # ==============================================================================
@@ -150,4 +151,5 @@
 255|^[Mm][Ss0-9*]*|*|8192|Embedded RTOS Device|72|iot|Unknown
 255|^[Mm][Ss0-9*]*|*|5840|Embedded RTOS Device|70|iot|Unknown
 255|^[Mm][Ss0-9*]*|*|*|Embedded RTOS Device|64|iot|Unknown
-255|*|*|*|Network Appliance / Device|52|router|Network OS
+# TTL-only fallback is context only; TTL tier alone does not prove a router/appliance.
+255|*|*|*|Generic TTL255 TCP Stack|35|generic|Unknown
