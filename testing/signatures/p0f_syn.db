@@ -14,7 +14,7 @@
 #
 # Example:
 #   128|^mss,nop,ws,nop,nop,ts,sok|8|64240|Windows|94|pc|Microsoft
-#   64|^mss,sok,ts,nop,ws|10|65535|Android|94|smartphone|Android
+#   64|^mss,sok,ts,nop,ws|10|65535|Linux / Android TCP Stack|68|generic|Unknown
 # ==============================================================================
 
 # ==============================================================================
@@ -59,9 +59,9 @@
 # ==============================================================================
 # Android Ecosystem (Mobile Stack - TTL 64)
 # ==============================================================================
-# 1. Exact WS & Exact Window
-64|^mss,sok,ts,nop,ws|10|65535|Android|94|smartphone|Unknown
-64|^mss,sok,ts,nop,ws|11|65535|Android|94|smartphone|Unknown
+# WS10/11 + Win65535 with this Linux-kernel option order is not Android-unique.
+64|^mss,sok,ts,nop,ws|10|65535|Linux / Android TCP Stack|68|generic|Unknown
+64|^mss,sok,ts,nop,ws|11|65535|Linux / Android TCP Stack|68|generic|Unknown
 64|^mss,nop,ws,nop,nop,ts,sok|8|65535|Android|90|smartphone|Unknown
 
 # 2. Specific Mobile WScale
