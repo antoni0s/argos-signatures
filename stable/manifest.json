@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "database_version": "2026.09.01.1",
+  "database_version": "2026.09.01.2",
   "channel": "stable",
   "files": {
     "dhcp_prl.db": {
@@ -36,8 +36,8 @@
       "size": 13531
     },
     "p0f_syn.db": {
-      "sha256": "71a20145c9689863447c4cc429bec20e2912a3e4297a8e72c4a6608993e3aae8",
-      "size": 10825
+      "sha256": "4d4521abb82e37815cabf84cdb640583f901e43dd9b9569e6e98a1ffacfcefba",
+      "size": 11072
     },
     "p0f_synack.db": {
       "sha256": "9a22a8b0d3a02765225166227af8e8839e0475a111a46580cd9452dc70c23671",
