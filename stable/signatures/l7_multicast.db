@@ -146,9 +146,9 @@ _ubnt\._tcp|Ubiquiti Network Device|94|network-ap|Ubiquiti
 urn:schemas-upnp-org:device:MediaServer|DLNA / Media Server|94|media-server|Linux
 urn:schemas-upnp-org:device:MediaRenderer|DLNA Streaming Player|92|smart-tv|Generic
 urn:schemas-upnp-org:device:ZonePlayer|Sonos Smart Speaker|96|smart-speaker|Sonos
-urn:schemas-upnp-org:device:InternetGatewayDevice|Network Router Gateway|95|router|Unknown
-urn:schemas-upnp-org:device:WANDevice|Network Router Gateway|94|router|Unknown
-urn:schemas-upnp-org:service:WANIPConnection|Network Router Gateway|92|router|Unknown
+urn:schemas-upnp-org:device:InternetGatewayDevice|UPnP Internet Gateway Capability|55|generic|Unknown
+urn:schemas-upnp-org:device:WANDevice|UPnP WAN Device Capability|50|generic|Unknown
+urn:schemas-upnp-org:service:WANIPConnection|UPnP WAN IP Connection Capability|50|generic|Unknown
 urn:schemas-upnp-org:device:Printer|Network Printer|94|printer|Unknown
 urn:schemas-upnp-org:device:DigitalSecurityCamera|IP Security Camera|94|camera|Generic
 urn:schemas-upnp-org:device:Basic:1|Smart Home IoT Device|80|iot|Generic
