@@ -74,16 +74,16 @@
 
 
 # ==============================================================================
-# Linux Server & Desktop Exact-Window Signatures (TTL 64)
+# Linux Exact-Window Signatures (TTL 64)
 # Must precede Android WScale-only rules: the same Linux TCP option order can
 # use WScale 9/10/11, so exact window evidence is more specific.
 # ==============================================================================
-64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|64240|Linux|92|server|Linux
-64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|64240|Linux|92|server|Linux
-64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|29200|Linux|90|server|Linux
-64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|29200|Linux|90|server|Linux
-64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|14600|Linux|88|server|Linux
-64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|14600|Linux|88|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|64240|Linux|92|generic|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|64240|Linux|92|generic|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|29200|Linux|90|generic|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|29200|Linux|90|generic|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|14600|Linux|88|generic|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|14600|Linux|88|generic|Linux
 
 
 # ==============================================================================
@@ -95,7 +95,7 @@
 64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|9|*|Linux / Android TCP Stack|63|generic|Unknown
 64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|10|*|Linux / Android TCP Stack|63|generic|Unknown
 64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|10|*|Linux / Android TCP Stack|62|generic|Unknown
-64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|*|Linux / Unix Host|78|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|*|Linux / Unix Host|78|generic|Linux
 
 
 # ==============================================================================
@@ -115,13 +115,13 @@
 
 
 # ==============================================================================
-# Linux Server & Desktop Canonical Stacks (TTL 64)
+# Linux Canonical Stacks (TTL 64)
 # ==============================================================================
-# Desktop/Server Specific WScale
-64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|7|*|Linux|86|server|Linux
-64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|8|*|Linux|86|server|Linux
-64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|7|*|Linux|84|server|Linux
-64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|8|*|Linux|84|server|Linux
+# Common Linux WScale patterns; device role is intentionally left generic.
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|7|*|Linux|86|generic|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|8|*|Linux|86|generic|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|7|*|Linux|84|generic|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|8|*|Linux|84|generic|Linux
 
 
 # ==============================================================================
@@ -136,10 +136,10 @@
 # ==============================================================================
 # Linux Generic Fallbacks (TTL 64)
 # ==============================================================================
-64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|*|Linux|80|server|Linux
-64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|*|Linux|80|server|Linux
-64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|*|Linux|80|server|Linux
-64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|*|*|Linux / Unix Host|78|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|*|Linux|80|generic|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|*|Linux|80|generic|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|*|Linux|80|generic|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|*|*|Linux / Unix Host|78|generic|Linux
 # TTL-only fallback is context only; TTL tier alone does not prove Linux.
 64|*|*|*|Generic TTL64 TCP Stack|35|generic|Unknown
 
