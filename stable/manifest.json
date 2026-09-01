@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "database_version": "2026.09.02.4",
+  "database_version": "2026.09.02.5",
   "channel": "stable",
   "files": {
     "dhcp_prl.db": {
@@ -48,8 +48,8 @@
       "size": 31535
     },
     "port_signatures.db": {
-      "sha256": "3c3d42c158dbe900649b1ca8729f784d8cbe31bba01ebd6e3c03747123d8f4f7",
-      "size": 12003
+      "sha256": "8d81833b7cbe12c09d6e1040ed7257ba0ebc4103604367a7bd1a3a27044dbfc1",
+      "size": 12014
     }
   }
 }
