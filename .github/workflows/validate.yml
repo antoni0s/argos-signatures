@@ -3,6 +3,9 @@ name: Validate signatures
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'stable/signatures/**'
+      - 'testing/signatures/**'  
   pull_request:
     branches: [main]
   workflow_dispatch:
