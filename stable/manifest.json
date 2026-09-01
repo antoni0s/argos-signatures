@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "database_version": "2026.09.01.2",
+  "database_version": "2026.09.01.3",
   "channel": "stable",
   "files": {
     "dhcp_prl.db": {
@@ -28,8 +28,8 @@
       "size": 16067
     },
     "l7_multicast.db": {
-      "sha256": "3ef362545646a4a5b1ec271d1368ce3590eb0b292f8f3db83c4b325e2b11efda",
-      "size": 12380
+      "sha256": "242de9bd9a6dd85703a7ab20ee167811bbe211308a507ada4a55d4b9e8b3efb3",
+      "size": 12408
     },
     "oui.db": {
       "sha256": "35cea524c41cee505062806787e94a64afa2ef66ede95dcbcf2a986d90a8d630",
@@ -48,8 +48,8 @@
       "size": 31535
     },
     "port_signatures.db": {
-      "sha256": "e07ec6b12deb1b5134cb74a74b0713e8d5a609a6c7a3c4fb23b4e536fc9b745c",
-      "size": 12069
+      "sha256": "3c3d42c158dbe900649b1ca8729f784d8cbe31bba01ebd6e3c03747123d8f4f7",
+      "size": 12003
     }
   }
 }
