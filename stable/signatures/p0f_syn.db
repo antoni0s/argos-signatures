@@ -18,32 +18,32 @@
 #      device identities. Exact window combinations remain identity evidence.
 #
 # Example:
-#   128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|64240|Windows|94|pc|Microsoft
-#   64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|10|65535|Android|94|smartphone|Android
+#   128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|64240|Windows|94|pc|Microsoft
+#   64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|10|65535|Android|94|smartphone|Android
 # ==============================================================================
 
 # ==============================================================================
 # Windows NT Kernel Family (TTL 128)
 # ==============================================================================
 # 1. Exact WS & Exact Window Size
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|64240|Windows|94|pc|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|8|64240|Windows|92|pc|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|65535|Windows|90|pc|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|8192|Windows Server|88|server|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|8|8192|Windows Server|86|server|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|64240|Windows|94|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|8|64240|Windows|92|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|65535|Windows|90|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|8192|Windows Server|88|server|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|8|8192|Windows Server|86|server|Microsoft
 
 # 2. Semi-Specific (Exact Win or Exact WS)
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|*|8192|Windows Server|84|server|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|*|Windows|90|pc|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|8|*|Windows|88|pc|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|8|*|Windows|86|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|*|8192|Windows Server|84|server|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|*|Windows|90|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|8|*|Windows|88|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|8|*|Windows|86|pc|Microsoft
 
 # 3. Generic Pattern Matches
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|*|*|Windows|88|pc|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|*|*|Windows|86|pc|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Windows|84|pc|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Windows (Legacy)|80|pc|Microsoft
-128|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ee][OoLl]*|*|*|Windows|78|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|*|*|Windows|88|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|*|Windows|86|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Windows|84|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Windows (Legacy)|80|pc|Microsoft
+128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ee][OoLl]*|*|*|Windows|78|pc|Microsoft
 
 # 4. TTL 128 Fallback
 128|*|*|*|Windows|60|pc|Microsoft
@@ -52,22 +52,22 @@
 # ==============================================================================
 # Apple iOS / iPadOS & macOS (Darwin Kernel - TTL 64)
 # ==============================================================================
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|2|*|iPhone / iPad (iOS)|92|smartphone|Apple
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ee][OoLl]*|2|*|iPhone / iPad (iOS)|90|smartphone|Apple
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|3|*|macOS PC|92|mac-pc|Apple
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|4|*|macOS PC|92|mac-pc|Apple
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ee][OoLl]*|3|*|macOS PC|90|mac-pc|Apple
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ee][OoLl]*|4|*|macOS PC|90|mac-pc|Apple
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|5|*|macOS PC|86|mac-pc|Apple
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|2|*|iPhone / iPad (iOS)|92|smartphone|Apple
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ee][OoLl]*|2|*|iPhone / iPad (iOS)|90|smartphone|Apple
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|3|*|macOS PC|92|mac-pc|Apple
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|4|*|macOS PC|92|mac-pc|Apple
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ee][OoLl]*|3|*|macOS PC|90|mac-pc|Apple
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ee][OoLl]*|4|*|macOS PC|90|mac-pc|Apple
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|5|*|macOS PC|86|mac-pc|Apple
 
 
 # ==============================================================================
 # Android Ecosystem (Mobile Stack - TTL 64)
 # ==============================================================================
 # 1. Exact WS & Exact Window
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|10|65535|Android|94|smartphone|Unknown
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|11|65535|Android|94|smartphone|Unknown
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|65535|Android|90|smartphone|Unknown
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|10|65535|Android|94|smartphone|Unknown
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|11|65535|Android|94|smartphone|Unknown
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|65535|Android|90|smartphone|Unknown
 
 
 # ==============================================================================
@@ -75,79 +75,79 @@
 # Must precede Android WScale-only rules: the same Linux TCP option order can
 # use WScale 9/10/11, so exact window evidence is more specific.
 # ==============================================================================
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|*|64240|Linux|92|server|Linux
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|*|64240|Linux|92|server|Linux
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|*|29200|Linux|90|server|Linux
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|*|29200|Linux|90|server|Linux
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|*|14600|Linux|88|server|Linux
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|*|14600|Linux|88|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|64240|Linux|92|server|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|64240|Linux|92|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|29200|Linux|90|server|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|29200|Linux|90|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|14600|Linux|88|server|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|14600|Linux|88|server|Linux
 
 
 # ==============================================================================
 # Ambiguous Linux / Android Mobile-Style Stacks (TTL 64)
 # WScale alone is not sufficient to elect Android; keep these as context.
 # ==============================================================================
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|10|*|Linux / Android TCP Stack|65|generic|Unknown
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|11|*|Linux / Android TCP Stack|65|generic|Unknown
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|9|*|Linux / Android TCP Stack|63|generic|Unknown
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|10|*|Linux / Android TCP Stack|63|generic|Unknown
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|10|*|Linux / Android TCP Stack|62|generic|Unknown
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|*|Linux / Unix Host|78|server|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|10|*|Linux / Android TCP Stack|65|generic|Unknown
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|11|*|Linux / Android TCP Stack|65|generic|Unknown
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|9|*|Linux / Android TCP Stack|63|generic|Unknown
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|10|*|Linux / Android TCP Stack|63|generic|Unknown
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|10|*|Linux / Android TCP Stack|62|generic|Unknown
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|*|Linux / Unix Host|78|server|Linux
 
 
 # ==============================================================================
 # Printers & Embedded Peripherals (TTL 64) - BEFORE generic console fallbacks
 # ==============================================================================
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|2|8192|Network Printer|84|printer|Unknown
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|2|16384|Network Printer|82|printer|Unknown
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|2|32768|Network Printer|80|printer|Unknown
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|2|8192|Network Printer|84|printer|Unknown
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|2|16384|Network Printer|82|printer|Unknown
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|2|32768|Network Printer|80|printer|Unknown
 
 
 # ==============================================================================
 # Gaming Consoles (TTL 64)
 # ==============================================================================
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|32768|Nintendo Switch Console|92|console|Nintendo
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*|*|*|Steam Deck (SteamOS)|88|console|Valve
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Nintendo Switch Console|74|console|Nintendo
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|32768|Nintendo Switch Console|92|console|Nintendo
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*|*|*|Steam Deck (SteamOS)|88|console|Valve
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Nintendo Switch Console|74|console|Nintendo
 
 
 # ==============================================================================
 # Linux Server & Desktop Canonical Stacks (TTL 64)
 # ==============================================================================
 # Desktop/Server Specific WScale
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|7|*|Linux|86|server|Linux
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|8|*|Linux|86|server|Linux
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|7|*|Linux|84|server|Linux
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|8|*|Linux|84|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|7|*|Linux|86|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|8|*|Linux|86|server|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|7|*|Linux|84|server|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|8|*|Linux|84|server|Linux
 
 
 # ==============================================================================
 # Embedded Linux & IoT (TTL 64 / 32)
 # ==============================================================================
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*|*|5840|Embedded Linux / IoT Node|78|iot|Linux
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*|*|2920|Embedded Linux / IoT Node|76|iot|Linux
-32|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Legacy Embedded Router|70|router|Unknown
-32|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*|*|*|Legacy Embedded Router|68|router|Unknown
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*|*|5840|Embedded Linux / IoT Node|78|iot|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*|*|2920|Embedded Linux / IoT Node|76|iot|Linux
+32|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Legacy Embedded Router|70|router|Unknown
+32|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*|*|*|Legacy Embedded Router|68|router|Unknown
 
 
 # ==============================================================================
 # Linux Generic Fallbacks (TTL 64)
 # ==============================================================================
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|*|*|Linux|80|server|Linux
-64|^[Mm][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9]*|*|*|Linux|80|server|Linux
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*,[Nn][OoPp]*,[Ww][Ss0-9]*|*|*|Linux|80|server|Linux
-64|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|*|*|Linux / Unix Host|78|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|*|Linux|80|server|Linux
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|*|Linux|80|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|*|*|Linux|80|server|Linux
+64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|*|*|Linux / Unix Host|78|server|Linux
 64|*|*|*|Linux Host|50|generic|Linux
 
 
 # ==============================================================================
 # Enterprise Infrastructure & RTOS (TTL 255)
 # ==============================================================================
-255|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|8192|Network Switch / Router|82|router|Network OS
-255|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|*|8192|Network Switch / Router|80|router|Network OS
-255|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Ww][Ss0-9]*,[Ss][OoKk]*,[Tt][Ss]*|*|*|Network Switch / Router|76|router|Network OS
-255|^[Mm][Ss0-9]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Network Switch / Router|74|router|Network OS
-255|^[Mm][Ss0-9]*|*|8192|Embedded RTOS Device|72|iot|Unknown
-255|^[Mm][Ss0-9]*|*|5840|Embedded RTOS Device|70|iot|Unknown
-255|^[Mm][Ss0-9]*|*|*|Embedded RTOS Device|64|iot|Unknown
+255|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|8192|Network Switch / Router|82|router|Network OS
+255|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|8192|Network Switch / Router|80|router|Network OS
+255|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*|*|*|Network Switch / Router|76|router|Network OS
+255|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Ss][OoKk]*|*|*|Network Switch / Router|74|router|Network OS
+255|^[Mm][Ss0-9*]*|*|8192|Embedded RTOS Device|72|iot|Unknown
+255|^[Mm][Ss0-9*]*|*|5840|Embedded RTOS Device|70|iot|Unknown
+255|^[Mm][Ss0-9*]*|*|*|Embedded RTOS Device|64|iot|Unknown
 255|*|*|*|Network Appliance / Device|52|router|Network OS
