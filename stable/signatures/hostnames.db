@@ -9,6 +9,8 @@
 #   2. Specific hardware models MUST be at the top (e.g. galaxy-s24 before galaxy).
 #   3. Generic prefixes (^win, desktop-, laptop-, server-, nas-) MUST stay at the bottom.
 #   4. Use valid Device Type tokens (pc, server, console, smartphone, etc.).
+#   5. Generic word patterns should be anchored; avoid substring rules that can
+#      classify arbitrary user-chosen hostnames as a device identity.
 #
 # Example:
 #   steam-?deck|Steam Deck (SteamOS)|96|console|Valve
@@ -114,8 +116,8 @@ redmi|Xiaomi Redmi Phone|95|smartphone|Xiaomi
 poco|Xiaomi POCO Phone|95|smartphone|Xiaomi
 oneplus|OnePlus Smartphone|95|smartphone|OnePlus
 kindle|Amazon Kindle e-Reader|92|tablet-phone|Amazon
-android|Android Mobile Device|88|smartphone|Android
-mobile|Mobile Phone|85|smartphone|Unknown
+^android([_-][a-z0-9-]+)?$|Android Device|70|generic|Android
+^mobile([_-][a-z0-9-]+)?$|Mobile Device|65|generic|Unknown
 
 # ==============================================================================
 # Network Printers
@@ -128,7 +130,7 @@ brother|Brother Network Printer|94|printer|Brother
 epson|Epson Network Printer|94|printer|Epson
 canon-?printer|Canon Network Printer|94|printer|Canon
 ^hp-?print|HP Network Printer|94|printer|HP
-printer|Network Printer|90|printer|Unknown
+^printer([_-][a-z0-9-]+)?$|Network Printer|78|printer|Unknown
 
 # ==============================================================================
 # Storage, NAS & Homelab Infrastructure
@@ -215,8 +217,8 @@ eufy|Eufy Security Camera|93|camera|Eufy
 arlo|Arlo IP Camera|93|camera|Arlo
 wyze|Wyze Smart Cam|92|camera|Wyze
 frigate|Frigate NVR Server|94|nvr-server|Frigate
-doorbell|Video Doorbell|85|camera|Unknown
-camera|IP Security Camera|85|camera|Unknown
+^doorbell([_-][a-z0-9-]+)?$|Video Doorbell|78|camera|Unknown
+^camera([_-][a-z0-9-]+)?$|IP Security Camera|75|camera|Unknown
 roborock|Roborock Robot Vacuum|96|vacuum-device|Roborock
 roomba|iRobot Roomba Vacuum|95|vacuum-device|iRobot
 deebot|Ecovacs Deebot Vacuum|94|vacuum-device|Ecovacs
@@ -262,21 +264,17 @@ thinkpad|Lenovo ThinkPad PC|92|pc|Lenovo
 latitude|Dell Latitude PC|90|pc|Dell
 desktop-[a-z0-9]+|Windows Desktop PC|88|pc|Microsoft
 laptop-[a-z0-9]+|Windows Laptop PC|88|pc|Microsoft
-desktop|Desktop PC|82|pc|Microsoft
-laptop|Laptop PC|82|pc|Microsoft
+^desktop$|Desktop Host|70|generic|Unknown
+^laptop$|Laptop Host|70|generic|Unknown
 ^server$|Linux Server Host|75|server|Unknown
 ^server-|Linux Server Host|75|server|Unknown
 ^nas$|Network Attached Storage|85|nas-server|Unknown
 ^nas-|Network Attached Storage|85|nas-server|Unknown
-linux|Linux PC Host|75|pc|Linux
+^linux([_-][a-z0-9-]+)?$|Linux Host|65|generic|Linux
 ^router$|Network Router Gateway|75|router|Unknown
 ^router-|Network Router Gateway|75|router|Unknown
 ^gateway$|Network Gateway Device|70|router|Unknown
 ^gateway-|Network Gateway Device|70|router|Unknown
-.*s2[0-9]u.*|Samsung Galaxy S-Ultra|95|phone|Samsung
-.*s2[0-9].*|Samsung Galaxy S Device|92|phone|Samsung
-.*s[1-2][0-9].*|Samsung Galaxy S-Series|90|phone|Samsung
-.*a[0-9]{2}.*|Samsung Galaxy A-Series|90|phone|Samsung
 .*sm-[a-z0-9]+.*|Samsung Galaxy|92|phone|Samsung
 .*fold[0-9]?.*|Samsung Galaxy Fold|95|phone|Samsung
 .*flip[0-9]?.*|Samsung Galaxy Flip|95|phone|Samsung
