@@ -12,22 +12,22 @@
 #      smart-speaker, printer, iot, router, generic.
 #
 # Example:
-#   80|64|Linux Web Server (HTTP)|70|server|Linux
-#   80|128|Windows Server (IIS HTTP)|70|server|Microsoft
+#   80|64|HTTP Service (TTL64)|45|generic|Unknown
+#   80|128|HTTP Service (TTL128)|45|generic|Unknown
 # ==============================================================================
-21|64|Linux FTP Server|85|server|Linux
-21|128|Windows IIS FTP Server|85|server|Microsoft
-21|255|Network Storage / Appliance (FTP)|80|nas|Network OS
-22|64|Linux Host (SSH Server)|80|server|Linux
-22|128|Windows Host (OpenSSH Service)|88|pc|Microsoft
-22|255|Network Device / Switch (SSH)|88|router|Network OS
-23|64|Linux Host (Telnet)|78|server|Linux
-23|255|Network Router / Switch (Telnet)|80|router|Network OS
-53|64|DNS Resolver Server|90|server|Linux
-53|255|Network Gateway DNS|88|router|Network OS
-80|64|Linux Web Server (HTTP)|70|server|Linux
-80|128|Windows Server (IIS HTTP)|70|server|Microsoft
-80|255|Network Router Gateway (HTTP)|75|router|Network OS
+21|64|FTP Service (TTL64)|50|generic|Unknown
+21|128|FTP Service (TTL128)|50|generic|Unknown
+21|255|FTP Service (TTL255)|50|generic|Unknown
+22|64|SSH Service (TTL64)|50|generic|Unknown
+22|128|SSH Service (TTL128)|50|generic|Unknown
+22|255|SSH Service (TTL255)|50|generic|Unknown
+23|64|Telnet Service (TTL64)|45|generic|Unknown
+23|255|Telnet Service (TTL255)|45|generic|Unknown
+53|64|DNS Resolver Service (TTL64)|55|generic|Unknown
+53|255|DNS Resolver Service (TTL255)|55|generic|Unknown
+80|64|HTTP Service (TTL64)|45|generic|Unknown
+80|128|HTTP Service (TTL128)|45|generic|Unknown
+80|255|HTTP Service (TTL255)|45|generic|Unknown
 111|64|Linux RPC Server (ONC-RPC)|92|server|Linux
 111|255|Unix / Storage RPC Server|88|nas|Unix
 135|128|Windows (RPC)|92|pc|Microsoft
@@ -37,9 +37,9 @@
 139|128|Windows (NetBIOS)|92|pc|Microsoft
 139|128|Windows NetBIOS Session|90|pc|Microsoft
 139|255|Network Storage / Gateway|85|nas|Generic Storage
-443|64|Linux Web Server (HTTPS)|70|server|Linux
-443|128|Windows Server (IIS HTTPS)|70|server|Microsoft
-443|255|Network Router Gateway (HTTPS)|75|router|Network OS
+443|64|HTTPS Service (TTL64)|45|generic|Unknown
+443|128|HTTPS Service (TTL128)|45|generic|Unknown
+443|255|HTTPS Service (TTL255)|45|generic|Unknown
 445|64|Linux Samba / NAS Server|92|nas|Linux
 445|128|Windows (SMB)|95|pc|Microsoft
 445|128|Windows SMB File Server|94|pc|Microsoft
@@ -136,9 +136,9 @@
 8022|64|Android Termux SSH Server|95|smartphone|Google
 8060|64|Roku Streaming Player|95|smart-tv|Roku
 8071|64|UpSnap Server|90|server|UpSnap
-8080|64|Linux Web Server (HTTP Alt)|70|server|Linux
-8080|128|Windows Web Server (HTTP Alt)|70|pc|Microsoft
-8080|255|Network Device Web Admin (HTTP)|72|router|Network OS
+8080|64|HTTP Alt Service (TTL64)|45|generic|Unknown
+8080|128|HTTP Alt Service (TTL128)|45|generic|Unknown
+8080|255|HTTP Alt Service (TTL255)|45|generic|Unknown
 8085|64|qBittorrent Server (Linux / NAS)|92|torrent-server|qBittorrent
 8085|128|qBittorrent Server (Windows)|92|pc|qBittorrent
 8086|64|InfluxDB TimeSeries Server|90|db-server|InfluxData
@@ -156,9 +156,9 @@
 8383|64|NetAlertX Server|92|server|NetAlertX
 8384|64|Syncthing Web UI (Linux)|95|sync-server|Syncthing
 8384|128|Syncthing Web UI (Windows)|95|pc|Syncthing
-8443|64|Linux Web Server (HTTPS Alt)|70|server|Linux
-8443|128|Windows Web Server (HTTPS Alt)|70|pc|Microsoft
-8443|255|Network Device Web Admin (HTTPS)|72|router|Network OS
+8443|64|HTTPS Alt Service (TTL64)|45|generic|Unknown
+8443|128|HTTPS Alt Service (TTL128)|45|generic|Unknown
+8443|255|HTTPS Alt Service (TTL255)|45|generic|Unknown
 8501|64|Streamlit Application Server (Linux)|90|app-server|Python
 8501|128|Streamlit Application Server (Windows)|90|pc|Python
 8554|64|MediaMTX RTSP Server|92|camera|Linux
