@@ -84,7 +84,7 @@ _matter\._tcp|Matter Smart Device|94|iot|Matter
 _matterc\._udp|Matter Commissionable Node|94|iot|Matter
 _matterc\._tcp|Matter Smart Device|92|iot|Matter
 _meshcop\._udp|Thread MeshCoP Service|40|generic|Thread
-_thread\._tcp|Thread Network Device|88|router|Thread
+_thread\._tcp|Thread Network Service|50|generic|Thread
 _zigbee2mqtt\._tcp|Zigbee2MQTT Server|95|automation-server|Zigbee2MQTT
 _deconz\._tcp|deCONZ Zigbee Gateway|94|iot|Phoscon
 
