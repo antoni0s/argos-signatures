@@ -12,14 +12,14 @@
 #
 # Example:
 #   vendor-class.*steam-?deck|Steam Deck (SteamOS)|98|console|Valve
-#   vendor-class.*android-dhcp-1[3-6]|Android|97|smartphone|Android
+#   vendor-class.*android-dhcp-1[0-9]|Android|97|smartphone|Android
 # ==============================================================================
 
 # ==============================================================================
 # Gaming Handhelds & Consoles
 # ==============================================================================
 vendor-class.*msft 5\.0 xbox|Xbox Gaming Console|98|console|Microsoft
-vendor-class.*xbox|Xbox Gaming Console|98|console|1,3,6,15,26
+vendor-class.*xbox|Xbox Gaming Console|98|console|Microsoft
 vendor-class.*playstation 5|Sony PlayStation 5|98|console|Sony
 vendor-class.*playstation 4|Sony PlayStation 4|98|console|Sony
 vendor-class.*playstation|Sony PlayStation Console|98|console|Sony
@@ -36,7 +36,6 @@ vendor-class.*batocera|Batocera Emulation OS|96|console|Generic
 # ==============================================================================
 # Smartphones & Tablets
 # ==============================================================================
-vendor-class.*android-dhcp-1[3-6]|Android|97|smartphone|Android
 vendor-class.*android-dhcp-1[0-9]|Android|97|smartphone|Android
 vendor-class.*android-dhcp|Android|96|smartphone|Android
 vendor-class.*android|Android|95|smartphone|Android
@@ -45,7 +44,6 @@ vendor-class.*ipad|Apple iPad (iPadOS)|97|tablet-phone|Apple
 vendor-class.*kindle|Amazon Kindle e-Reader|96|tablet-phone|Amazon
 vendor-class.*meta quest|Meta Quest VR Headset|95|vr-headset|Meta
 vendor-class.*oculus|Meta Quest VR Headset|95|vr-headset|Meta
-vendor-class.*android-dhcp-1[3-7]|Android|97|smartphone|Android
 
 # ==============================================================================
 # Desktop & Laptop Workstations
@@ -108,7 +106,7 @@ vendor-class.*ikea|IKEA Smart Hub|94|iot|IKEA
 vendor-class.*lutron|Lutron Caseta Smart Hub|95|iot|Lutron
 vendor-class.*switchbot|SwitchBot Smart Hub|94|iot|SwitchBot
 vendor-class.*matter|Matter Smart Device|93|iot|Various
-vendor-class.*thread|Thread Border Router|92|router|Various
+vendor-class.*thread|Thread Network Device|60|generic|Thread
 vendor-class.*google inc\.|Google Nest Smart Device|94|iot|Google
 vendor-class.*google.?nest|Google Nest Smart Device|96|iot|Google
 vendor-class.*nest.?thermostat|Google Nest Thermostat|96|iot|Google
