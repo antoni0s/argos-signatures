@@ -1,0 +1,170 @@
+name: Update signature manifests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stable/signatures/**'
+      - 'testing/signatures/**'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  update:
+    name: Update signature manifests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update manifests
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import re
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          ROOT = Path(".")
+          CHANNELS = ("stable", "testing")
+
+
+          def sha256_file(path):
+              digest = hashlib.sha256()
+
+              with path.open("rb") as handle:
+                  for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                      digest.update(chunk)
+
+              return digest.hexdigest()
+
+
+          def next_version(current):
+              today = datetime.now(
+                  ZoneInfo("Europe/Athens")
+              ).strftime("%Y.%m.%d")
+
+              match = re.fullmatch(
+                  r"(\d{4}\.\d{2}\.\d{2})\.(\d+)",
+                  str(current)
+              )
+
+              if match and match.group(1) == today:
+                  number = int(match.group(2)) + 1
+              else:
+                  number = 1
+
+              return f"{today}.{number}"
+
+
+          changed = False
+
+          for channel in CHANNELS:
+              manifest_path = ROOT / channel / "manifest.json"
+              signatures_dir = ROOT / channel / "signatures"
+
+              if not manifest_path.is_file():
+                  raise SystemExit(
+                      f"ERROR: missing {manifest_path}"
+                  )
+
+              if not signatures_dir.is_dir():
+                  raise SystemExit(
+                      f"ERROR: missing {signatures_dir}"
+                  )
+
+              manifest = json.loads(
+                  manifest_path.read_text(encoding="utf-8")
+              )
+
+              files = {}
+
+              for path in sorted(signatures_dir.iterdir()):
+                  if not path.is_file():
+                      continue
+
+                  if path.name == ".gitkeep":
+                      continue
+
+                  files[path.name] = {
+                      "sha256": sha256_file(path),
+                      "size": path.stat().st_size,
+                  }
+
+              if files == manifest.get("files"):
+                  print(f"{channel}: no signature changes")
+                  continue
+
+              old_version = manifest.get(
+                  "database_version",
+                  "bootstrap"
+              )
+
+              new_version = next_version(old_version)
+
+              manifest["database_version"] = new_version
+              manifest["files"] = files
+
+              manifest_path.write_text(
+                  json.dumps(manifest, indent=2) + "\n",
+                  encoding="utf-8",
+              )
+
+              print(
+                  f"{channel}: "
+                  f"{old_version} -> {new_version} "
+                  f"({len(files)} files)"
+              )
+
+              changed = True
+
+
+          if not changed:
+              print("No manifest updates required.")
+          PY
+
+      - name: Validate updated repository
+        run: python3 tools/validate.py
+
+      - name: Show changes
+        shell: bash
+        run: git diff -- stable/manifest.json testing/manifest.json
+
+      - name: Commit updated manifests
+        id: commit
+        shell: bash
+        run: |
+          if git diff --quiet -- stable/manifest.json testing/manifest.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No manifest changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add stable/manifest.json testing/manifest.json
+
+          git commit -m "Update signature manifests"
+
+          git push
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Run package workflow
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh workflow run package-release.yml --ref main
