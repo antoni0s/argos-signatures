@@ -107,12 +107,12 @@ captive\.apple\.com|Apple Captive Portal Check|30|generic|Apple
 # ==============================================================================
 connectivitycheck\.android\.com|Android|80|smartphone|Google
 android\.clients\.google\.com|Android|80|smartphone|Google
-play\.googleapis\.com|Android|80|smartphone|Google
+play\.googleapis\.com|Google Play Service|55|generic|Google
 time\.android\.com|Android|80|smartphone|Google
 android\.googleapis\.com|Android|80|smartphone|Google
-mtalk\.google\.com|Android|80|smartphone|Google
-play-fe\.googleapis\.com|Android|80|smartphone|Google
-firebaseinstallations\.googleapis\.com|Android App|55|smartphone|Google
+mtalk\.google\.com|Google Messaging Service|55|generic|Google
+play-fe\.googleapis\.com|Google Play Frontend|55|generic|Google
+firebaseinstallations\.googleapis\.com|Firebase Installations|55|generic|Google
 inputtools\.google\.com|Google Gboard / Tools|50|generic|Google
 fcm\.googleapis\.com|Google Cloud Messaging|40|generic|Google
 connectivitycheck\.gstatic\.com|Google Connectivity Check|55|generic|Google
@@ -128,7 +128,7 @@ gvt2\.com|Google Media Delivery|25|generic|Google
 # Google ChromeOS
 # ==============================================================================
 chromeosupdate\.appspot\.com|Google ChromeOS PC|95|chrome-pc|Google
-clients2\.google\.com|Google ChromeOS PC|75|chrome-pc|Google
+clients2\.google\.com|Google Update / Client Service|40|generic|Google
 update\.googleapis\.com|Google Update Service|40|generic|Google
 
 # ==============================================================================
