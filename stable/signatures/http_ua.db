@@ -138,13 +138,13 @@ android.*huawei.*mediapad|Android|95|tablet|Huawei|MediaPad
 # =============================================================================
 # DESKTOP OPERATING SYSTEMS
 # =============================================================================
-windows nt 10\.0|Windows 10/11|92|pc|Microsoft|Windows Browser
-windows nt 10\.0|Windows 10/11|92|pc|Microsoft|Microsoft NCSI
-windows nt 6\.3|Windows 8.1|95|pc|Microsoft|Windows Browser
-windows nt 6\.2|Windows 8|95|pc|Microsoft|Windows Browser
-windows nt 6\.1|Windows 7|95|pc|Microsoft|Windows Browser
-windows nt 6\.0|Windows Vista|95|pc|Microsoft|Windows Browser
-windows nt 5\.1|Windows XP|95|pc|Microsoft|Windows Browser
+windows nt 10\.0|Windows 10/11|80|pc|Microsoft|Windows Browser
+windows nt 10\.0|Windows 10/11|80|pc|Microsoft|Microsoft NCSI
+windows nt 6\.3|Windows 8.1|75|pc|Microsoft|Windows Browser
+windows nt 6\.2|Windows 8|75|pc|Microsoft|Windows Browser
+windows nt 6\.1|Windows 7|75|pc|Microsoft|Windows Browser
+windows nt 6\.0|Windows Vista|75|pc|Microsoft|Windows Browser
+windows nt 5\.1|Windows XP|75|pc|Microsoft|Windows Browser
 macintosh; arm mac os x|macOS|96|pc|Apple|macOS Apple Silicon
 macintosh; intel mac os x|macOS|95|pc|Apple|macOS Intel
 mac os x|macOS|90|pc|Apple|macOS Browser
