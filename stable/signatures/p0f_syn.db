@@ -14,12 +14,13 @@
 #   3. TCP option regexes accept both canonical tokens (mss/ws/sok/ts/nop)
 #      and Argos sniffer shorthand (M1460/W10/S/T/N). This keeps the OpenWrt
 #      and distributed Docker classifiers on the same signature contract.
-#   4. WScale-only Linux/Android overlaps are context, not high-confidence
-#      device identities. Exact window combinations remain identity evidence.
+#   4. Linux/Android overlaps are context unless the tuple is proven unique to
+#      Android. In particular, mobile-style WS10/11 + Win65535 is also emitted
+#      by Linux-derived SteamOS/ROCKNIX/server stacks and must not elect Android.
 #
 # Example:
 #   128|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|64240|Windows|94|pc|Microsoft
-#   64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|10|65535|Android|94|smartphone|Android
+#   64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|10|65535|Linux / Android TCP Stack|68|generic|Unknown
 # ==============================================================================
 
 # ==============================================================================
@@ -64,9 +65,11 @@
 # ==============================================================================
 # Android Ecosystem (Mobile Stack - TTL 64)
 # ==============================================================================
-# 1. Exact WS & Exact Window
-64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|10|65535|Android|94|smartphone|Unknown
-64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|11|65535|Android|94|smartphone|Unknown
+# Exact WS + Win65535 with this Linux-kernel option order is not Android-unique.
+# Keep it as context: observed on Android, SteamOS, ROCKNIX and Linux servers.
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|10|65535|Linux / Android TCP Stack|68|generic|Unknown
+64|^[Mm][Ss0-9*]*,[Ss][OoKk]*,[Tt][Ss]*,[Nn][OoPp]*,[Ww][Ss0-9*]*|11|65535|Linux / Android TCP Stack|68|generic|Unknown
+# This distinct WS8 tuple remains Android identity evidence until contradicted by captures.
 64|^[Mm][Ss0-9*]*,[Nn][OoPp]*,[Ww][Ss0-9*]*,[Nn][OoPp]*,[Nn][OoPp]*,[Tt][Ss]*,[Ss][OoKk]*|8|65535|Android|90|smartphone|Unknown
 
 
