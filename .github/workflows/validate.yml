@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths-ignore:
       - 'stable/signatures/**'
-      - 'testing/signatures/**'  
+      - 'testing/signatures/**'
   pull_request:
     branches: [main]
   workflow_dispatch:
