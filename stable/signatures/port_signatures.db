@@ -10,6 +10,8 @@
 #      and Router/Appliance (TTL <= 255). The parser breaks on the 1st match!
 #   3. Device Type tokens: pc, server, smartphone, console, smart-tv, 
 #      smart-speaker, printer, iot, router, generic.
+#   4. Shared application/protocol ports are context only. Scores >=85 are
+#      reserved for ports that are strongly characteristic of a device/role.
 #
 # Example:
 #   80|64|HTTP Service (TTL64)|45|generic|Unknown
@@ -30,28 +32,25 @@
 80|255|HTTP Service (TTL255)|45|generic|Unknown
 111|64|Linux RPC Server (ONC-RPC)|92|server|Linux
 111|255|Unix / Storage RPC Server|88|nas|Unix
-135|128|Windows (RPC)|92|pc|Microsoft
-135|128|Windows|95|pc|Microsoft
-135|255|Windows Server|92|server|Microsoft
+135|128|Windows RPC Endpoint|92|pc|Microsoft
+135|255|Windows Server RPC Endpoint|92|server|Microsoft
 139|64|Linux NetBIOS File Server|88|nas|Linux
-139|128|Windows (NetBIOS)|92|pc|Microsoft
-139|128|Windows NetBIOS Session|90|pc|Microsoft
+139|128|Windows NetBIOS Session|92|pc|Microsoft
 139|255|Network Storage / Gateway|85|nas|Generic Storage
 443|64|HTTPS Service (TTL64)|45|generic|Unknown
 443|128|HTTPS Service (TTL128)|45|generic|Unknown
 443|255|HTTPS Service (TTL255)|45|generic|Unknown
 445|64|Linux Samba / NAS Server|92|nas|Linux
-445|128|Windows (SMB)|95|pc|Microsoft
-445|128|Windows SMB File Server|94|pc|Microsoft
+445|128|Windows SMB File Server|95|pc|Microsoft
 445|255|Enterprise Storage / Server|90|nas|Generic Storage
 515|64|Network Printer (LPD/Linux)|90|printer|Linux
 515|255|Network Printer (LPD Appliance)|90|printer|Network OS
 548|64|Apple File Server (AFP)|92|nas|Apple
 548|255|Storage Appliance (AFP)|90|nas|Generic Storage
-554|64|IP Security Camera (RTSP)|94|camera|Linux
-554|255|IP Security Camera (RTSP)|92|camera|Network OS
-631|64|Network Printer (IPP/CUPS)|94|printer|Linux
-631|255|Network Printer (IPP Appliance)|94|printer|Network OS
+554|64|RTSP Service (TTL64)|60|generic|Unknown
+554|255|RTSP Service (TTL255)|60|generic|Unknown
+631|64|IPP / CUPS Service (TTL64)|72|generic|Unknown
+631|255|IPP Service (TTL255)|72|generic|Unknown
 853|64|DNS-over-TLS Resolver|90|server|Linux
 902|128|VMware Workstation Host|92|pc|VMware
 902|255|VMware ESXi Hypervisor|95|hypervisor-server|VMware
@@ -59,7 +58,7 @@
 1433|128|Microsoft SQL Server|95|server|Microsoft
 1433|255|Microsoft SQL Server|92|server|Microsoft
 1880|64|Node-RED Server|93|automation-server|Node-RED
-1883|64|MQTT Message Broker|94|automation-server|Linux
+1883|64|MQTT Message Broker|78|automation-server|Unknown
 2019|64|Caddy Web Server|92|server|Caddy
 2049|64|NFS Storage Server|94|nas|Linux
 2049|255|Storage Appliance (NFS)|92|nas|Generic Storage
@@ -71,16 +70,16 @@
 2377|64|Docker Swarm Node|94|container-server|Docker
 2869|128|Windows UPnP Event Endpoint|90|pc|Microsoft
 3000|64|Grafana Dashboard Server|92|monitoring-server|Grafana
-3074|128|Xbox Gaming Console|95|console|Microsoft
+3074|128|Xbox Live / Gaming Service|70|generic|Microsoft
 3283|64|Apple Mac PC (Remote Desktop)|94|mac-pc|Apple
 3306|64|MySQL / MariaDB Server (Linux)|90|db-server|Linux
 3306|128|MySQL / MariaDB Server (Windows)|88|server|Microsoft
 3389|64|Linux Host (xrdp Remote Desktop)|90|pc|Linux
 3389|128|Windows Remote Desktop (RDP)|96|pc|Microsoft
 3389|255|Windows Server (RDP)|95|server|Microsoft
-3478|128|PlayStation Gaming Console|92|console|Sony
-3479|128|PlayStation Gaming Console|92|console|Sony
-3658|128|PlayStation Remote Play Host|92|console|Sony
+3478|128|STUN / TURN Service|55|generic|Unknown
+3479|128|STUN / TURN Service|55|generic|Unknown
+3658|128|PlayStation Remote Play Host|82|generic|Sony
 4330|64|NetAlertX Server|95|server|NetAlertX
 5000|64|Synology NAS (DSM)|95|nas|Synology
 5000|128|Windows UPnP / Web Service|75|pc|Microsoft
@@ -88,12 +87,12 @@
 5001|64|Synology NAS (DSM HTTPS)|95|nas|Synology
 5001|128|Windows Web Service (HTTPS)|75|pc|Microsoft
 5001|255|Network Device Web (HTTPS)|75|router|Network OS
-5060|64|Linux SIP / Asterisk PBX|90|server|Linux
-5060|128|Windows SIP Client|82|pc|Microsoft
-5060|255|Hardware VoIP Phone / ATA|88|voip-phone|Generic VoIP
-5061|64|Android SIP / VoWiFi Endpoint|88|smartphone|Google
-5061|128|Windows VoIP / SIP Endpoint|85|pc|Microsoft
-5061|255|Hardware VoIP Phone / PBX|90|voip-phone|Generic VoIP
+5060|64|SIP Service (TTL64)|65|generic|Unknown
+5060|128|SIP Service (TTL128)|65|generic|Unknown
+5060|255|SIP / VoIP Service (TTL255)|70|generic|Unknown
+5061|64|SIP TLS Service (TTL64)|65|generic|Unknown
+5061|128|SIP TLS Service (TTL128)|65|generic|Unknown
+5061|255|SIP TLS / VoIP Service (TTL255)|70|generic|Unknown
 5355|64|LLMNR Name Resolution Service|50|server|Generic
 5355|128|LLMNR Name Resolution Service|75|pc|Microsoft
 5357|64|WSD Web Services Discovery|50|server|Generic
@@ -103,9 +102,9 @@
 5555|64|Android ADB Debug Daemon|98|smartphone|Google
 5601|64|Kibana Dashboard Server|92|monitoring-server|Elastic
 5678|64|n8n Automation Server|92|automation-server|n8n
-5900|64|Linux Host (VNC Server)|88|pc|Linux
-5900|128|Windows Host (VNC Server)|88|pc|Microsoft
-5900|255|Hardware KVM / Appliance (VNC)|88|server|Generic
+5900|64|VNC Service (TTL64)|70|generic|Unknown
+5900|128|VNC Service (TTL128)|70|generic|Unknown
+5900|255|VNC / KVM Service (TTL255)|70|generic|Unknown
 5985|128|Windows Remote Management (WinRM HTTP)|94|pc|Microsoft
 5985|255|Windows Server (WinRM HTTP)|94|server|Microsoft
 5986|128|Windows Remote Management (WinRM HTTPS)|95|pc|Microsoft
@@ -116,9 +115,9 @@
 6556|128|Checkmk Monitoring Agent (Windows)|94|pc|Checkmk
 6767|64|Bazarr Subtitles Manager (Linux)|94|server|Bazarr
 6767|128|Bazarr Subtitles Manager (Windows)|94|pc|Bazarr
-7000|64|Apple AirPlay Receiver|94|smart-tv|Apple
-7100|64|Apple AirPlay Receiver|92|smart-tv|Apple
-7275|64|Android SUPL Location Service|90|smartphone|Google
+7000|64|Apple AirPlay Service|75|generic|Apple
+7100|64|Apple AirPlay Service|75|generic|Apple
+7275|64|SUPL / Location Service|60|generic|Google
 7576|64|UpSnap WoL Server|94|server|UpSnap
 7676|64|Samsung Smart TV (AllShare)|94|smart-tv|Samsung
 7678|64|Samsung Smart TV (Remote)|94|smart-tv|Samsung
@@ -161,12 +160,12 @@
 8443|255|HTTPS Alt Service (TTL255)|45|generic|Unknown
 8501|64|Streamlit Application Server (Linux)|90|app-server|Python
 8501|128|Streamlit Application Server (Windows)|90|pc|Python
-8554|64|MediaMTX RTSP Server|92|camera|Linux
+8554|64|RTSP Service (TTL64)|60|generic|Unknown
 8686|64|Lidarr Music Manager (Linux)|94|server|Lidarr
 8686|128|Lidarr Music Manager (Windows)|94|pc|Lidarr
 8728|64|MikroTik RouterOS API|94|router|MikroTik
 8729|64|MikroTik RouterOS API (TLS)|94|router|MikroTik
-8883|64|MQTT Message Broker (TLS)|94|automation-server|Linux
+8883|64|MQTT Message Broker (TLS)|78|automation-server|Unknown
 8920|64|Jellyfin Media Server (HTTPS)|94|media-server|Jellyfin
 8920|128|Jellyfin Media Server (HTTPS)|94|pc|Jellyfin
 8989|64|Sonarr Media Manager (Linux)|94|server|Sonarr
@@ -198,7 +197,7 @@
 17500|128|Dropbox Sync Host (Windows)|90|pc|Dropbox
 22000|64|Syncthing Node (Linux / Android)|92|sync-server|Syncthing
 22000|128|Syncthing Node (Windows)|92|pc|Syncthing
-24563|128|Epic Games Gaming PC|90|pc|Epic Games
+24563|128|Epic Games Service|65|generic|Epic Games
 27017|64|MongoDB Server (Linux)|90|db-server|Linux
 27017|128|MongoDB Server (Windows)|88|server|Microsoft
 32400|64|Plex Media Server (Linux / NAS)|95|media-server|Plex
@@ -210,15 +209,15 @@
 37777|255|Dahua Enterprise NVR|95|camera|Dahua
 44321|64|PCP Monitoring Server (PMCD)|92|server|Linux
 44322|64|PCP Monitoring Proxy (PMProxy)|92|server|Linux
-47984|64|Sunshine Gaming Host (Linux)|95|console|Sunshine
+47984|64|Sunshine Gaming Host (Linux)|95|pc|Sunshine
 47984|128|Sunshine Gaming PC (Windows)|95|pc|Sunshine
-47989|64|Sunshine Gaming Host (HTTPS/Linux)|95|console|Sunshine
+47989|64|Sunshine Gaming Host (HTTPS/Linux)|95|pc|Sunshine
 47989|128|Sunshine Gaming PC (HTTPS/Win)|95|pc|Sunshine
-47990|64|Sunshine Web Control (Linux)|95|console|Sunshine
+47990|64|Sunshine Web Control (Linux)|95|pc|Sunshine
 47990|128|Sunshine Web Control (Windows)|95|pc|Sunshine
-48010|64|Sunshine Game Control (Linux)|95|console|Sunshine
+48010|64|Sunshine Game Control (Linux)|95|pc|Sunshine
 48010|128|Sunshine Game Control (Windows)|95|pc|Sunshine
 51413|64|Transmission Torrent Server|88|torrent-server|Transmission
-53317|64|LocalSend Client (Linux / Android)|95|pc|LocalSend
-53317|128|LocalSend Client (Windows)|95|pc|LocalSend
+53317|64|LocalSend Client (Linux / Android)|70|generic|LocalSend
+53317|128|LocalSend Client (Windows)|70|generic|LocalSend
 62078|64|Apple iPhone / iPad (Lockdown)|96|smartphone|Apple
