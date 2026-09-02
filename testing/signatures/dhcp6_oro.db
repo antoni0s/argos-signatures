@@ -1,0 +1,45 @@
+# =============================================================================
+# Argos DHCPv6 Option Request Option Database (dhcp6_oro.db)
+# =============================================================================
+# Syntax Format (Pipe-delimited):
+# regex_pattern|OS_Name|Score|Device_Type|Vendor
+#
+# Matching input:
+#   The raw ordered DHCPv6 ORO option-code list emitted by argos-sniffer,
+#   for example: 23,24,82
+#
+# Confidence policy:
+#   ORO ordering is useful fingerprint context, but common option sets are not
+#   unique enough to assert a physical device type or OS by themselves. Broad
+#   initial signatures therefore stay below the strong-election threshold and
+#   use Device_Type=generic. Exact device/OS signatures can be promoted only
+#   after validation against repeatable captures from known clients.
+#
+# Notes:
+#   - Order is intentionally significant; do not sort the observed ORO.
+#   - RFC 7844 explicitly notes that ORO contents/order can fingerprint clients.
+#   - Modern DHCPv6 clients commonly request SOL_MAX_RT (option 82), so option
+#     82 alone must never be treated as an OS fingerprint.
+# =============================================================================
+
+# =============================================================================
+# Documented / conservative client-stack context
+# =============================================================================
+# ISC dhclient documents DNS recursive name servers (23) and domain search (24)
+# as its default DHCPv6 request set. Keep this contextual because dhclient is
+# configurable and is available on multiple Unix-like platforms.
+^23,24$|ISC DHCPv6 Client|60|generic|ISC
+
+# Common modern DNS/search request plus SOL_MAX_RT. This is deliberately broad
+# and must not vote in OS/type election.
+^23,24,82$|Modern DHCPv6 DNS/Search Client|55|generic|Unknown
+
+# SOL_MAX_RT alone is protocol behavior, not a platform identity. Android's
+# DHCPv6 PD client is one known implementation that requests it, but RFC 8415
+# also makes SOL_MAX_RT generally relevant to compliant clients.
+^82$|DHCPv6 SOL_MAX_RT Client|45|generic|Unknown
+
+# Microsoft documents an Information-request case where USER_CLASS (15) may be
+# the only requested option. Keep the signature generic until observed traffic
+# proves a stable Windows-only pattern in Argos captures.
+^15$|DHCPv6 User-Class Request Client|50|generic|Unknown
