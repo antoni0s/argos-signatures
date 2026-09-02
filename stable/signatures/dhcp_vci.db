@@ -179,3 +179,24 @@ vendor-class.*peloton|Peloton Fitness Display|94|smart-tv|Peloton
 vendor-class.*amazon|Amazon Device|90|iot|Amazon
 vendor-class.*dhcpcd|Linux PC / Host (dhcpcd)|88|pc|Linux
 vendor-class.*udhcp|BusyBox IoT Node (udhcpc)|90|iot|Linux
+
+# ==============================================================================
+# DHCPv6 Option 16 Vendor Class — Raw vendor-class-data
+# ------------------------------------------------------------------------------
+# Argos DHCP6 telemetry exposes the first Option 16 vendor-class-data value
+# directly (without the DHCPv4 "vendor-class" prefix). Keep these patterns
+# anchored so they cannot broaden the existing DHCPv4 matches. DUID type and
+# ORO remain metadata: neither is treated as an OS identity on its own.
+# ==============================================================================
+^msft 5\.0$|Windows|95|pc|Microsoft
+^msft 98$|Windows (Legacy)|94|pc|Microsoft
+^windows$|Windows|92|pc|Microsoft
+^android-dhcp-1[0-9]$|Android|96|smartphone|Android
+^android-dhcp$|Android|95|smartphone|Android
+^steam-?deck$|Steam Deck (SteamOS)|97|console|Valve
+^rocknix$|ROCKNIX Emulation Handheld|95|console|Generic
+^openmediavault$|OpenMediaVault Server|95|nas-server|OpenMediaVault
+^synology$|Synology NAS (DSM)|95|nas-server|Synology
+^qnap$|QNAP NAS (QTS)|95|nas-server|QNAP
+^dhcpcd.*$|Linux DHCP Client (dhcpcd)|72|generic|Linux
+^udhcp.*$|Linux / BusyBox DHCP Client|70|generic|Linux
