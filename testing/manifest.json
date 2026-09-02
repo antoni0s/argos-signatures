@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "database_version": "2026.09.02.2",
+  "database_version": "2026.09.02.3",
   "channel": "testing",
   "files": {
     "dhcp_prl.db": {
@@ -8,8 +8,8 @@
       "size": 8513
     },
     "dhcp_vci.db": {
-      "sha256": "1355d286fe9d4120c8b85a330fb19a240e21302e583c68f51906d69dd63f861d",
-      "size": 10525
+      "sha256": "83379954fa970c5361032fda120bf290774902cae2966f46bdfdaca6bbb5f434",
+      "size": 11718
     },
     "dns_apps.db": {
       "sha256": "fc63143fd07cb01adc7df0b8049063ebc0fad6936c8cca7b299c141780a13e63",
