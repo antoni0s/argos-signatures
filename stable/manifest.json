@@ -1,8 +1,12 @@
 {
   "schema_version": 1,
-  "database_version": "2026.09.02.9",
+  "database_version": "2026.09.02.10",
   "channel": "stable",
   "files": {
+    "dhcp6_oro.db": {
+      "sha256": "97defb16f7fb72894d53512333ff1fa32997e6499b2b76a03fc8bf8029f36df7",
+      "size": 2410
+    },
     "dhcp_prl.db": {
       "sha256": "5db7e2ba48ceb24d4b282f8287d31203a08f7bc30a20acffd7a95bcc89809f35",
       "size": 8513
